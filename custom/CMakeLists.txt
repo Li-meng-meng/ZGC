@@ -117,3 +117,52 @@ set(CUSTOM_QT_COMPONENTS
     Core
     PARENT_SCOPE
 )
+
+# ============================================================================
+# ZGC Build-Time Runtime Deployment (Windows)
+# ============================================================================
+
+# ZGC: A3-20260904-brand-ui-fix —— Windows 构建期自动部署 Qt/GStreamer 运行时（缺陷2）。
+# 上游部署仅挂 install/CPack 期（cmake/install/Install.cmake），构建期零部署，裸 exe
+# 0xC0000135（ZFYZ-11 遗留问题1）。产物只落 build 树输出目录，不影响 install/打包。
+# 挂接机制（回修第1轮）：add_custom_command(TARGET ...) 禁止跨目录作用域调用（主目标
+# 创建于根作用域，CMake 3.30.5 实测 configure 即报 "not created in this directory"），
+# 故以 cmake_language(DEFER DIRECTORY "${CMAKE_SOURCE_DIR}") 把注册延迟到根目录作用域
+# 末尾执行，POST_BUILD 语义不变。注意 DEFER 的参数在延迟执行时才于根作用域求值——
+# custom 作用域普通变量不可见、${CMAKE_CURRENT_SOURCE_DIR} 会被展开为根目录——因此
+# custom 作用域求好的值经 INTERNAL cache（FORCE 每轮刷新）传递，$<...> 生成器表达式
+# 保持原样、由延迟后的 add_custom_command 在生成期求值。合成交叉工程已实测该形态
+# （证据见 workspace/artifacts/A3-20260904-brand-ui-fix/coder-report.md 回修第1轮）。
+if(WIN32 AND NOT ANDROID)
+    option(ZGC_RUNTIME_DEPLOY
+           "Deploy Qt/GStreamer runtime next to the executable after each build (ZGC dev convenience)"
+           ON)
+    if(ZGC_RUNTIME_DEPLOY AND TARGET Qt6::windeployqt)
+        get_target_property(_zgc_wdeployqt Qt6::windeployqt IMPORTED_LOCATION_RELEASE)
+        if(NOT _zgc_wdeployqt)
+            # Host tools may map to another config; the genex resolves at generate
+            # time and Qt6::windeployqt (found in the root scope) stays visible in
+            # the deferred root-scope call.
+            set(_zgc_wdeployqt "$<TARGET_FILE:Qt6::windeployqt>")
+        endif()
+        set(ZGC_WINDEPLOYQT_EXECUTABLE "${_zgc_wdeployqt}"
+            CACHE INTERNAL "ZGC build-time deploy: windeployqt path" FORCE)
+        set(ZGC_RUNTIME_DEPLOY_SCRIPT "${CMAKE_CURRENT_SOURCE_DIR}/cmake/ZGCRuntimeDeploy.cmake"
+            CACHE INTERNAL "ZGC build-time deploy: deploy script path" FORCE)
+        cmake_language(DEFER DIRECTORY "${CMAKE_SOURCE_DIR}" CALL add_custom_command
+            TARGET ${CMAKE_PROJECT_NAME}
+            POST_BUILD
+            COMMAND "${CMAKE_COMMAND}"
+                    "-DWINDEPLOYQT_EXECUTABLE=${ZGC_WINDEPLOYQT_EXECUTABLE}"
+                    "-DEXECUTABLE=$<TARGET_FILE:${CMAKE_PROJECT_NAME}>"
+                    "-DOUTPUT_DIR=$<TARGET_FILE_DIR:${CMAKE_PROJECT_NAME}>"
+                    "-DCONFIGURATION=$<CONFIG>"
+                    "-DSOURCE_ROOT=${CMAKE_SOURCE_DIR}"
+                    -P "${ZGC_RUNTIME_DEPLOY_SCRIPT}"
+            VERBATIM
+        )
+        message(STATUS "QGC: ZGC runtime auto-deploy enabled (ZGC_RUNTIME_DEPLOY=ON)")
+    elseif(ZGC_RUNTIME_DEPLOY)
+        message(WARNING "QGC: ZGC_RUNTIME_DEPLOY is ON but the Qt6::windeployqt target was not found; build-time runtime deployment skipped.")
+    endif()
+endif()
