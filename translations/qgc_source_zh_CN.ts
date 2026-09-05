@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.1" language="zh-CN" sourcelanguage="en">
-<!-- ZGC: A2-20260903-brand-ui A3b 补译（ZFYZ-5 批次1；ZFYZ-12 批次2 全量覆盖） -->
+<!-- ZGC: A2-20260903-brand-ui A3b 补译（ZFYZ-5 批次1；ZFYZ-12 批次2 全量覆盖）；A3-20260905-polish1 品牌用词调整（ZFYZ-14）；A3-20260905-polish1 品牌用词调整（ZFYZ-14） -->
   <context>
     <name>APMAdvancedTuningCopterComponent</name>
     <message>
@@ -6056,10 +6056,11 @@ Click Ok to start the auto-tuning process.
       <source>UART Baud Rate</source>
       <translation>串口波特率</translation>
     </message>
+    <!-- ZGC: A3-20260905-polish1 调整品牌用词 -->
     <message>
       <location filename="../src/AutoPilotPlugins/Common/ESP8266Component.qml" line="244"/>
       <source>QGC UDP Port</source>
-      <translation>QGC UDP 端口</translation>
+      <translation>地面站 UDP 端口</translation>
     </message>
     <message>
       <location filename="../src/AutoPilotPlugins/Common/ESP8266Component.qml" line="263"/>
@@ -6071,15 +6072,17 @@ Click Ok to start the auto-tuning process.
       <source>Bridge/Vehicle Link</source>
       <translation>桥梁/飞机连接</translation>
     </message>
+    <!-- ZGC: A3-20260905-polish1 调整品牌用词 -->
     <message>
       <location filename="../src/AutoPilotPlugins/Common/ESP8266Component.qml" line="280"/>
       <source>Bridge/QGC Link</source>
-      <translation>桥/QGC连接</translation>
+      <translation>桥/地面站连接</translation>
     </message>
+    <!-- ZGC: A3-20260905-polish1 调整品牌用词 -->
     <message>
       <location filename="../src/AutoPilotPlugins/Common/ESP8266Component.qml" line="284"/>
       <source>QGC/Bridge Link</source>
-      <translation>QGC/桥连接</translation>
+      <translation>地面站/桥连接</translation>
     </message>
     <message>
       <location filename="../src/AutoPilotPlugins/Common/ESP8266Component.qml" line="290"/>
@@ -6117,10 +6120,11 @@ Click Ok to start the auto-tuning process.
       <source>Reboot WiFi Bridge</source>
       <translation>重启WiFi桥接</translation>
     </message>
+    <!-- ZGC: A3-20260905-polish1 调整品牌用词 -->
     <message>
       <location filename="../src/AutoPilotPlugins/Common/ESP8266Component.qml" line="437"/>
       <source>This will restart the WiFi Bridge so the settings you&apos;ve changed can take effect. Note that you may have to change your computer WiFi settings and QGroundControl link settings to match these changes. Are you sure you want to restart it?</source>
-      <translation>这将重启WiFi桥，以使你更改的设置生效。请注意，你有可能需要去更改你计算机的WiFi设置和QGroundControl的连接设置去适配这些变更。你确定要重启吗？</translation>
+      <translation>这将重启WiFi桥，以使你更改的设置生效。请注意，你有可能需要去更改你计算机的WiFi设置和地面站的连接设置去适配这些变更。你确定要重启吗？</translation>
     </message>
     <message>
       <location filename="../src/AutoPilotPlugins/Common/ESP8266Component.qml" line="452"/>
@@ -9175,10 +9179,11 @@ VTOL</translation>
   </context>
   <context>
     <name>HelpSettings</name>
+    <!-- ZGC: A3-20260905-polish1 调整品牌用词 -->
     <message>
       <location filename="../src/AppSettings/HelpSettings.qml" line="27"/>
       <source>QGroundControl User Guide</source>
-      <translation>QGroundControl用户指南</translation>
+      <translation>地面站用户指南</translation>
     </message>
     <message>
       <location filename="../src/AppSettings/HelpSettings.qml" line="34"/>
@@ -9190,10 +9195,11 @@ VTOL</translation>
       <source>ArduPilot Users Discussion Forum</source>
       <translation>ArduPilot用户论坛</translation>
     </message>
+    <!-- ZGC: A3-20260905-polish1 调整品牌用词 -->
     <message>
       <location filename="../src/AppSettings/HelpSettings.qml" line="48"/>
       <source>QGroundControl Discord Channel</source>
-      <translation>QGroundControl Discord 频道</translation>
+      <translation>地面站 Discord 频道</translation>
     </message>
   </context>
   <context>
@@ -14357,10 +14363,11 @@ Is this really what you want?</translation>
       <source>Unable to start mission: Vehicle not changing to %1 flight mode.</source>
       <translation>无法启动飞行任务：航模没有更改为 %1 飞行模式。</translation>
     </message>
+    <!-- ZGC: A3-20260905-polish1 调整品牌用词 -->
     <message>
       <location filename="../src/FirmwarePlugin/PX4/PX4FirmwarePlugin.cc" line="677"/>
       <source>QGroundControl supports PX4 Pro firmware Version %1.%2.%3 and above. You are using a version prior to that which will lead to unpredictable results. Please upgrade your firmware.</source>
-      <translation>QGroundControl 支持 PX4 Pro 固件 %1.%2.%3 及以上版本。您正使用之前的版本，这将导致不可预知的结果。请升级固件。</translation>
+      <translation>地面站支持 PX4 Pro 固件 %1.%2.%3 及以上版本。您正使用之前的版本，这将导致不可预知的结果。请升级固件。</translation>
     </message>
   </context>
   <context>
@@ -15793,10 +15800,11 @@ Note that this will also completely reset everything, including UAVCAN nodes, al
       <source>Unable to open file: %1</source>
       <translation>无法打开文件：%1</translation>
     </message>
+    <!-- ZGC: A3-20260905-polish1 调整品牌用词 -->
     <message>
       <location filename="../src/QmlControls/ParameterEditorController.cc" line="500"/>
       <source>No valid parameters found in file. Check that the file is in QGC or Mission Planner format.</source>
-      <translation>文件中未找到有效参数。请检查文件是否为 QGC 或 Mission Planner 格式。</translation>
+      <translation>文件中未找到有效参数。请检查文件是否为地面站或 Mission Planner 格式。</translation>
     </message>
   </context>
   <context>
@@ -16868,15 +16876,17 @@ Click &apos;Ok&apos; to upload the Plan anyway.</source>
       <source>Sound output</source>
       <translation>声音输出</translation>
     </message>
+    <!-- ZGC: A3-20260905-polish1 调整品牌用词 -->
     <message>
       <location filename="../src/FlyView/PreFlightSoundCheck.qml" line="8"/>
       <source>QGC audio output enabled. System audio output enabled, too?</source>
-      <translation>QGC 音频输出已启用。系统音频输出也确认启用了吗？</translation>
+      <translation>地面站音频输出已启用。系统音频输出也确认启用了吗？</translation>
     </message>
+    <!-- ZGC: A3-20260905-polish1 调整品牌用词 -->
     <message>
       <location filename="../src/FlyView/PreFlightSoundCheck.qml" line="9"/>
       <source>QGC audio output is disabled. Please enable it under application settings-&gt;general to hear audio warnings!</source>
-      <translation>QGC 音频输出被禁用。请在”应用程序设置-&gt;常规“下启用它以听到音频警告！</translation>
+      <translation>地面站音频输出被禁用。请在”应用程序设置-&gt;常规“下启用它以听到音频警告！</translation>
     </message>
   </context>
   <context>
