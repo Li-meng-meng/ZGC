@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.1" language="zh-CN" sourcelanguage="en">
-<!-- ZGC: A2-20260903-brand-ui A3b 补译（ZFYZ-5 批次1；ZFYZ-12 批次2 全量覆盖） -->
+<!-- ZGC: A2-20260903-brand-ui A3b 补译（ZFYZ-5 批次1；ZFYZ-12 批次2 全量覆盖）；A3-20260905-polish1 品牌用词调整（ZFYZ-14）；A3-20260905-polish1 品牌用词调整（ZFYZ-14） -->
   <context>
     <name>RCToParamDialog.FactMetaData.json</name>
     <message>
@@ -5150,11 +5150,12 @@
       <source>Automatically delete oldest recordings when the storage limit is exceeded.</source>
       <translation>超出存储上限时自动删除最旧的录像。</translation>
     </message>
+    <!-- ZGC: A3-20260905-polish1 调整品牌用词 -->
     <message>
       <extracomment>.QGC.MetaData.Facts[enableStorageLimit].longDesc</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/Settings/Video.SettingsGroup.json"/>
       <source>When enabled, old video files will be auto-deleted when the total size of QGC-recorded video exceeds the maximum video storage usage.</source>
-      <translation>启用后，当 QGC 录制的视频总大小超过最大视频存储用量时，旧视频文件将被自动删除。</translation>
+      <translation>启用后，当地面站录制的视频总大小超过最大视频存储用量时，旧视频文件将被自动删除。</translation>
     </message>
     <message>
       <extracomment>.QGC.MetaData.Facts[enableStorageLimit].label</extracomment>
@@ -5331,11 +5332,12 @@
       <source>Skip the PAR=1/1 capsfilter in the CPU video sink path.</source>
       <translation>跳过 CPU 视频输出路径中的 PAR=1/1 capsfilter。</translation>
     </message>
+    <!-- ZGC: A3-20260905-polish1 调整品牌用词 -->
     <message>
       <extracomment>.QGC.MetaData.Facts[disablePixelAspectRatio].longDesc</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/Settings/Video.SettingsGroup.json"/>
       <source>QGC normally inserts a pixel-aspect-ratio=1/1 capsfilter so non-square-pixel sources (some RTSP cams, DVB) don't render geometrically distorted. A few v4l2 drivers without VIDIOC_CROPCAP deadlock negotiation when PAR is forced; enable this option as a workaround. Takes effect on next stream restart.</source>
-      <translation>QGC 通常会插入 pixel-aspect-ratio=1/1 的 capsfilter，以免非方形像素的信号源（某些 RTSP 相机、DVB）出现几何畸变。少数没有 VIDIOC_CROPCAP 的 v4l2 驱动在强制 PAR 时会陷入协商死锁；可启用此选项作为变通。下次视频流重启后生效。</translation>
+      <translation>地面站通常会插入 pixel-aspect-ratio=1/1 的 capsfilter，以免非方形像素的信号源（某些 RTSP 相机、DVB）出现几何畸变。少数没有 VIDIOC_CROPCAP 的 v4l2 驱动在强制 PAR 时会陷入协商死锁；可启用此选项作为变通。下次视频流重启后生效。</translation>
     </message>
     <message>
       <extracomment>.QGC.MetaData.Facts[disablePixelAspectRatio].label</extracomment>
@@ -6252,11 +6254,12 @@
       <source>Ardupilot Support server to forward mavlink to. i.e: support.ardupilot.org:xxxx</source>
       <translation>MAVLink 转发到的 ArduPilot 支持服务器，例如：support.ardupilot.org:xxxx</translation>
     </message>
+    <!-- ZGC: A3-20260905-polish1 调整品牌用词 -->
     <message>
       <extracomment>.QGC.MetaData.Facts[sendGCSHeartbeat].shortDesc</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/Settings/Mavlink.SettingsGroup.json"/>
       <source>Periodically transmit heartbeat messages to inform vehicles that QGC is connected.</source>
-      <translation>周期性发送心跳消息，告知飞机 QGC 已连接。</translation>
+      <translation>周期性发送心跳消息，告知飞机：地面站已连接。</translation>
     </message>
     <message>
       <extracomment>.QGC.MetaData.Facts[sendGCSHeartbeat].label</extracomment>
