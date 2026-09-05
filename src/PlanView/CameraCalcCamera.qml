@@ -75,14 +75,14 @@ ColumnLayout {
 
                 QGCRadioButton {
                     width:          _editFieldWidth
-                    text:           "Landscape"
+                    text:           qsTr("Landscape")   // ZGC: A3-20260905-polish2 补 qsTr 供翻译（ZFYZ-18）
                     checked:        !!cameraCalc.landscape.value
                     onClicked:      cameraCalc.landscape.value = 1
                 }
 
                 QGCRadioButton {
                     id:             cameraOrientationPortrait
-                    text:           "Portrait"
+                    text:           qsTr("Portrait")    // ZGC: A3-20260905-polish2 补 qsTr 供翻译（ZFYZ-18）
                     checked:        !cameraCalc.landscape.value
                     onClicked:      cameraCalc.landscape.value = 0
                 }

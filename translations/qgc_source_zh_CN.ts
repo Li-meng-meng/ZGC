@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.1" language="zh-CN" sourcelanguage="en">
-<!-- ZGC: A2-20260903-brand-ui A3b 补译（ZFYZ-5 批次1；ZFYZ-12 批次2 全量覆盖）；A3-20260905-polish1 品牌用词调整（ZFYZ-14）；A3-20260905-polish1 品牌用词调整（ZFYZ-14） -->
+<!-- ZGC: A2-20260903-brand-ui A3b 补译（ZFYZ-5 批次1；ZFYZ-12 批次2 全量覆盖）；A3-20260905-polish1 品牌用词调整（ZFYZ-14） -->
   <context>
     <name>APMAdvancedTuningCopterComponent</name>
     <message>
@@ -5446,6 +5446,18 @@ Click Ok to start the auto-tuning process.
   </context>
   <context>
     <name>CameraCalcCamera</name>
+    <!-- ZGC: A3-20260905-polish2 补译（配合源码 :78 qsTr 包裹，ZFYZ-18） -->
+    <message>
+      <location filename="../src/PlanView/CameraCalcCamera.qml" line="78"/>
+      <source>Landscape</source>
+      <translation>横向</translation>
+    </message>
+    <!-- ZGC: A3-20260905-polish2 补译（配合源码 :85 qsTr 包裹，ZFYZ-18） -->
+    <message>
+      <location filename="../src/PlanView/CameraCalcCamera.qml" line="85"/>
+      <source>Portrait</source>
+      <translation>纵向</translation>
+    </message>
     <message>
       <location filename="../src/PlanView/CameraCalcCamera.qml" line="105"/>
       <source>Width</source>
