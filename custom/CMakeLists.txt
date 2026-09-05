@@ -51,9 +51,13 @@ endif()
 
 # 应用内 Logo：CustomOverrideInterceptor 将上游请求 qrc:/res/QGCLogoFull.svg 改写为
 # qrc:/Custom/res/QGCLogoFull.svg，因此资源别名必须精确等于上游请求名 "QGCLogoFull.svg"
-# （含 .svg 后缀）。文件实体为 PNG（源 Icon/png/logo_512.png），Qt Image 按内容嗅探格式，
-# 与扩展名无关（A1 调研报告 §3.3）。上游消费点：FlightMap/GeoMap/MainWindow/Toolbar 等。
-set(CUSTOM_LOGO_RESOURCE "${CMAKE_CURRENT_SOURCE_DIR}/res/Images/QGCLogoFull.png")
+# （含 .svg 后缀）。上游消费点：FlightMap/GeoMap/MainWindow/Toolbar 等。
+# ZGC: DEF-3——实体由裸 PNG 改为 SVG 信封（res/Images/QGCLogoFull.svg，base64 内嵌品牌
+# PNG）。裸 PNG 字段顶着 .svg 别名时，Logo 按钮（QGCToolBarButton logo 路径 → QGCVectorImage）
+# 解析失败导致四处 Logo 空白；VectorImage 支持 <image> 内嵌 data:URI 位图（Qt 6.11.1 实测，
+# 证据见 workspace/artifacts/A3-20260905-brand-ui-fix/fix-def3-change.md），普通 Image
+# 内容嗅探路径（GeoMap/FlightMap）同样成立。品牌素材更新后按信封内注释重造该文件。
+set(CUSTOM_LOGO_RESOURCE "${CMAKE_CURRENT_SOURCE_DIR}/res/Images/QGCLogoFull.svg")
 set_source_files_properties("${CUSTOM_LOGO_RESOURCE}" PROPERTIES QT_RESOURCE_ALIAS "QGCLogoFull.svg")
 qt_add_resources(${CMAKE_PROJECT_NAME} custom_brand
     PREFIX "/Custom/res"
