@@ -402,6 +402,13 @@ QLocale::Language AppSettings::_qLocaleLanguageEarlyAccess(void)
 
     // Note that the AppSettings group has no group name
     QLocale::Language localeLanguage = static_cast<QLocale::Language>(settings.value(qLocaleLanguageName).toInt());
+    // ZGC: A3-20260905-brand-ui-def1 首次启动（无语言键）默认中文——志翔地面站面向中文用户；
+    // 用户显式选择（含 System 选项）始终优先于该默认值，可在 设置→通用 切换
+    if (!settings.contains(qLocaleLanguageName)) {
+        localeLanguage = QLocale::Chinese;
+        settings.setValue(qLocaleLanguageName, localeLanguage);
+        return localeLanguage;
+    }
     for (auto& languageInfo: _rgLanguageInfo) {
         if (languageInfo.languageId == localeLanguage) {
             return localeLanguage;
