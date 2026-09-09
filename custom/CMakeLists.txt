@@ -78,15 +78,15 @@ qt_add_resources(${CMAKE_PROJECT_NAME} custom_brand_icon
 # ZGC QML Same-Path Overrides（A3d 界面现代化首轮 · ZFYZ-30）
 # CustomOverrideInterceptor（custom/src/CustomPlugin.cc）把 qrc:/<path> 探测为
 # :/Custom/<path>；以下别名精确等于上游 qrc 全路径（RESOURCE_PREFIX /qml + 模块 URI），
-# 命中即整文件替换：Fly/Plan 工具栏三件 + Fly 仪表面板两件。
+# 命中即整文件替换：Fly/Plan 工具栏三件。
+# ZGC: 成员裁决回退 B 项（Fly 仪表卡片化）——IntegratedCompassAttitude.qml /
+# QGCCompassWidget.qml 覆盖副本及其注册条目已删除，上游原生机械圆仪表恢复加载（ZFYZ-35）。
 # 注册样板：custom-example/CMakeLists.txt（QT_RESOURCE_ALIAS 全路径 + PREFIX /Custom/qml）。
 # ============================================================================
 set(CUSTOM_QML_OVERRIDES
     "${CMAKE_CURRENT_SOURCE_DIR}/src/FlyViewToolBar.qml"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/MainStatusIndicator.qml"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/PlanViewToolBar.qml"
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/IntegratedCompassAttitude.qml"
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/QGCCompassWidget.qml"
 )
 set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/FlyViewToolBar.qml"
     PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Toolbar/FlyViewToolBar.qml"
@@ -96,12 +96,6 @@ set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/MainStatusIndicator
 )
 set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/PlanViewToolBar.qml"
     PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Toolbar/PlanViewToolBar.qml"
-)
-set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/IntegratedCompassAttitude.qml"
-    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/FlightMap/Widgets/IntegratedCompassAttitude.qml"
-)
-set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/QGCCompassWidget.qml"
-    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/FlightMap/Widgets/QGCCompassWidget.qml"
 )
 qt_add_resources(${CMAKE_PROJECT_NAME} custom_qml_overrides
     PREFIX "/Custom/qml"
