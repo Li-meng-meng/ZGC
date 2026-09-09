@@ -84,6 +84,9 @@ qt_add_resources(${CMAKE_PROJECT_NAME} custom_brand_icon
 # ZGC: D 轮 ToolStrip 按钮组胶囊化——新增 ToolStrip.qml / ToolStripHoverButton.qml 两件
 # 覆盖（Fly/Plan 左条共用组件；两件须同时注册，按钮胶囊形态才完整生效）
 # （A3-20260909-roundD-toolstrip，ZFYZ-39）。
+# ZGC: E 轮 Vehicle Summary 卡片升级——新增 VehicleSummary.qml 一件覆盖（Setup 页车辆概要
+# 卡片统一圆角＋hover 抬升＋状态徽章化；加载点 VehicleConfigView.qml setSource 上游 qrc
+# 全路径，经拦截器命中本覆盖）（A3-20260909-roundE-vehsum，ZFYZ-40）。
 # 注册样板：custom-example/CMakeLists.txt（QT_RESOURCE_ALIAS 全路径 + PREFIX /Custom/qml）。
 # ============================================================================
 set(CUSTOM_QML_OVERRIDES
@@ -93,6 +96,8 @@ set(CUSTOM_QML_OVERRIDES
     # ZGC: D 轮 ToolStrip 按钮组胶囊化（A3-20260909-roundD-toolstrip，ZFYZ-39）
     "${CMAKE_CURRENT_SOURCE_DIR}/src/ToolStrip.qml"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/ToolStripHoverButton.qml"
+    # ZGC: E 轮 Vehicle Summary 卡片升级（A3-20260909-roundE-vehsum，ZFYZ-40）
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/VehicleSummary.qml"
 )
 set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/FlyViewToolBar.qml"
     PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Toolbar/FlyViewToolBar.qml"
@@ -109,6 +114,10 @@ set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/ToolStrip.qml"
 )
 set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/ToolStripHoverButton.qml"
     PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Controls/ToolStripHoverButton.qml"
+)
+# ZGC: E 轮别名（VehicleSetup 模块 URI QGroundControl.VehicleSetup，RESOURCE_PREFIX /qml）— ZFYZ-40
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/VehicleSummary.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/VehicleSetup/VehicleSummary.qml"
 )
 qt_add_resources(${CMAKE_PROJECT_NAME} custom_qml_overrides
     PREFIX "/Custom/qml"
