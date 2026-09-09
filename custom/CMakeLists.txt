@@ -74,11 +74,44 @@ qt_add_resources(${CMAKE_PROJECT_NAME} custom_brand_icon
     FILES "${CUSTOM_APP_ICON_RESOURCE}"
 )
 
-# ZGC: 按 A2 裁剪（ZFYZ-5）的资源条目——如后续阶段需要，参照 custom-example/CMakeLists.txt 回补：
+# ============================================================================
+# ZGC QML Same-Path Overrides（A3d 界面现代化首轮 · ZFYZ-30）
+# CustomOverrideInterceptor（custom/src/CustomPlugin.cc）把 qrc:/<path> 探测为
+# :/Custom/<path>；以下别名精确等于上游 qrc 全路径（RESOURCE_PREFIX /qml + 模块 URI），
+# 命中即整文件替换：Fly/Plan 工具栏三件 + Fly 仪表面板两件。
+# 注册样板：custom-example/CMakeLists.txt（QT_RESOURCE_ALIAS 全路径 + PREFIX /Custom/qml）。
+# ============================================================================
+set(CUSTOM_QML_OVERRIDES
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/FlyViewToolBar.qml"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/MainStatusIndicator.qml"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/PlanViewToolBar.qml"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/IntegratedCompassAttitude.qml"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/QGCCompassWidget.qml"
+)
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/FlyViewToolBar.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Toolbar/FlyViewToolBar.qml"
+)
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/MainStatusIndicator.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Toolbar/MainStatusIndicator.qml"
+)
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/PlanViewToolBar.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Toolbar/PlanViewToolBar.qml"
+)
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/IntegratedCompassAttitude.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/FlightMap/Widgets/IntegratedCompassAttitude.qml"
+)
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/QGCCompassWidget.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/FlightMap/Widgets/QGCCompassWidget.qml"
+)
+qt_add_resources(${CMAKE_PROJECT_NAME} custom_qml_overrides
+    PREFIX "/Custom/qml"
+    FILES ${CUSTOM_QML_OVERRIDES}
+)
+
+# ZGC: 按 A2 裁剪（ZFYZ-5）的资源条目——如后续阶段需要，参照 custom-example/CMakeLists.txt 回补
+# （custom_qml_overrides 已于 ZFYZ-30 按本文件上方模板回补）：
 #   custom_images             （res/Images/*.svg 部件示例图集，PREFIX /custom/img）
 #   custom_vehicle_icon       （CustomVehicleIcon.svg → 别名 PaperPlane.svg，PREFIX /Custom/qmlimages）
-#   custom_qml_overrides      （CustomGuidedActionsController.qml / FlyViewCustomLayer.qml /
-#                              FlyViewToolStripActionList.qml，PREFIX /Custom/qml）
 #   custom_shared_resources   （上游 gear-white.svg → PREFIX /res）
 #   custom_json               （PerimeterScan.SettingsGroup.json，PREFIX /json）
 #   custom_settings_json      （Custom.SettingsGroup.json，PREFIX /json）
