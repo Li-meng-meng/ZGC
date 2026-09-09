@@ -3,6 +3,7 @@
 #include <QtQml/QQmlAbstractUrlInterceptor>
 
 #include "QGCCorePlugin.h"
+#include "QGCPalette.h"  // ZGC: paletteOverride 签名需要 QGCPalette::PaletteColorInfo_t — ZFYZ-30
 
 class QQmlApplicationEngine;
 
@@ -25,6 +26,8 @@ public:
     QQmlApplicationEngine *createQmlApplicationEngine(QObject *parent) final;
     /// Releases the url interceptor attached in createQmlApplicationEngine before the engine is destroyed
     void destroyQmlApplicationEngine(QQmlApplicationEngine *qmlEngine) final;
+    /// 品牌色板全量覆盖：对 QGCPalette 全部声明色名给出志翔品牌色值（Light/Dark 双主题）。— ZFYZ-30
+    void paletteOverride(const QString &colorName, QGCPalette::PaletteColorInfo_t &colorInfo) final;
 
 private:
     QQmlApplicationEngine *_qmlEngine = nullptr;
