@@ -81,12 +81,18 @@ qt_add_resources(${CMAKE_PROJECT_NAME} custom_brand_icon
 # 命中即整文件替换：Fly/Plan 工具栏三件。
 # ZGC: 成员裁决回退 B 项（Fly 仪表卡片化）——IntegratedCompassAttitude.qml /
 # QGCCompassWidget.qml 覆盖副本及其注册条目已删除，上游原生机械圆仪表恢复加载（ZFYZ-35）。
+# ZGC: D 轮 ToolStrip 按钮组胶囊化——新增 ToolStrip.qml / ToolStripHoverButton.qml 两件
+# 覆盖（Fly/Plan 左条共用组件；两件须同时注册，按钮胶囊形态才完整生效）
+# （A3-20260909-roundD-toolstrip，ZFYZ-39）。
 # 注册样板：custom-example/CMakeLists.txt（QT_RESOURCE_ALIAS 全路径 + PREFIX /Custom/qml）。
 # ============================================================================
 set(CUSTOM_QML_OVERRIDES
     "${CMAKE_CURRENT_SOURCE_DIR}/src/FlyViewToolBar.qml"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/MainStatusIndicator.qml"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/PlanViewToolBar.qml"
+    # ZGC: D 轮 ToolStrip 按钮组胶囊化（A3-20260909-roundD-toolstrip，ZFYZ-39）
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/ToolStrip.qml"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/ToolStripHoverButton.qml"
 )
 set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/FlyViewToolBar.qml"
     PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Toolbar/FlyViewToolBar.qml"
@@ -96,6 +102,13 @@ set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/MainStatusIndicator
 )
 set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/PlanViewToolBar.qml"
     PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Toolbar/PlanViewToolBar.qml"
+)
+# ZGC: D 轮别名（QmlControls 模块 URI QGroundControl.Controls，RESOURCE_PREFIX /qml）— ZFYZ-39
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/ToolStrip.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Controls/ToolStrip.qml"
+)
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/ToolStripHoverButton.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Controls/ToolStripHoverButton.qml"
 )
 qt_add_resources(${CMAKE_PROJECT_NAME} custom_qml_overrides
     PREFIX "/Custom/qml"
