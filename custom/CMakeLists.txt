@@ -87,6 +87,10 @@ qt_add_resources(${CMAKE_PROJECT_NAME} custom_brand_icon
 # ZGC: E 轮 Vehicle Summary 卡片升级——新增 VehicleSummary.qml 一件覆盖（Setup 页车辆概要
 # 卡片统一圆角＋hover 抬升＋状态徽章化；加载点 VehicleConfigView.qml setSource 上游 qrc
 # 全路径，经拦截器命中本覆盖）（A3-20260909-roundE-vehsum，ZFYZ-40）。
+# ZGC: H 轮 Plan 右面板/指示器抽屉毛玻璃化——新增 PlanViewRightPanel.qml / MainWindow.qml
+# 两件覆盖（MultiEffect 背景模糊＋窗底色半透调和层，零新增色值；后者为主窗口根文件覆盖，
+# 加载点 QGCCorePlugin.cc createRootWindow 入口 load，经拦截器命中本覆盖）
+# （A3-20260909-roundH-glass，ZFYZ-41）。
 # 注册样板：custom-example/CMakeLists.txt（QT_RESOURCE_ALIAS 全路径 + PREFIX /Custom/qml）。
 # ============================================================================
 set(CUSTOM_QML_OVERRIDES
@@ -98,6 +102,9 @@ set(CUSTOM_QML_OVERRIDES
     "${CMAKE_CURRENT_SOURCE_DIR}/src/ToolStripHoverButton.qml"
     # ZGC: E 轮 Vehicle Summary 卡片升级（A3-20260909-roundE-vehsum，ZFYZ-40）
     "${CMAKE_CURRENT_SOURCE_DIR}/src/VehicleSummary.qml"
+    # ZGC: H 轮 Plan 右面板/指示器抽屉毛玻璃化（A3-20260909-roundH-glass，ZFYZ-41）
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/PlanViewRightPanel.qml"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/MainWindow.qml"
 )
 set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/FlyViewToolBar.qml"
     PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Toolbar/FlyViewToolBar.qml"
@@ -118,6 +125,15 @@ set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/ToolStripHoverButto
 # ZGC: E 轮别名（VehicleSetup 模块 URI QGroundControl.VehicleSetup，RESOURCE_PREFIX /qml）— ZFYZ-40
 set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/VehicleSummary.qml"
     PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/VehicleSetup/VehicleSummary.qml"
+)
+# ZGC: H 轮别名（PlanViewRightPanel 属 PlanView 模块 URI QGroundControl.PlanView；
+# MainWindow.qml 属 QGroundControl 根模块，别名与上游 src/CMakeLists.txt 的
+# QT_RESOURCE_ALIAS "MainWindow.qml" 同形）— ZFYZ-41
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/PlanViewRightPanel.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/PlanView/PlanViewRightPanel.qml"
+)
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/MainWindow.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/MainWindow.qml"
 )
 qt_add_resources(${CMAKE_PROJECT_NAME} custom_qml_overrides
     PREFIX "/Custom/qml"
