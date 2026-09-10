@@ -91,6 +91,10 @@ qt_add_resources(${CMAKE_PROJECT_NAME} custom_brand_icon
 # 两件覆盖（MultiEffect 背景模糊＋窗底色半透调和层，零新增色值；后者为主窗口根文件覆盖，
 # 加载点 QGCCorePlugin.cc createRootWindow 入口 load，经拦截器命中本覆盖）
 # （A3-20260909-roundH-glass，ZFYZ-41）。
+# ZGC: F 轮字阶/密度系统——新增 ScreenTools.qml（模块单例覆盖，5 级字阶表＋xsmall
+# 级）与 QGCButton.qml（竖向 padding 字高 50%→30%）两件覆盖；工具栏密度另经
+# ZGCOptions::toolbarHeightMultiplier=0.85 插件钩子收紧（custom/src/CustomPlugin.h），
+# 零上游触碰（A3-20260909-roundF-typescale，ZFYZ-42）。
 # 注册样板：custom-example/CMakeLists.txt（QT_RESOURCE_ALIAS 全路径 + PREFIX /Custom/qml）。
 # ============================================================================
 set(CUSTOM_QML_OVERRIDES
@@ -105,6 +109,10 @@ set(CUSTOM_QML_OVERRIDES
     # ZGC: H 轮 Plan 右面板/指示器抽屉毛玻璃化（A3-20260909-roundH-glass，ZFYZ-41）
     "${CMAKE_CURRENT_SOURCE_DIR}/src/PlanViewRightPanel.qml"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/MainWindow.qml"
+    # ZGC: F 轮字阶/密度系统——ScreenTools.qml（模块单例，5 级字阶表）＋ QGCButton.qml
+    # （竖向 padding 密度收紧）两件覆盖（A3-20260909-roundF-typescale，ZFYZ-42）
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/ScreenTools.qml"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/QGCButton.qml"
 )
 set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/FlyViewToolBar.qml"
     PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Toolbar/FlyViewToolBar.qml"
@@ -134,6 +142,15 @@ set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/PlanViewRightPanel.
 )
 set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/MainWindow.qml"
     PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/MainWindow.qml"
+)
+# ZGC: F 轮别名（两件属 QmlControls 模块 URI QGroundControl.Controls，RESOURCE_PREFIX
+# /qml；ScreenTools.qml 上游为 QT_QML_SINGLETON_TYPE 单例、无显式 QT_RESOURCE_ALIAS，
+# 默认别名＝模块 URI 路径＋文件名，与此处逐字一致）— ZFYZ-42
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/ScreenTools.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Controls/ScreenTools.qml"
+)
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/QGCButton.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Controls/QGCButton.qml"
 )
 qt_add_resources(${CMAKE_PROJECT_NAME} custom_qml_overrides
     PREFIX "/Custom/qml"

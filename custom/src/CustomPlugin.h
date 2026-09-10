@@ -3,11 +3,33 @@
 #include <QtQml/QQmlAbstractUrlInterceptor>
 
 #include "QGCCorePlugin.h"
+#include "QGCOptions.h"  // ZGC: ZGCOptions 需 QGCOptions 基类 — ZFYZ-42
 #include "QGCPalette.h"  // ZGC: paletteOverride 签名需要 QGCPalette::PaletteColorInfo_t — ZFYZ-30
 
 class QQmlApplicationEngine;
 
 Q_DECLARE_LOGGING_CATEGORY(CustomLog)
+
+/*===========================================================================*/
+
+/// F 轮字阶/密度系统：ZGC 全局密度选项——工具栏高度乘数 0.85（上游 QGCOptions 默认 1.0）。
+/// 经 CustomPlugin::options() 注入，ScreenTools.qml _setBasePointSize 消费
+/// （toolbarHeight = 3×defaultFontPixelHeight×乘数）。仅覆写密度项，其余选项与上游一致。
+class ZGCOptions : public QGCOptions
+{
+    Q_OBJECT
+
+public:
+    explicit ZGCOptions(QObject *parent = nullptr)
+        : QGCOptions(parent) {}
+
+    // Overrides from QGCOptions
+
+    /// 工具栏密度收紧（A3-20260909-roundF-typescale）。
+    double toolbarHeightMultiplier() const final { return 0.85; }  // ZGC: 密度收紧 1.0 → 0.85 — ZFYZ-42
+};
+
+/*===========================================================================*/
 
 class CustomPlugin : public QGCCorePlugin
 {
@@ -28,9 +50,12 @@ public:
     void destroyQmlApplicationEngine(QQmlApplicationEngine *qmlEngine) final;
     /// 品牌色板全量覆盖：对 QGCPalette 全部声明色名给出志翔品牌色值（Light/Dark 双主题）。— ZFYZ-30
     void paletteOverride(const QString &colorName, QGCPalette::PaletteColorInfo_t &colorInfo) final;
+    /// F 轮字阶/密度：返回 ZGC 密度选项（工具栏高度乘数 0.85），替换上游默认 QGCOptions。— ZFYZ-42
+    QGCOptions *options() final;
 
 private:
     QQmlApplicationEngine *_qmlEngine = nullptr;
+    ZGCOptions *_options = nullptr;  // ZGC: F 轮字阶/密度全局选项实例 — ZFYZ-42
     class CustomOverrideInterceptor *_urlInterceptor = nullptr;
 };
 

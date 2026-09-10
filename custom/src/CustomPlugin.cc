@@ -24,7 +24,16 @@ Q_APPLICATION_STATIC(CustomPlugin, _customPluginInstance);
 CustomPlugin::CustomPlugin(QObject *parent)
     : QGCCorePlugin(parent)
 {
+    // ZGC: F 轮字阶/密度系统——安装全局密度选项（工具栏高度乘数 0.85）。
+    // 插件单例先于 QML 引擎创建，ScreenTools.qml 首次 _setBasePointSize 取值时已就绪。
+    _options = new ZGCOptions(this);
     qCDebug(CustomLog) << this;
+}
+
+QGCOptions *CustomPlugin::options()
+{
+    // ZGC: F 轮字阶/密度——返回 ZGCOptions（上游返回默认 _defaultOptions）— ZFYZ-42
+    return _options;
 }
 
 QGCCorePlugin *CustomPlugin::instance()
