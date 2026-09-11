@@ -16,6 +16,11 @@
  *   - imageScale 默认值 0.6/0.8 → 0.85/0.9（横排槽位下图标视觉尺寸与上游方块对齐）
  *   - 全部 id / 别名（radius/fontPointSize/imageSource/contentWidth）/ 属性 / 信号 /
  *     onClicked 拖放面板逻辑与上游一致，逻辑未动
+ * I 轮增量（A3-20260910-roundI-lookref，ZFYZ-59）：
+ *   - P5 高危操作按住确认：白名单（引导起飞）动作须按住 holdDelayMs(1s) 才触发——
+ *     onPressed 起计时、background 内 Canvas 环形进度、onReleased/onCanceled 松开即取消
+ *     并弹「Hold to Confirm」短按提示；到时经原 toolStripAction.triggered 下发（协议未动）；
+ *     非白名单动作（含全部 dropPanel/checkable 动作）交互逐行未动
  * 上游原文位置：src/QmlControls/ToolStripHoverButton.qml
  ****************************************************************************/
 
@@ -45,6 +50,72 @@ Button {
     property alias  imageSource:        innerImage.source
     property alias  contentWidth:       innerText.contentWidth
 
+    // ZGC: P5 高危操作按住确认——白名单（引导起飞：actionID === guidedController.actionTakeoff）动作
+    // 须按住 holdDelayMs 才进入下发链路：短按不触发（松开即取消并提示）、按住进度环形可视、
+    // 到时经原 toolStripAction.triggered → confirmAction 链路（指令协议与 fly 逻辑未动）；
+    // 非白名单动作交互路径逐行未动。注：ToolStrip.simulateClick 对白名单动作不再即时触发 — ZFYZ-59
+    readonly property int  holdDelayMs: 1000
+    readonly property bool _holdToConfirm: !!toolStripAction &&
+                                           !toolStripAction.dropPanelComponent &&
+                                           typeof globals !== "undefined" &&
+                                           !!globals.guidedControllerFlyView &&
+                                           toolStripAction.actionID === globals.guidedControllerFlyView.actionTakeoff
+    property bool   _holdTriggered: false
+    property real   _holdProgress:  0
+
+    onPressed: {
+        _holdTriggered = false
+        if (_holdToConfirm) {
+            holdHintTimer.stop()
+            _holdProgress = 0
+            holdTimer.restart()
+        }
+    }
+
+    onReleased: {
+        // ZGC: 短按（未到时）＝松开即取消，并提示须长按（文案复用上游 QGCDelayButton 既有串）— ZFYZ-59
+        if (_holdToConfirm && !_holdTriggered) {
+            holdTimer.stop()
+            _holdProgress = 0
+            holdHintTimer.restart()
+        }
+    }
+
+    onCanceled: {
+        if (_holdToConfirm) {
+            holdTimer.stop()
+            _holdProgress = 0
+            holdHintTimer.stop()
+        }
+    }
+
+    Timer {
+        id:         holdTimer
+        interval:   50
+        repeat:     true
+        running:    false
+
+        onTriggered: {
+            control._holdProgress = Math.min(1, control._holdProgress + interval / control.holdDelayMs)
+            if (control._holdProgress >= 1) {
+                stop()
+                control._holdTriggered = true
+                control._holdProgress = 0
+                if (toolStripAction && control.enabled && mainWindow.allowViewSwitch()) {
+                    toolStripAction.triggered(control)
+                }
+            }
+            holdProgressRing.requestPaint()
+        }
+    }
+
+    Timer {
+        id:         holdHintTimer
+        interval:   1500
+        repeat:     false
+        running:    false
+    }
+
     property bool forceImageScale11: false
     property real imageScale:        forceImageScale11 && (text == "") ? 0.9 : 0.85
     property real contentMargins:    ScreenTools.defaultFontPixelWidth * 0.75
@@ -63,6 +134,10 @@ Button {
     onCheckedChanged: { if (toolStripAction) toolStripAction.checked = checked }
 
     onClicked: {
+        if (_holdToConfirm) {
+            // ZGC: 白名单动作仅由按住到时触发（onClicked 短按路径不再下发）— ZFYZ-59
+            return
+        }
         if (mainWindow.allowViewSwitch()) {
             dropPanel.hide()
             if (!toolStripAction.dropPanelComponent) {
@@ -79,6 +154,12 @@ Button {
     }
 
     QGCPalette { id: qgcPal; colorGroupEnabled: control.enabled }
+
+    // ZGC: 短按提示——按住期间/提示期外不显示；绑定随 holdHintTimer.running 归位，避让 attached
+    // ToolTip.timeout 破坏绑定的坑 — ZFYZ-59
+    ToolTip.visible:    holdHintTimer.running
+    ToolTip.text:       qsTr("Hold to Confirm")
+    ToolTip.delay:      0
 
     contentItem: Item {
         id:                 contentLayoutItem
@@ -153,5 +234,31 @@ Button {
         color:  (control.checked || control.pressed) ?
                     qgcPal.buttonHighlight :
                     ((control.enabled && control.hovered) ? qgcPal.toolStripHoverColor : "transparent")
+
+        // ZGC: P5 按住进度环——仅白名单动作按住进行中绘制（松开/到时即隐），stadium 轮廓内接圆弧 — ZFYZ-59
+        Canvas {
+            id:             holdProgressRing
+            anchors.fill:   parent
+            antialiasing:   true
+            visible:        control._holdToConfirm && control._holdProgress > 0
+
+            onPaint: {
+                var ctx = getContext("2d")
+                ctx.reset()
+                if (width <= 6 || height <= 6) {
+                    return
+                }
+                ctx.lineWidth = 3
+                ctx.lineCap = "round"
+                ctx.strokeStyle = qgcPal.buttonHighlightText.toString()
+                ctx.beginPath()
+                ctx.arc(width / 2, height / 2, Math.min(width, height) / 2 - 4,
+                        -Math.PI / 2, -Math.PI / 2 + (Math.PI * 2 * control._holdProgress))
+                ctx.stroke()
+            }
+
+            onWidthChanged:     requestPaint()
+            onHeightChanged:    requestPaint()
+        }
     }
 }

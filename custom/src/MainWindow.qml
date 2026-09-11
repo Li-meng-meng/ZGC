@@ -14,6 +14,10 @@
  *     autoPaddingEnabled:false 使模糊严格收敛于抽屉矩形内
  *   - 其余全部内容与上游逐行一致（含 showIndicatorDrawer/closeIndicatorDrawer 契约、
  *     modal/focus/closePolicy、contentItem QGCFlickable 结构）
+ * I 轮增量（A3-20260910-roundI-lookref，ZFYZ-59）：
+ *   - P1 连接态 chrome 配色：工具页标题行（toolDrawerToolbar）随连接态——断开＝深灰黑
+ *     (mapButton)、连接＝志翔红(primaryButton)，与 Fly/Plan 工具栏同参；标题文字转
+ *     primaryButtonText 亮色保双主题对比
  * 上游原文位置：src/MainWindow/MainWindow.qml
  ****************************************************************************/
 
@@ -480,7 +484,9 @@ ApplicationWindow {
             anchors.right:  parent.right
             anchors.top:    parent.top
             height:         ScreenTools.toolbarHeight
-            color:          qgcPal.toolbarBackground
+            // ZGC: P1 连接态 chrome 配色——工具页标题行随连接态：断开＝深灰黑(mapButton)、
+            // 连接＝志翔红(primaryButton)，与 Fly/Plan 工具栏同参 — ZFYZ-59
+            color:          globals.activeVehicle ? qgcPal.primaryButton : qgcPal.mapButton
 
             RowLayout {
                 id:                 toolDrawerToolbarLayout
@@ -503,6 +509,8 @@ ApplicationWindow {
                     id:             toolbarDrawerText
                     text:           toolDrawer.toolTitle
                     font.pointSize: ScreenTools.largeFontPointSize
+                    // ZGC: 标题行两态均为深色底，标题文字转亮色保双主题对比 — ZFYZ-59
+                    color:          qgcPal.primaryButtonText
                 }
             }
         }

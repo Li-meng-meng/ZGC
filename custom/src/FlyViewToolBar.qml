@@ -9,6 +9,10 @@
  * 二轮修复（ZFYZ-30 · A4 门禁退回）：补显式 import QGroundControl.Toolbar ——
  *   覆盖件自 :/Custom/qml/ 散文件加载，不享有 Toolbar 模块隐式导入，
  *   模块内类型（ParameterDownloadProgress/FlightModeIndicator/FlyViewToolBarIndicators）需显式 import
+ * I 轮增量（A3-20260910-roundI-lookref，ZFYZ-59）：
+ *   - :34 _mainStatusBGColor 改连接态绑定——断开＝深灰黑(mapButton)、连接＝志翔红(primaryButton)；
+ *     渐变断开态改实底（深灰黑），连接态维持 C 轮红半透渐变
+ *   - 语义状态色通道移至 MainStatusIndicator 本地 _mainStatusSemanticColor（见该覆盖件）
  * 上游原文位置：src/Toolbar/FlyViewToolBar.qml
  ****************************************************************************/
 
@@ -31,7 +35,9 @@ Item {
 
     property var    _activeVehicle:     QGroundControl.multiVehicleManager.activeVehicle
     property bool   _communicationLost: _activeVehicle ? _activeVehicle.vehicleLinkManager.communicationLost : false
-    property color  _mainStatusBGColor: qgcPal.primaryButton // ZGC: 去品牌紫渐变，基础底色随品牌色板 — ZFYZ-30
+    // ZGC: P1 连接态 chrome 配色——断开＝深灰黑(mapButton)、连接＝志翔红(primaryButton)，随连接态双向绑定。
+    // 语义状态色（武装绿/失联红等）通道改由 MainStatusIndicator 本地 _mainStatusSemanticColor 承载，chrome 不再被语义赋值覆写 — ZFYZ-59
+    property color  _mainStatusBGColor: _activeVehicle ? qgcPal.primaryButton : qgcPal.mapButton
     property real   _leftRightMargin:   ScreenTools.defaultFontPixelWidth * 0.75
     property var    _guidedController:  globals.guidedControllerFlyView
 
@@ -65,9 +71,17 @@ Item {
 
                     gradient: Gradient {
                         orientation: Gradient.Horizontal
-                        // ZGC: 渐变起始段半透明收敛（上游为实色 brand 紫→window 硬渐变），状态色通道保留 — ZFYZ-30
-                        GradientStop { position: 0; color: Qt.rgba(_mainStatusBGColor.r, _mainStatusBGColor.g, _mainStatusBGColor.b, 0.55) }
-                        GradientStop { position: 1; color: qgcPal.window }
+                        // ZGC: 连接＝志翔红半透渐变（C 轮原样）；断开＝实底深灰黑(mapButton)，
+                        // 两主题下与亮色文字均保对比（P1 状态信号隔远可辨） — ZFYZ-59
+                        GradientStop {
+                            position: 0
+                            color: _activeVehicle ? Qt.rgba(_mainStatusBGColor.r, _mainStatusBGColor.g, _mainStatusBGColor.b, 0.55)
+                                                  : _mainStatusBGColor
+                        }
+                        GradientStop {
+                            position: 1
+                            color: _activeVehicle ? qgcPal.window : _mainStatusBGColor
+                        }
                     }
                 }
 
