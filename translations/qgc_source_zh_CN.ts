@@ -12280,6 +12280,19 @@ VTOL</translation>
       <source>Vehicle Configuration</source>
       <translation>飞机配置</translation>
     </message>
+    <message>
+      <location filename="../custom/src/MainStatusIndicator.qml" line="210"/>
+      <source>RTK Fixed</source>
+      <translation>RTK 固定</translation>
+    </message>
+  </context>
+  <context>
+    <name>ToolStripHoverButton</name>
+    <message>
+      <location filename="../custom/src/ToolStripHoverButton.qml" line="160"/>
+      <source>Hold to Confirm</source>
+      <translation>长按确认</translation>
+    </message>
   </context>
   <context>
     <name>MainStatusIndicatorOfflinePage</name>

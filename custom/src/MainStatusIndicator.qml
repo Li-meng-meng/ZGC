@@ -10,6 +10,12 @@
  * 二轮修复（ZFYZ-30 · A4 门禁退回）：补显式 import QGroundControl.Toolbar ——
  *   覆盖件自 :/Custom/qml/ 散文件加载，不享有 Toolbar 模块隐式导入，
  *   模块内类型（MainStatusIndicatorOfflinePage/VehicleMessageList）需显式 import
+ * I 轮增量（A3-20260910-roundI-lookref，ZFYZ-59）：
+ *   - P1 语义状态色本地化：mainStatusText() 的语义赋值目标 _mainStatusBGColor（上游经上下文链
+ *     写外层工具栏 chrome）→ 本地 _mainStatusSemanticColor，绿/黄/红映射关系不变，仅驱动状态胶囊；
+ *     chrome 改由 FlyViewToolBar 连接态绑定接管（断开＝深灰黑、连接＝志翔红）
+ *   - P4 胶囊条扩展：新增 RTK 固定态胶囊（gpsRtk.valid，绿色）与电池胶囊（最低电量节，
+ *     threshold1/2 三档配色同 BatteryIndicator），飞行模式由相邻 FlightModeIndicator 承担
  * 上游原文位置：src/Toolbar/MainStatusIndicator.qml
  ****************************************************************************/
 
@@ -34,6 +40,11 @@ RowLayout {
     property var    _vehicleInAir:      _activeVehicle ? _activeVehicle.flying || _activeVehicle.landing : false
     property bool   _vtolInFWDFlight:   _activeVehicle ? _activeVehicle.vtolInFwdFlight : false
 
+    // ZGC: P1 语义状态色本地化——上游 mainStatusText() 经 QML 上下文链把语义色写入外层
+    // 工具栏 _mainStatusBGColor（chrome），I 轮 chrome 改为连接态绑定后，语义色映射（C 轮
+    // 建立的绿/黄/红通道，映射关系不变）改写入本本地属性，仅驱动状态胶囊 — ZFYZ-59
+    property color  _mainStatusSemanticColor: qgcPal.mapButton
+
     function dropMainStatusIndicator() {
         let overallStatusComponent = _activeVehicle ? overallStatusIndicatorPage : overallStatusOfflineIndicatorPage
         mainWindow.showIndicatorDrawer(overallStatusComponent, control)
@@ -47,10 +58,11 @@ RowLayout {
         Layout.preferredWidth: contentWidth + (vehicleMessagesIcon.visible ? vehicleMessagesIcon.width + control.spacing : 0)
         verticalAlignment:  Text.AlignVCenter
         text:               mainStatusText()
-        color:              qgcPal.text
+        // ZGC: 断开态 chrome 为深灰黑实底，标签转亮色文字保双主题对比 — ZFYZ-59
+        color:              _activeVehicle ? qgcPal.text : qgcPal.primaryButtonText
         font.pointSize:     ScreenTools.largeFontPointSize
 
-        // ZGC: 语义色胶囊底——填充/描边随 _mainStatusBGColor 语义色（映射不变），仅视觉承载 — ZFYZ-30
+        // ZGC: 语义色胶囊底——随 _mainStatusSemanticColor 语义色（P1 起语义通道本地化），仅视觉承载 — ZFYZ-30/ZFYZ-59
         Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             anchors.left:           parent.left
@@ -60,8 +72,8 @@ RowLayout {
             height:                 mainStatusLabel.contentHeight + (ScreenTools.defaultFontPixelHeight / 2)
             z:                      -1
             radius:                 height / 2
-            color:                  Qt.rgba(_mainStatusBGColor.r, _mainStatusBGColor.g, _mainStatusBGColor.b, 0.2)
-            border.color:           Qt.rgba(_mainStatusBGColor.r, _mainStatusBGColor.g, _mainStatusBGColor.b, 0.55)
+            color:                  Qt.rgba(_mainStatusSemanticColor.r, _mainStatusSemanticColor.g, _mainStatusSemanticColor.b, 0.2)
+            border.color:           Qt.rgba(_mainStatusSemanticColor.r, _mainStatusSemanticColor.g, _mainStatusSemanticColor.b, 0.55)
             border.width:           1
             visible:                _activeVehicle
         }
@@ -78,19 +90,19 @@ RowLayout {
             var statusText
             if (_activeVehicle) {
                 if (_communicationLost) {
-                    _mainStatusBGColor = qgcPal.colorRed // ZGC: 裸 "red" → 语义色，映射不变 — ZFYZ-30
+                    _mainStatusSemanticColor = qgcPal.colorRed // ZGC: 语义通道本地化（原写 _mainStatusBGColor），映射不变 — ZFYZ-59
                     return mainStatusLabel._commLostText
                 }
                 if (_activeVehicle.armed) {
-                    _mainStatusBGColor = qgcPal.colorGreen // ZGC: 裸 "green" → 语义色，映射不变 — ZFYZ-30
+                    _mainStatusSemanticColor = qgcPal.colorGreen // ZGC: 语义通道本地化（原写 _mainStatusBGColor），映射不变 — ZFYZ-59
 
                     if (_healthAndArmingChecksSupported) {
                         if (_activeVehicle.healthAndArmingCheckReport.canArm) {
                             if (_activeVehicle.healthAndArmingCheckReport.hasWarningsOrErrors) {
-                                _mainStatusBGColor = qgcPal.colorYellow // ZGC: 裸 "yellow" → 语义色，映射不变 — ZFYZ-30
+                                _mainStatusSemanticColor = qgcPal.colorYellow // ZGC: 语义通道本地化（原写 _mainStatusBGColor），映射不变 — ZFYZ-59
                             }
                         } else {
-                            _mainStatusBGColor = qgcPal.colorRed // ZGC: 裸 "red" → 语义色，映射不变 — ZFYZ-30
+                            _mainStatusSemanticColor = qgcPal.colorRed // ZGC: 语义通道本地化（原写 _mainStatusBGColor），映射不变 — ZFYZ-59
                         }
                     }
 
@@ -105,36 +117,36 @@ RowLayout {
                     if (_healthAndArmingChecksSupported) {
                         if (_activeVehicle.healthAndArmingCheckReport.canArm) {
                             if (_activeVehicle.healthAndArmingCheckReport.hasWarningsOrErrors) {
-                                _mainStatusBGColor = qgcPal.colorYellow // ZGC: 裸 "yellow" → 语义色，映射不变 — ZFYZ-30
+                                _mainStatusSemanticColor = qgcPal.colorYellow // ZGC: 语义通道本地化（原写 _mainStatusBGColor），映射不变 — ZFYZ-59
                             } else {
-                                _mainStatusBGColor = qgcPal.colorGreen // ZGC: 裸 "green" → 语义色，映射不变 — ZFYZ-30
+                                _mainStatusSemanticColor = qgcPal.colorGreen // ZGC: 语义通道本地化（原写 _mainStatusBGColor），映射不变 — ZFYZ-59
                             }
                             return mainStatusLabel._readyToFlyText
                         } else {
-                            _mainStatusBGColor = qgcPal.colorRed // ZGC: 裸 "red" → 语义色，映射不变 — ZFYZ-30
+                            _mainStatusSemanticColor = qgcPal.colorRed // ZGC: 语义通道本地化（原写 _mainStatusBGColor），映射不变 — ZFYZ-59
                             return mainStatusLabel._notReadyToFlyText
                         }
                     } else if (_activeVehicle.readyToFlyAvailable) {
                         if (_activeVehicle.readyToFly) {
-                            _mainStatusBGColor = qgcPal.colorGreen // ZGC: 裸 "green" → 语义色，映射不变 — ZFYZ-30
+                            _mainStatusSemanticColor = qgcPal.colorGreen // ZGC: 语义通道本地化（原写 _mainStatusBGColor），映射不变 — ZFYZ-59
                             return mainStatusLabel._readyToFlyText
                         } else {
-                            _mainStatusBGColor = qgcPal.colorYellow // ZGC: 裸 "yellow" → 语义色，映射不变 — ZFYZ-30
+                            _mainStatusSemanticColor = qgcPal.colorYellow // ZGC: 语义通道本地化（原写 _mainStatusBGColor），映射不变 — ZFYZ-59
                             return mainStatusLabel._notReadyToFlyText
                         }
                     } else {
                         // Best we can do is determine readiness based on AutoPilot component setup and health indicators from SYS_STATUS
                         if (_activeVehicle.allSensorsHealthy && _activeVehicle.autopilotPlugin.setupComplete) {
-                            _mainStatusBGColor = qgcPal.colorGreen // ZGC: 裸 "green" → 语义色，映射不变 — ZFYZ-30
+                            _mainStatusSemanticColor = qgcPal.colorGreen // ZGC: 语义通道本地化（原写 _mainStatusBGColor），映射不变 — ZFYZ-59
                             return mainStatusLabel._readyToFlyText
                         } else {
-                            _mainStatusBGColor = qgcPal.colorYellow // ZGC: 裸 "yellow" → 语义色，映射不变 — ZFYZ-30
+                            _mainStatusSemanticColor = qgcPal.colorYellow // ZGC: 语义通道本地化（原写 _mainStatusBGColor），映射不变 — ZFYZ-59
                             return mainStatusLabel._notReadyToFlyText
                         }
                     }
                 }
             } else {
-                _mainStatusBGColor = qgcPal.primaryButton // ZGC: 离线态底色 brandingPurple → 品牌色板 — ZFYZ-30
+                _mainStatusSemanticColor = qgcPal.mapButton // ZGC: 离线态走中性深灰（胶囊隐藏不显示），chrome 由工具栏连接态绑定接管 — ZFYZ-59
                 return mainStatusLabel._disconnectedText
             }
         }
@@ -186,6 +198,102 @@ RowLayout {
                     mainWindow.showIndicatorDrawer(vtolTransitionIndicatorPage)
                 }
             }
+        }
+    }
+
+    // ZGC: P4 内联状态胶囊条扩展——RTK 固定态胶囊（C 轮胶囊结构复用；行内聚合＝状态词＋模式＋RTK＋电池，
+    // 飞行模式已由工具栏相邻 FlightModeIndicator 内联展示，不在此重复）— ZFYZ-59
+    QGCLabel {
+        id:                 rtkCapsuleLabel
+        Layout.fillHeight:  true
+        verticalAlignment:  Text.AlignVCenter
+        text:               qsTr("RTK Fixed")
+        color:              qgcPal.text
+        font.pointSize:     ScreenTools.defaultFontPointSize
+        visible:            _activeVehicle && QGroundControl.gpsRtk.valid.value
+
+        Rectangle {
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left:           parent.left
+            anchors.right:          parent.right
+            anchors.leftMargin:     -(ScreenTools.defaultFontPixelWidth / 2)
+            anchors.rightMargin:    -(ScreenTools.defaultFontPixelWidth / 2)
+            height:                 rtkCapsuleLabel.contentHeight + (ScreenTools.defaultFontPixelHeight / 2)
+            z:                      -1
+            radius:                 height / 2
+            color:                  Qt.rgba(qgcPal.colorGreen.r, qgcPal.colorGreen.g, qgcPal.colorGreen.b, 0.2)
+            border.color:           Qt.rgba(qgcPal.colorGreen.r, qgcPal.colorGreen.g, qgcPal.colorGreen.b, 0.55)
+            border.width:           1
+        }
+    }
+
+    // ZGC: P4 电池胶囊——取电量最低一节电池，配色映射同上游 BatteryIndicator 百分比分档
+    // （threshold1/threshold2 用户设置），百分比不可得时整枚隐藏 — ZFYZ-59
+    QGCLabel {
+        id:                 batteryCapsuleLabel
+        Layout.fillHeight:  true
+        verticalAlignment:  Text.AlignVCenter
+        text:               _batteryText()
+        color:              qgcPal.text
+        font.pointSize:     ScreenTools.defaultFontPointSize
+        visible:            _activeVehicle && _batteryText() !== ""
+
+        function _lowestBattery() {
+            var lowest = null
+            for (var i = 0; i < _activeVehicle.batteries.count; i++) {
+                var battery = _activeVehicle.batteries.get(i)
+                if (!lowest) {
+                    lowest = battery
+                    continue
+                }
+                var lowestPercent  = lowest.percentRemaining.rawValue
+                var batteryPercent = battery.percentRemaining.rawValue
+                if (!isNaN(batteryPercent) && (isNaN(lowestPercent) || batteryPercent < lowestPercent)) {
+                    lowest = battery
+                }
+            }
+            return lowest
+        }
+
+        function _batteryText() {
+            var battery = _lowestBattery()
+            if (!battery || isNaN(battery.percentRemaining.rawValue)) {
+                return ""
+            }
+            return battery.percentRemaining.valueString + battery.percentRemaining.units
+        }
+
+        function _batteryColor() {
+            var battery = _lowestBattery()
+            if (!battery || isNaN(battery.percentRemaining.rawValue)) {
+                return qgcPal.text
+            }
+            var threshold1 = QGroundControl.settingsManager.batteryIndicatorSettings.threshold1.rawValue
+            var threshold2 = QGroundControl.settingsManager.batteryIndicatorSettings.threshold2.rawValue
+            if (battery.percentRemaining.rawValue > threshold1) {
+                return qgcPal.colorGreen
+            } else if (battery.percentRemaining.rawValue > threshold2) {
+                return qgcPal.colorYellowGreen
+            } else {
+                return qgcPal.colorYellow
+            }
+        }
+
+        Rectangle {
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left:           parent.left
+            anchors.right:          parent.right
+            anchors.leftMargin:     -(ScreenTools.defaultFontPixelWidth / 2)
+            anchors.rightMargin:    -(ScreenTools.defaultFontPixelWidth / 2)
+            height:                 batteryCapsuleLabel.contentHeight + (ScreenTools.defaultFontPixelHeight / 2)
+            z:                      -1
+            radius:                 height / 2
+
+            property color _semanticColor: batteryCapsuleLabel._batteryColor()
+
+            color:        Qt.rgba(_semanticColor.r, _semanticColor.g, _semanticColor.b, 0.2)
+            border.color: Qt.rgba(_semanticColor.r, _semanticColor.g, _semanticColor.b, 0.55)
+            border.width: 1
         }
     }
 

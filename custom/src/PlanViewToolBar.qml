@@ -6,6 +6,9 @@
  *   - :27-34 底部 1px 黑色分隔线删除（连带 toolsFlickable 的 1px bottomMargin 收回）
  *   - :72/:104 任务同步进度条 colorGreen → primaryButton（随品牌色板收敛）
  *   - 全部 id / 属性 / 信号（toolbarButtonClicked）/ Connections / Timer 逻辑与上游一致
+ * I 轮增量（A3-20260910-roundI-lookref，ZFYZ-59）：
+ *   - P1 连接态 chrome 配色：条底随连接态绑定——断开＝深灰黑(mapButton)、连接＝志翔红(primaryButton)
+ *   - 小同步进度段 primaryButton → buttonHighlightText（连接态红底红段不可见的连带修正）
  * 上游原文位置：src/Toolbar/PlanViewToolBar.qml
  ****************************************************************************/
 
@@ -22,7 +25,9 @@ Rectangle {
     id: _root
     width: parent.width
     height: ScreenTools.toolbarHeight
-    color: qgcPal.toolbarBackground
+    // ZGC: P1 连接态 chrome 配色——断开＝深灰黑(mapButton)、连接＝志翔红(primaryButton)，与 FlyViewToolBar 同参；
+    // 按钮自带 button 底（双主题自适对比），条上裸标签可读性见交付报告注记 — ZFYZ-59
+    color: _activeVehicle ? qgcPal.primaryButton : qgcPal.mapButton
 
     property var planMasterController
     property bool showRallyPointsHelp: false
@@ -71,7 +76,7 @@ Rectangle {
         anchors.bottom: parent.bottom
         height: 4
         width: _controllerProgressPct * parent.width
-        color: qgcPal.primaryButton // ZGC: 进度条随品牌色板收敛（上游 colorGreen）— ZFYZ-30
+        color: qgcPal.buttonHighlightText // ZGC: 进度段转亮色——P1 连接态条底为志翔红，红底红段不可见（上游 colorGreen，ZFYZ-30 曾收敛为 primaryButton）— ZFYZ-59
         visible: false
 
         onVisibleChanged: {
