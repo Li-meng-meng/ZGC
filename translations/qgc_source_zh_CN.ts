@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.1" language="zh-CN" sourcelanguage="en">
-<!-- ZGC: A2-20260903-brand-ui A3b 补译（ZFYZ-5 批次1；ZFYZ-12 批次2 全量覆盖）；A3-20260905-polish1 品牌用词调整（ZFYZ-14） -->
+<!-- ZGC: A2-20260903-brand-ui A3b 补译（ZFYZ-5 批次1；ZFYZ-12 批次2 全量覆盖）；A3-20260905-polish1 品牌用词调整（ZFYZ-14）；A3-20260911-roundJ-i18n 翻译补齐 A+B+C 批 112 新增＋14 未完转正＋3 错译润色（ZFYZ-64） -->
   <context>
     <name>APMAdvancedTuningCopterComponent</name>
     <message>
@@ -3489,6 +3489,20 @@ Please place your vehicle in water, click the button, and wait. Note that the th
       <translation>这将尝试自动检测推进器的方向（正常/反向）。
 请将你的模型放在水中，点击按钮后等待。请注意，推进器必须连接到正确相对应的输出（例如：推进器2和3不可以被交换）</translation>
     </message>
+    <message>
+      <source>Moving the sliders will cause the motors to spin. Make sure the motors and propellers are clear from obstructions! The direction of the motor rotation is dependent on how the three phases of the motor are physically connected to the ESCs (if any two wires are swapped, the direction of rotation will flip). Because we cannot guarantee what order the phases are connected, the motor directions must be configured in software. When a slider is moved DOWN, the thruster should push air/water TOWARD the cable entering the housing. Click the checkbox to reverse the direction of the corresponding thruster.
+
+</source>
+      <translation>移动滑块会使电机转动。请确保电机和螺旋桨周围没有障碍物！电机旋转方向取决于电机三相线与电调（ESC）的物理接线方式（只要对调任意两根线，旋转方向就会反转）。由于无法保证三相线的接线顺序，必须在软件中配置电机方向。滑块向下移动时，推进器应朝进入舱体的线缆方向排气/排水。点击复选框可反转对应推进器的方向。
+
+</translation>
+    </message>
+    <message>
+      <source>This will attempt to automatically detect the direction (normal/reversed) of your thrusters.
+</source>
+      <translation>此操作将尝试自动检测推进器的方向（正向/反向）。
+</translation>
+    </message>
   </context>
   <context>
     <name>APMSupportForwardingIndicator</name>
@@ -4425,6 +4439,10 @@ Please place your vehicle in water, click the button, and wait. Note that the th
       <source>One or more vehicle components require setup prior to flight.</source>
       <translation>一个或多个飞机组件需要在飞行前设置。</translation>
     </message>
+    <message>
+      <source>Configuration tasks remain before this vehicle is ready to fly. See Vehicle Configuration for details.</source>
+      <translation>飞行器就绪前尚有配置任务未完成，详情请见飞行器配置页。</translation>
+    </message>
   </context>
   <context>
     <name>Autotune</name>
@@ -4519,16 +4537,46 @@ Before starting the auto-tuning process, make sure that:
 
 Click Ok to start the auto-tuning process.
 </source>
-      <translation type="unfinished">WARNING!        
+      <translation>警告！
 
-The auto-tuning procedure should be executed with caution and requires the vehicle to fly stable enough before attempting the procedure!         
+自动调参过程须谨慎执行，且要求飞行器在开始前已具备足够的飞行稳定性！
 
-Before starting the auto-tuning process, make sure that:         
-1. You have read the auto-tuning guide and have followed the preliminary steps         
-2. The current control gains are good enough to stabilize the drone in presence of medium disturbances         
-3. You are ready to abort the auto-tuning sequence by moving the RC sticks, if anything unexpected happens.         
+开始自动调参前，请确认：
+1. 你已阅读自动调参指南并完成了准备工作
+2. 当前控制增益足以在中等扰动下保持无人机稳定
+3. 你已准备好在出现任何意外情况时，通过移动遥控摇杆中止自动调参序列
+
+单击“确定”开始自动调参。
+</translation>
+    </message>
+    <message>
+      <source>WARNING!
+        
+
+The auto-tuning procedure should be executed with caution and requires the vehicle to fly stable enough before attempting the procedure! 
+        
+
+Before starting the auto-tuning process, make sure that: 
+        
+1. You have read the auto-tuning guide and have followed the preliminary steps 
+        
+2. The current control gains are good enough to stabilize the drone in presence of medium disturbances 
+        
+3. You are ready to abort the auto-tuning sequence by moving the RC sticks, if anything unexpected happens. 
+        
 
 Click Ok to start the auto-tuning process.
+</source>
+      <translation>警告！
+
+自动调参过程须谨慎执行，且要求飞行器在开始前已具备足够的飞行稳定性！
+
+开始自动调参前，请确认：
+1. 你已阅读自动调参指南并完成了准备工作
+2. 当前控制增益足以在中等扰动下保持无人机稳定
+3. 你已准备好在出现任何意外情况时，通过移动遥控摇杆中止自动调参序列
+
+单击“确定”开始自动调参。
 </translation>
     </message>
   </context>
@@ -5360,6 +5408,14 @@ Click Ok to start the auto-tuning process.
       <translation>获取飞控板ID：</translation>
     </message>
   </context>
+  <context>
+    <name>BulkRefreshJob</name>
+    <message>
+      <source>Parameter refresh failed for: %1</source>
+      <translation>参数刷新失败：%1</translation>
+    </message>
+  </context>
+
   <context>
     <name>CalcAmpsPerVoltDialog</name>
     <message>
@@ -6196,6 +6252,14 @@ Click Ok to start the auto-tuning process.
       <source>UART Baud Rate</source>
       <translation>串口波特率</translation>
     </message>
+    <message>
+      <source>WiFi STA SSID</source>
+      <translation>WiFi STA SSID</translation>
+    </message>
+    <message>
+      <source>WiFi STA Password</source>
+      <translation>Wi-Fi STA 密码</translation>
+    </message>
   </context>
   <context>
     <name>EditPositionDialog</name>
@@ -6701,6 +6765,14 @@ Click Ok to start the auto-tuning process.
     </message>
   </context>
   <context>
+    <name>FactBitMaskCheckBoxSlider</name>
+    <message>
+      <source>Continue in Auto mode</source>
+      <translation>以 Auto 模式继续</translation>
+    </message>
+  </context>
+
+  <context>
     <name>FactMetaData</name>
     <message>
       <location filename="../src/FactSystem/FactMetaData.h" line="235"/>
@@ -6918,7 +6990,7 @@ Click Ok to start the auto-tuning process.
     <message>
       <location filename="../src/FirmwarePlugin/FirmwarePlugin.cc" line="362"/>
       <source>Vehicle is not running latest stable firmware! Running %1, latest stable is %2.</source>
-      <translation>模型没有运行最新的稳定固件！运行 %1，最新稳定是 %2。</translation>
+      <translation>飞行器未运行最新稳定固件！当前 %1，最新稳定版 %2。</translation>
     </message>
   </context>
   <context>
@@ -7535,6 +7607,58 @@ VTOL</translation>
     </message>
   </context>
   <context>
+    <name>FlyViewGeoMap</name>
+    <message>
+      <source>Go here</source>
+      <translation>到这里</translation>
+    </message>
+    <message>
+      <source>ROI here</source>
+      <translation>在此设兴趣区域</translation>
+    </message>
+    <message>
+      <source>Orbit</source>
+      <translation>盘旋</translation>
+    </message>
+    <message>
+      <source>Edit ROI Position</source>
+      <translation>编辑兴趣区域位置</translation>
+    </message>
+    <message>
+      <source>Cancel ROI</source>
+      <translation>取消兴趣区域</translation>
+    </message>
+    <message>
+      <source>Edit Position</source>
+      <translation>编辑位置</translation>
+    </message>
+  </context>
+
+  <context>
+    <name>FlyViewGeoMapChrome</name>
+    <message>
+      <source>patches: %1  pending: %2  max zoom: %3</source>
+      <translation>分片：%1  待处理：%2  最大缩放：%3</translation>
+    </message>
+    <message>
+      <source>Analyze</source>
+      <translation>分析</translation>
+    </message>
+    <message>
+      <source>Stats</source>
+      <translation>统计</translation>
+    </message>
+    <message>
+      <source>Stop</source>
+      <translation>停止</translation>
+    </message>
+    <message>
+      <source>Record</source>
+      <translation>记录</translation>
+    </message>
+  </context>
+
+  <context>
     <name>FlyViewGripperButton</name>
     <message>
       <location filename="../src/FlyView/FlyViewGripperButton.qml" line="6"/>
@@ -7642,6 +7766,42 @@ VTOL</translation>
       <translation>编辑位置</translation>
     </message>
   </context>
+  <context>
+    <name>FlyViewMapClickDropPanel</name>
+    <message>
+      <source>Set Estimator Origin</source>
+      <translation>设置估计器原点</translation>
+    </message>
+    <message>
+      <source>Set Heading</source>
+      <translation>设置航向</translation>
+    </message>
+    <message>
+      <source>Lat: %1</source>
+      <translation>纬度：%1</translation>
+    </message>
+    <message>
+      <source>Lon: %1</source>
+      <translation>经度：%1</translation>
+    </message>
+    <message>
+      <source>Go to location</source>
+      <translation>前往位置</translation>
+    </message>
+    <message>
+      <source>Orbit at location</source>
+      <translation>在该位置环绕</translation>
+    </message>
+    <message>
+      <source>ROI at location</source>
+      <translation>在该位置设兴趣区域</translation>
+    </message>
+    <message>
+      <source>Set home here</source>
+      <translation>将此处设为 Home 点</translation>
+    </message>
+  </context>
+
   <context>
     <name>FlyViewMissionCompleteDialog</name>
     <message>
@@ -8357,6 +8517,38 @@ VTOL</translation>
       <translation>坐标数组的值不是数组</translation>
     </message>
   </context>
+  <context>
+    <name>GeoMapFWLandingPatternVisual</name>
+    <message>
+      <source>Landing Area</source>
+      <translation>着陆区</translation>
+    </message>
+    <message>
+      <source>Glide Slope</source>
+      <translation>滑行坡度</translation>
+    </message>
+  </context>
+
+  <context>
+    <name>GeoMapLandingPatternVisuals</name>
+    <message>
+      <source>Loiter</source>
+      <translation>盘旋</translation>
+    </message>
+    <message>
+      <source>Approach</source>
+      <translation>进近</translation>
+    </message>
+  </context>
+
+  <context>
+    <name>GeoMapVTOLLandingPatternVisual</name>
+    <message>
+      <source>Land</source>
+      <translation>降落</translation>
+    </message>
+  </context>
+
   <context>
     <name>GeoTagController</name>
     <message>
@@ -9744,6 +9936,22 @@ VTOL</translation>
       <location filename="../src/Vehicle/VehicleSetup/JoystickComponentButtons.qml" line="76"/>
       <source>Repeat</source>
       <translation>重复</translation>
+    </message>
+    <message>
+      <source>Function: </source>
+      <translation>功能：</translation>
+    </message>
+    <message>
+      <source>Shift Function: </source>
+      <translation>Shift 功能：</translation>
+    </message>
+    <message>
+      <source>QGC functions do not support shift actions</source>
+      <translation>QGC 功能不支持 Shift 组合动作</translation>
+    </message>
+    <message>
+      <source>No firmware support</source>
+      <translation>固件不支持</translation>
     </message>
   </context>
   <context>
@@ -12287,6 +12495,114 @@ VTOL</translation>
     </message>
   </context>
   <context>
+    <name>NTRIPConnectionStatus</name>
+    <message>
+      <source>Data Received</source>
+      <translation>已接收数据</translation>
+    </message>
+    <message>
+      <source>Warning: Data usage: %1 — consider connection costs</source>
+      <translation>警告：数据用量 %1——请注意连接费用</translation>
+    </message>
+    <message>
+      <source>To Vehicle</source>
+      <translation>发往飞行器</translation>
+    </message>
+    <message>
+      <source>GGA Source</source>
+      <translation>GGA 来源</translation>
+    </message>
+    <message>
+      <source>Connected but no data received recently</source>
+      <translation>已连接但近期未收到数据</translation>
+    </message>
+    <message>
+      <source>Mountpoint</source>
+      <translation>挂载点</translation>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation>报文</translation>
+    </message>
+    <message>
+      <source>Message Types</source>
+      <translation>报文类型</translation>
+    </message>
+    <message>
+      <source>unknown</source>
+      <translation>未知</translation>
+    </message>
+  </context>
+
+  <context>
+    <name>NTRIPConnectionStatusRow</name>
+    <message>
+      <source>Unavailable</source>
+      <translation>不可用</translation>
+    </message>
+    <message>
+      <source>Disconnected</source>
+      <translation>未连接</translation>
+    </message>
+    <message>
+      <source>Connecting…</source>
+      <translation>连接中…</translation>
+    </message>
+    <message>
+      <source>Reconnecting…</source>
+      <translation>重连中…</translation>
+    </message>
+    <message>
+      <source>Disconnect</source>
+      <translation>断开</translation>
+    </message>
+    <message>
+      <source>Connect</source>
+      <translation>连接</translation>
+    </message>
+  </context>
+
+  <context>
+    <name>NTRIPMountpointList</name>
+    <message>
+      <source>(selected)</source>
+      <translation>（已选）</translation>
+    </message>
+    <message>
+      <source>Selected</source>
+      <translation>已选</translation>
+    </message>
+    <message>
+      <source>Select</source>
+      <translation>选择</translation>
+    </message>
+  </context>
+
+  <context>
+    <name>NtripConnectionSettings</name>
+    <message>
+      <source>Connection</source>
+      <translation>连接</translation>
+    </message>
+  </context>
+
+  <context>
+    <name>PlanEditLayers</name>
+    <message>
+      <source>Mission</source>
+      <translation>任务</translation>
+    </message>
+    <message>
+      <source>GeoFence</source>
+      <translation>地理围栏</translation>
+    </message>
+    <message>
+      <source>Rally Points</source>
+      <translation>集结点</translation>
+    </message>
+  </context>
+
+  <context>
     <name>ToolStripHoverButton</name>
     <message>
       <location filename="../custom/src/ToolStripHoverButton.qml" line="160"/>
@@ -12440,6 +12756,10 @@ VTOL</translation>
       <location filename="../src/MainWindow/MainWindow.qml" line="526"/>
       <source>Additional errors received</source>
       <translation>已收到更多错误</translation>
+    </message>
+    <message>
+      <source>Click Ok to reboot the vehicle now.</source>
+      <translation>单击“确定”立即重启飞行器。</translation>
     </message>
   </context>
   <context>
@@ -12864,6 +13184,14 @@ VTOL</translation>
       <source>Item #%1</source>
       <translation>项目 1</translation>
     </message>
+    <message>
+      <source>Incomplete: Waiting on terrain data.</source>
+      <translation>未完成：正在等待地形数据。</translation>
+    </message>
+    <message>
+      <source>Incomplete: Item not fully specified.</source>
+      <translation>未完成：航点信息尚未完整。</translation>
+    </message>
   </context>
   <context>
     <name>MissionItemStatus</name>
@@ -13088,6 +13416,30 @@ VTOL</translation>
       <source>Stop One MockLink</source>
       <translation>停止一个 MockLink</translation>
     </message>
+    <message>
+      <source>Enable proximity sensors</source>
+      <translation>启用接近传感器</translation>
+    </message>
+    <message>
+      <source>Start with fresh firmware parameters (setup required)</source>
+      <translation>以全新固件参数启动（需重新设置）</translation>
+    </message>
+    <message>
+      <source>Vehicle Type</source>
+      <translation>飞行器类型</translation>
+    </message>
+    <message>
+      <source>Served Video Stream</source>
+      <translation>提供的视频流</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation>禁用</translation>
+    </message>
+    <message>
+      <source>Start MockLink</source>
+      <translation>启动 MockLink</translation>
+    </message>
   </context>
   <context>
     <name>MockLinkSettings</name>
@@ -13156,6 +13508,22 @@ VTOL</translation>
       <source>Gimbal Capabilities</source>
       <translation>云台能力</translation>
     </message>
+    <message>
+      <source>Start With Fresh Firmware Parameters (Setup Required)</source>
+      <translation>以全新固件参数启动（需重新设置）</translation>
+    </message>
+    <message>
+      <source>Served Video Stream</source>
+      <translation>提供的视频流</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation>禁用</translation>
+    </message>
+    <message>
+      <source>Enable Proximity Sensors</source>
+      <translation>启用接近传感器</translation>
+    </message>
   </context>
   <context>
     <name>MotorAssignment</name>
@@ -13164,16 +13532,16 @@ VTOL</translation>
       <source>&lt;br /&gt;No motors are assigned yet.
 By saying yes, all motors will be assigned to the first %1 channels of the selected output (%2)
  (you can also first assign all motors, then start the identification).&lt;br /&gt;</source>
-      <translation type="unfinished">&lt;br /&gt;No motors are assigned yet.
-By saying yes, all motors will be assigned to the first %1 channels of the selected output (%2)
- (you can also first assign all motors, then start the identification).&lt;br /&gt;</translation>
+      <translation>&lt;br /&gt;尚未分配任何电机。
+点击“是”后，所有电机将分配到所选输出的前 %1 个通道（%2）
+（你也可以先手动分配所有电机，再开始识别）。&lt;br /&gt;</translation>
     </message>
     <message>
       <location filename="../src/Vehicle/Actuators/MotorAssignment.cc" line="78"/>
       <source>&lt;br /&gt;Motors are currently assigned to a different output.
 By saying yes, all motors will be reassigned to the first %1 channels of the selected output (%2).&lt;br /&gt;</source>
-      <translation type="unfinished">&lt;br /&gt;Motors are currently assigned to a different output.
-By saying yes, all motors will be reassigned to the first %1 channels of the selected output (%2).&lt;br /&gt;</translation>
+      <translation>&lt;br /&gt;电机当前分配到了其他输出。
+点击“是”后，所有电机将重新分配到所选输出的前 %1 个通道（%2）。&lt;br /&gt;</translation>
     </message>
     <message>
       <location filename="../src/Vehicle/Actuators/MotorAssignment.cc" line="84"/>
@@ -13193,17 +13561,17 @@ The procedure is as following:&lt;br /&gt;
 - The motor output functions will automatically be reassigned by the selected order.&lt;br /&gt;
 &lt;br /&gt;
 Do you wish to proceed?</source>
-      <translation type="unfinished">This will automatically spin individual motors at 15% thrust.&lt;br /&gt;&lt;br /&gt;
-&lt;b&gt;Warning: Only proceed if you removed all propellers&lt;/b&gt;.&lt;br /&gt;
+      <translation>系统将自动以 15% 油门逐个转动电机。&lt;br /&gt;&lt;br /&gt;
+&lt;b&gt;警告：只有在已拆除所有螺旋桨的情况下才可继续&lt;/b&gt;。&lt;br /&gt;
 %1
 &lt;br /&gt;
-The procedure is as following:&lt;br /&gt;
-- After confirming, the first motor starts to spin for 0.5 seconds.&lt;br /&gt;
-- Then click on the motor that was spinning.&lt;br /&gt;
-- The above steps are repeated for all motors.&lt;br /&gt;
-- The motor output functions will automatically be reassigned by the selected order.&lt;br /&gt;
+操作流程如下：&lt;br /&gt;
+- 确认后，第一个电机会转动 0.5 秒。&lt;br /&gt;
+- 然后点击刚才转动的那个电机。&lt;br /&gt;
+- 对所有电机重复上述步骤。&lt;br /&gt;
+- 电机输出功能将按所选顺序自动重新分配。&lt;br /&gt;
 &lt;br /&gt;
-Do you wish to proceed?</translation>
+是否继续？</translation>
     </message>
     <message>
       <location filename="../src/Vehicle/Actuators/MotorAssignment.cc" line="207"/>
@@ -13525,6 +13893,14 @@ Do you wish to proceed?</translation>
       <source>NMEA stream UDP port</source>
       <translation>NMEA 数据流 UDP 端口</translation>
     </message>
+    <message>
+      <source>Source</source>
+      <translation>来源</translation>
+    </message>
+    <message>
+      <source>&lt;none available&gt;</source>
+      <translation>&lt;无可用&gt;</translation>
+    </message>
   </context>
   <context>
     <name>NtripConnectionStatus</name>
@@ -13769,18 +14145,18 @@ Do you wish to proceed?</translation>
       <source>This will delete all tiles INCLUDING the tile sets you have created yourself.
 
 Is this really what you want?</source>
-      <translation type="unfinished">This will delete all tiles INCLUDING the tile sets you have created yourself.
+      <translation>此操作将删除全部地图瓦片，包括你自己创建的瓦片集。
 
-Is this really what you want?</translation>
+确定要这样做吗？</translation>
     </message>
     <message>
       <location filename="../src/AppSettings/OfflineMapEditor.qml" line="720"/>
       <source>Delete %1 and all its tiles.
 
 Is this really what you want?</source>
-      <translation type="unfinished">Delete %1 and all its tiles.
+      <translation>删除 %1 及其全部瓦片。
 
-Is this really what you want?</translation>
+确定要这样做吗？</translation>
     </message>
   </context>
   <context>
@@ -14128,6 +14504,22 @@ Is this really what you want?</translation>
       <source>Cancel</source>
       <translation>取消</translation>
     </message>
+    <message>
+      <source>Wait for the log download to complete or cancel it first</source>
+      <translation>请等待日志下载完成，或先取消下载</translation>
+    </message>
+    <message>
+      <source>Erase Selected</source>
+      <translation>擦除所选</translation>
+    </message>
+    <message>
+      <source>Delete Selected Onboard Log Files</source>
+      <translation>删除所选板载日志文件</translation>
+    </message>
+    <message>
+      <source>The selected onboard log files will be erased permanently. Is this really what you want?</source>
+      <translation>所选板载日志文件将被永久擦除。确定要这样做吗？</translation>
+    </message>
   </context>
   <context>
     <name>OpticalFlowSensor</name>
@@ -14210,7 +14602,7 @@ Is this really what you want?</translation>
     <message>
       <location filename="../src/AutoPilotPlugins/PX4/PX4AutoPilotPlugin.cc" line="167"/>
       <source>Warning: Hardware In The Loop (HITL) simulation is enabled for this vehicle.</source>
-      <translation>警告：此飞机已启用循环中的硬件模拟(HITL)。</translation>
+      <translation>警告：已为该飞行器启用硬件在环（HITL）仿真。</translation>
     </message>
   </context>
   <context>
@@ -14393,6 +14785,10 @@ Is this really what you want?</translation>
       <location filename="../src/FirmwarePlugin/PX4/PX4FirmwarePlugin.cc" line="677"/>
       <source>QGroundControl supports PX4 Pro firmware Version %1.%2.%3 and above. You are using a version prior to that which will lead to unpredictable results. Please upgrade your firmware.</source>
       <translation>地面站支持 PX4 Pro 固件 %1.%2.%3 及以上版本。您正使用之前的版本，这将导致不可预知的结果。请升级固件。</translation>
+    </message>
+    <message>
+      <source>Unable to set ROI, home position altitude unknown.</source>
+      <translation>无法设置兴趣区域：Home 点高度未知。</translation>
     </message>
   </context>
   <context>
@@ -15617,6 +16013,10 @@ Is this really what you want?</translation>
       <source>Multirotor</source>
       <translation>多旋翼</translation>
     </message>
+    <message>
+      <source>Fixed Wing</source>
+      <translation>固定翼</translation>
+    </message>
   </context>
   <context>
     <name>ParameterDiffDialog</name>
@@ -15659,6 +16059,70 @@ Is this really what you want?</translation>
       <location filename="../src/QmlControls/ParameterDiffDialog.qml" line="78"/>
       <source>N/A</source>
       <translation type="unfinished">N/A</translation>
+    </message>
+    <message>
+      <source>N/A — not on Vehicle</source>
+      <translation>无 — 不在飞行器上</translation>
+    </message>
+    <message>
+      <source>N/A — new to Vehicle</source>
+      <translation>无 — 飞行器新增</translation>
+    </message>
+    <message>
+      <source>Parameters marked &apos;new to Vehicle&apos; have not been reported by the Vehicle. They may only become visible after they are sent and the Vehicle is rebooted.</source>
+      <translation>标记为“飞行器新增”的参数尚未由飞行器上报。只有在发送这些参数并重启飞行器后，它们才可能显示出来。</translation>
+    </message>
+    <message>
+      <source>Parameters marked &apos;not on Vehicle&apos; cannot be sent since the file does not include type information. They may only exist after another parameter is changed and the Vehicle is rebooted, after which you can load this file again.</source>
+      <translation>标记为“不在飞行器上”的参数无法发送，因为文件中不包含类型信息。它们可能只有在修改其他参数并重启飞行器后才会出现，届时你可以重新载入此文件。</translation>
+    </message>
+    <message>
+      <source>%1 will be changed (including %2 not currently on the Vehicle)</source>
+      <translation>将修改 %1 个参数（含 %2 个当前不在飞行器上）</translation>
+    </message>
+    <message>
+      <source>%1 will be changed</source>
+      <translation>将修改 %1 个参数</translation>
+    </message>
+    <message>
+      <source>1 already matches the Vehicle</source>
+      <translation>1 个已与飞行器一致</translation>
+    </message>
+    <message>
+      <source>%1 already match the Vehicle</source>
+      <translation>%1 个已与飞行器一致</translation>
+    </message>
+    <message>
+      <source>1 read-only parameter will not be sent</source>
+      <translation>1 个只读参数将不发送</translation>
+    </message>
+    <message>
+      <source>%1 read-only parameters will not be sent</source>
+      <translation>%1 个只读参数将不发送</translation>
+    </message>
+    <message>
+      <source>%1 not found on the Vehicle and cannot be sent</source>
+      <translation>%1 个在飞行器上未找到，无法发送</translation>
+    </message>
+    <message>
+      <source>Loaded 1 parameter from file.</source>
+      <translation>已从文件载入 1 个参数。</translation>
+    </message>
+    <message>
+      <source>Loaded 1 parameter from file: %1.</source>
+      <translation>已从文件载入 1 个参数：%1。</translation>
+    </message>
+    <message>
+      <source>Loaded %1 parameters from file.</source>
+      <translation>已从文件载入 %1 个参数。</translation>
+    </message>
+    <message>
+      <source>Loaded %1 parameters from file: %2.</source>
+      <translation>已从文件载入 %1 个参数：%2。</translation>
+    </message>
+    <message>
+      <source>Click &apos;Ok&apos; to update the parameters below on the Vehicle.</source>
+      <translation>单击“确定”将下列参数更新到飞行器。</translation>
     </message>
   </context>
   <context>
@@ -15909,6 +16373,14 @@ Note that this will also completely reset everything, including UAVCAN nodes, al
       <source>Set RC to Param</source>
       <translation>将遥控设到参数...</translation>
     </message>
+    <message>
+      <source>Force edit read-only param</source>
+      <translation>强制编辑只读参数</translation>
+    </message>
+    <message>
+      <source>Warning: This parameter is read-only. Force edit is enabled.</source>
+      <translation>警告：该参数为只读，已启用强制编辑。</translation>
+    </message>
   </context>
   <context>
     <name>ParameterManager</name>
@@ -16145,6 +16617,10 @@ Note that this will also completely reset everything, including UAVCAN nodes, al
       <location filename="../src/PlanView/PlanInfoEditor.qml" line="188"/>
       <source>Plan Templates</source>
       <translation>计划模板</translation>
+    </message>
+    <message>
+      <source>&lt;Untitled&gt;</source>
+      <translation>&lt;未命名&gt;</translation>
     </message>
   </context>
   <context>
@@ -16477,6 +16953,18 @@ Note that this will also completely reset everything, including UAVCAN nodes, al
       <source>Save as KML</source>
       <translation>另存为KML</translation>
     </message>
+    <message>
+      <source>Save as...</source>
+      <translation>另存为...</translation>
+    </message>
+    <message>
+      <source>You have unsaved changes. Loading a new Plan will lose these changes. Are you sure?</source>
+      <translation>当前有未保存的更改，载入新计划将丢失这些更改。确定要继续吗？</translation>
+    </message>
+    <message>
+      <source>You have unsent changes. Loading a new Plan will lose these changes. Are you sure?</source>
+      <translation>当前有未发送的更改，载入新计划将丢失这些更改。确定要继续吗？</translation>
+    </message>
   </context>
   <context>
     <name>PlanTreeView</name>
@@ -16494,6 +16982,14 @@ Note that this will also completely reset everything, including UAVCAN nodes, al
       <location filename="../src/PlanView/PlanTreeView.qml" line="159"/>
       <source> points</source>
       <translation> 个点</translation>
+    </message>
+    <message>
+      <source>%1 items</source>
+      <translation>%1 项</translation>
+    </message>
+    <message>
+      <source>%1 points</source>
+      <translation>%1 个点</translation>
     </message>
   </context>
   <context>
@@ -16669,6 +17165,10 @@ Click &apos;Ok&apos; to upload the Plan anyway.</source>
       <location filename="../src/PlanView/PlanView.qml" line="94"/>
       <source>Upload</source>
       <translation>上传</translation>
+    </message>
+    <message>
+      <source>This Plan was created for a different firmware or vehicle type than the firmware/vehicle type of vehicle you are uploading to. </source>
+      <translation>此计划创建时所用固件/机型与你正在上传到的飞行器固件/机型不一致。</translation>
     </message>
   </context>
   <context>
@@ -16940,7 +17440,7 @@ sudo apt-get 移除调制解调器管理器</translation>
     <message>
       <location filename="../src/QGCApplication.cc" line="384"/>
       <source>Parameters are missing from firmware. You may be running a version of firmware which is not fully supported or your firmware has a bug in it. Missing params: %1</source>
-      <translation>从固件中缺少参数。 您可能正在运行一个不完全支持的固件版本，或者您的固件里有一个错误。 缺少参数： %1</translation>
+      <translation>固件缺少参数。你可能正在运行不完全受支持的固件版本，或固件本身存在缺陷。缺少参数：%1</translation>
     </message>
     <message>
       <location filename="../src/QGCApplication.cc" line="527"/>
@@ -18316,7 +18816,7 @@ sudo apt-get 移除调制解调器管理器</translation>
       <source>Before calibrating you should zero all your trims and subtrims. Click Ok to start Calibration.
 
 %1</source>
-      <translation type="unfinished">Before calibrating you should zero all your trims and subtrims. Click Ok to start Calibration.
+      <translation>校准前请先将所有微调（trim）和副微调（sub-trim）归零。单击“确定”开始校准。
 
 %1</translation>
     </message>
@@ -18333,9 +18833,9 @@ sudo apt-get 移除调制解调器管理器</translation>
       <source>* Lower the Throttle stick all the way down as shown in diagram
 * Please ensure all motor power is disconnected AND all props are removed from the vehicle.
 * Click Next to continue</source>
-      <translation type="unfinished">* Lower the Throttle stick all the way down as shown in diagram
-* Please ensure all motor power is disconnected AND all props are removed from the vehicle.
-* Click Next to continue</translation>
+      <translation>* 按图示将油门摇杆拉到最低
+* 请确保电机电源已全部断开，且飞行器上的螺旋桨已全部拆除。
+* 单击“下一步”继续</translation>
     </message>
     <message>
       <location filename="../src/Vehicle/VehicleSetup/RemoteControlCalibrationController.cc" line="26"/>
@@ -18393,17 +18893,17 @@ sudo apt-get 移除调制解调器管理器</translation>
 * Make sure any additional axes are at a neutral position.
 * Please ensure all motor power is disconnected from the vehicle.
 * Click Next to continue</source>
-      <translation type="unfinished">* Center all sticks as shown in diagram.
-* Make sure any additional axes are at a neutral position.
-* Please ensure all motor power is disconnected from the vehicle.
-* Click Next to continue</translation>
+      <translation>* 按图示将所有摇杆回中。
+* 确保其他附加轴处于中立位置。
+* 请确保电机电源已与飞行器完全断开。
+* 单击“下一步”继续</translation>
     </message>
     <message>
       <location filename="../src/Vehicle/VehicleSetup/RemoteControlCalibrationController.cc" line="36"/>
       <source>* Move the %1 Extension stick to its low value position and hold it there...
 * Select &apos;One-Sided&apos; for controls like gamepad triggers.</source>
-      <translation type="unfinished">* Move the %1 Extension stick to its low value position and hold it there...
-* Select &apos;One-Sided&apos; for controls like gamepad triggers.</translation>
+      <translation>* 将 %1 扩展轴摇杆移到最小值位置并保持住……
+游戏手柄扳机类控制请选择“单向”（One-Sided）。</translation>
     </message>
     <message>
       <location filename="../src/Vehicle/VehicleSetup/RemoteControlCalibrationController.cc" line="37"/>
@@ -18572,6 +19072,14 @@ sudo apt-get 移除调制解调器管理器</translation>
       <location filename="../src/AppSettings/RemoteIDGpsLocation.qml" line="50"/>
       <source>Baudrate</source>
       <translation>波特率</translation>
+    </message>
+    <message>
+      <source>Source</source>
+      <translation>来源</translation>
+    </message>
+    <message>
+      <source>&lt;none available&gt;</source>
+      <translation>&lt;无可用&gt;</translation>
     </message>
   </context>
   <context>
@@ -18890,6 +19398,14 @@ sudo apt-get 移除调制解调器管理器</translation>
       <location filename="../src/AutoPilotPlugins/PX4/SafetyComponentSummary.qml" line="72"/>
       <source>Land Delay</source>
       <translation>着陆延时</translation>
+    </message>
+    <message>
+      <source>Critical Level</source>
+      <translation>严重级别</translation>
+    </message>
+    <message>
+      <source>Emergency Level</source>
+      <translation>紧急级别</translation>
     </message>
   </context>
   <context>
@@ -19231,6 +19747,22 @@ sudo apt-get 移除调制解调器管理器</translation>
       <source>Airspeed:</source>
       <translation>空速：</translation>
     </message>
+    <message>
+      <source>Compass</source>
+      <translation>罗盘</translation>
+    </message>
+    <message>
+      <source>Gyro</source>
+      <translation>陀螺仪</translation>
+    </message>
+    <message>
+      <source>Accelerometer</source>
+      <translation>加速度计</translation>
+    </message>
+    <message>
+      <source>Airspeed</source>
+      <translation>空速：</translation>
+    </message>
   </context>
   <context>
     <name>SensorsSetup</name>
@@ -19326,9 +19858,9 @@ sudo apt-get 移除调制解调器管理器</translation>
       <source>Adjust orientations as needed.
 
 ROTATION_NONE indicates component points in direction of flight.</source>
-      <translation type="unfinished">Adjust orientations as needed.
+      <translation>按需调整朝向。
 
-ROTATION_NONE indicates component points in direction of flight.</translation>
+ROTATION_NONE 表示组件朝向飞行器前方。</translation>
     </message>
     <message>
       <location filename="../src/AutoPilotPlugins/PX4/SensorsSetup.qml" line="303"/>
@@ -19836,9 +20368,9 @@ ROTATION_NONE indicates component points in direction of flight.</translation>
       <source>Vehicle is armed. ArduPilot will refuse to disable signing while armed and PX4 will not accept the disable packet without a valid signature. The disable attempt will likely time out and leave the link in an inconsistent state.
 
 Disarm the vehicle first.</source>
-      <translation type="unfinished">Vehicle is armed. ArduPilot will refuse to disable signing while armed and PX4 will not accept the disable packet without a valid signature. The disable attempt will likely time out and leave the link in an inconsistent state.
+      <translation>飞行器已解锁。ArduPilot 在解锁状态下会拒绝关闭签名，PX4 则不会接受未经有效签名的关闭包。关闭尝试很可能超时，并使链路处于不一致状态。
 
-Disarm the vehicle first.</translation>
+请先给飞行器上锁。</translation>
     </message>
     <message>
       <location filename="../src/AppSettings/SigningKeyManager.qml" line="229"/>
@@ -19870,9 +20402,9 @@ Disarm the vehicle first.</translation>
       <source>Are you sure you want to delete &apos;%1&apos;?
 
 If a vehicle still has this key configured, you will no longer be able to communicate with it over a signed connection. Raw or generated keys cannot be recovered — Export the hex first if you may need it later.</source>
-      <translation type="unfinished">Are you sure you want to delete &apos;%1&apos;?
+      <translation>确定要删除“%1”吗？
 
-If a vehicle still has this key configured, you will no longer be able to communicate with it over a signed connection. Raw or generated keys cannot be recovered — Export the hex first if you may need it later.</translation>
+如果飞行器仍配置了此密钥，你将无法再通过签名连接与其通信。原始密钥和生成的密钥都无法恢复——如果日后可能用到，请先导出十六进制文本。</translation>
     </message>
     <message>
       <location filename="../src/AppSettings/SigningKeyManager.qml" line="259"/>
