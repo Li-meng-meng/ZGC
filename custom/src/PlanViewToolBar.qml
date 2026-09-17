@@ -45,7 +45,10 @@ Rectangle {
         id: qgcButton
         objectName: "toolbar_qgcLogo"
         height: parent.height
-        icon.source: "/res/QGCLogoFull.svg"
+        // ZGC: 白色志翔 Logo 变体——连接态红底 chrome 上红 Logo 完全隐形（QGCVectorImage
+        // 原生渲染无 tint 通道）；ZGCLogoWhite.svg 为全新唯一资源名，经拦截器命中
+        // :/Custom/res/ZGCLogoWhite.svg — ZFYZ-69
+        icon.source: "/res/ZGCLogoWhite.svg"
         logo: true
         onClicked: mainWindow.showToolSelectDialog()
     }
