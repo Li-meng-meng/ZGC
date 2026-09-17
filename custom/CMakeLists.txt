@@ -64,6 +64,22 @@ qt_add_resources(${CMAKE_PROJECT_NAME} custom_brand
     FILES "${CUSTOM_LOGO_RESOURCE}"
 )
 
+# ZGC: 白色志翔 Logo 变体——连接态红底 chrome（工具页顶栏/Plan/Fly 三工具栏）上红色 Logo
+# 隐形（QGCVectorImage 原生多色渲染无 tint 通道，调色板前景 token 管不到），改用白色变体
+# （调研报告 §4.1 P1）。资源名 ZGCLogoWhite.svg 为全新唯一路径：上游存在同名白色 QGC Logo
+# QGCLogoWhite.svg，禁用该名——拦截器"存在即改写"会无差别替换上游白色 Logo 全部使用点
+# （调研报告 §6.2 风险 2）。消费点经 grep 全树核实仅三处 chrome 的
+# icon.source "/res/ZGCLogoWhite.svg"（MainWindow/PlanViewToolBar/FlyViewToolBar 各一处）；
+# 地图 GCS 指示器（FlightMap/GeoMap）仍用红色 QGCLogoFull，地图瓦片底上语义正确。
+# 实体由 QGCLogoFull.png 程序化派生（RGB 置白、逐像素保 alpha，信封同构），生成脚本见
+# workspace/artifacts/ZFYZ-69-coder/gen_white_logo.py — ZFYZ-69
+set(CUSTOM_LOGO_WHITE_RESOURCE "${CMAKE_CURRENT_SOURCE_DIR}/res/Images/ZGCLogoWhite.svg")
+set_source_files_properties("${CUSTOM_LOGO_WHITE_RESOURCE}" PROPERTIES QT_RESOURCE_ALIAS "ZGCLogoWhite.svg")
+qt_add_resources(${CMAKE_PROJECT_NAME} custom_brand_logo_white
+    PREFIX "/Custom/res"
+    FILES "${CUSTOM_LOGO_WHITE_RESOURCE}"
+)
+
 # Linux 窗口图标：QGCApplication.cc 仅在 Q_OS_LINUX 下请求 qrc:/res/qgroundcontrol.ico 并经
 # 拦截器改写；Windows 下 exe 图标走 QGC_WINDOWS_ICON_PATH 的 RC 编译，不依赖此资源。
 # 复用 Windows 安装图标同一物理文件，避免二进制重复入库。
@@ -113,6 +129,17 @@ set(CUSTOM_QML_OVERRIDES
     # （竖向 padding 密度收紧）两件覆盖（A3-20260909-roundF-typescale，ZFYZ-42）
     "${CMAKE_CURRENT_SOURCE_DIR}/src/ScreenTools.qml"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/QGCButton.qml"
+    # ZGC: 修复轮——侧栏选中态感知增强（C2）＋ P2 红底态前景 token 统一七件：
+    # SettingsButton（图标胶囊垫底＋chevron 放大）、FlightModeIndicator、SliderSwitch、
+    # QGCCheckBoxSlider、RallyPointItemEditor、QGCCompassWidget、ScriptingComponent
+    # （前景统一 buttonHighlightText/primaryButtonText，详各件头部注记）— ZFYZ-69
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/SettingsButton.qml"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/FlightModeIndicator.qml"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/SliderSwitch.qml"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/QGCCheckBoxSlider.qml"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/RallyPointItemEditor.qml"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/QGCCompassWidget.qml"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/ScriptingComponent.qml"
 )
 set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/FlyViewToolBar.qml"
     PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Toolbar/FlyViewToolBar.qml"
@@ -151,6 +178,30 @@ set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/ScreenTools.qml"
 )
 set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/QGCButton.qml"
     PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Controls/QGCButton.qml"
+)
+# ZGC: 修复轮别名（ZFYZ-69）——别名逐字对齐各上游模块 CMakeLists 的 RESOURCE_PREFIX
+# /qml＋URI 路径＋文件名（QmlControls/Toolbar 平铺、FlightMap 带 Widgets 子路径、
+# AutoPilotPlugins.Common 带 Common 子路径），命中即整文件替换：
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/SettingsButton.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Controls/SettingsButton.qml"
+)
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/FlightModeIndicator.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Toolbar/FlightModeIndicator.qml"
+)
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/SliderSwitch.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Controls/SliderSwitch.qml"
+)
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/QGCCheckBoxSlider.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Controls/QGCCheckBoxSlider.qml"
+)
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/RallyPointItemEditor.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/PlanView/RallyPointItemEditor.qml"
+)
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/QGCCompassWidget.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/FlightMap/Widgets/QGCCompassWidget.qml"
+)
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/ScriptingComponent.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/AutoPilotPlugins/Common/ScriptingComponent.qml"
 )
 qt_add_resources(${CMAKE_PROJECT_NAME} custom_qml_overrides
     PREFIX "/Custom/qml"

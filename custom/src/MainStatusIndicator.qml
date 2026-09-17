@@ -16,6 +16,11 @@
  *     chrome 改由 FlyViewToolBar 连接态绑定接管（断开＝深灰黑、连接＝志翔红）
  *   - P4 胶囊条扩展：新增 RTK 固定态胶囊（gpsRtk.valid，绿色）与电池胶囊（最低电量节，
  *     threshold1/2 三档配色同 BatteryIndicator），飞行模式由相邻 FlightModeIndicator 承担
+ * K 轮增量（ZFYZ-69 修复轮 · P2 #4 红底态前景反白）：
+ *   - 连接态 chrome＝志翔红，行内深色前景不可辨（调研报告 §4.2 #4）：主状态标签接替 I 轮
+ *     两态拆分中连接态 qgcPal.text 的半边，改恒 primaryButtonText（连接红底/断开深灰黑底
+ *     均满足对比）；同行 VTOL/RTK/电池胶囊标签与车辆消息图标默认色同参反白
+ *     （消息警示橙/红语义色不变）
  * 上游原文位置：src/Toolbar/MainStatusIndicator.qml
  ****************************************************************************/
 
@@ -58,8 +63,9 @@ RowLayout {
         Layout.preferredWidth: contentWidth + (vehicleMessagesIcon.visible ? vehicleMessagesIcon.width + control.spacing : 0)
         verticalAlignment:  Text.AlignVCenter
         text:               mainStatusText()
-        // ZGC: 断开态 chrome 为深灰黑实底，标签转亮色文字保双主题对比 — ZFYZ-59
-        color:              _activeVehicle ? qgcPal.text : qgcPal.primaryButtonText
+        // ZGC: 行内前景恒反白——连接态红底/断开态深灰黑底均满足对比（接替 ZFYZ-59 两态拆分，
+        // 连接态原 qgcPal.text 深色落红底不可辨）— ZFYZ-69
+        color:              qgcPal.primaryButtonText
         font.pointSize:     ScreenTools.largeFontPointSize
 
         // ZGC: 语义色胶囊底——随 _mainStatusSemanticColor 语义色（P1 起语义通道本地化），仅视觉承载 — ZFYZ-30/ZFYZ-59
@@ -164,7 +170,7 @@ RowLayout {
             visible:                _activeVehicle && _activeVehicle.messageCount > 0
 
             function getIconColor() {
-                let iconColor = qgcPal.text
+                let iconColor = qgcPal.primaryButtonText // ZGC: 图标仅连接态可见（红底 chrome），默认色反白；警示橙/红语义分支不变 — ZFYZ-69
                 if (_activeVehicle) {
                     if (_activeVehicle.messageTypeWarning) {
                         iconColor = qgcPal.colorOrange
@@ -187,7 +193,7 @@ RowLayout {
         Layout.fillHeight:  true
         verticalAlignment:  Text.AlignVCenter
         text:               _vtolInFWDFlight ? qsTr("FW(vtol)") : qsTr("MR(vtol)")
-        color:              qgcPal.text
+        color:              qgcPal.primaryButtonText // ZGC: 仅连接态可见（红底 chrome），前景反白 — ZFYZ-69
         font.pointSize:     _vehicleInAir ? ScreenTools.largeFontPointSize : ScreenTools.defaultFontPointSize
         visible:            _activeVehicle && _activeVehicle.vtol
 
@@ -208,7 +214,7 @@ RowLayout {
         Layout.fillHeight:  true
         verticalAlignment:  Text.AlignVCenter
         text:               qsTr("RTK Fixed")
-        color:              qgcPal.text
+        color:              qgcPal.primaryButtonText // ZGC: 仅连接态可见（红底 chrome），前景反白 — ZFYZ-69
         font.pointSize:     ScreenTools.defaultFontPointSize
         visible:            _activeVehicle && QGroundControl.gpsRtk.valid.value
 
@@ -234,7 +240,7 @@ RowLayout {
         Layout.fillHeight:  true
         verticalAlignment:  Text.AlignVCenter
         text:               _batteryText()
-        color:              qgcPal.text
+        color:              qgcPal.primaryButtonText // ZGC: 仅连接态可见（红底 chrome），前景反白 — ZFYZ-69
         font.pointSize:     ScreenTools.defaultFontPointSize
         visible:            _activeVehicle && _batteryText() !== ""
 
