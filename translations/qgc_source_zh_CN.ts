@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.1" language="zh-CN" sourcelanguage="en">
-<!-- ZGC: A2-20260903-brand-ui A3b 补译（ZFYZ-5 批次1；ZFYZ-12 批次2 全量覆盖）；A3-20260905-polish1 品牌用词调整（ZFYZ-14）；A3-20260911-roundJ-i18n 翻译补齐 A+B+C 批 112 新增＋14 未完转正＋3 错译润色（ZFYZ-64）；A3-20260918-roundK-i18n K 轮翻译补齐 A 批 69 新增＋C 批 41 未完同文转正（ZFYZ-79） -->
+<!-- ZGC: A2-20260903-brand-ui A3b 补译（ZFYZ-5 批次1；ZFYZ-12 批次2 全量覆盖）；A3-20260905-polish1 品牌用词调整（ZFYZ-14）；A3-20260911-roundJ-i18n 翻译补齐 A+B+C 批 112 新增＋14 未完转正＋3 错译润色（ZFYZ-64）；A3-20260918-roundK-i18n K 轮翻译补齐（依据 ZFYZ-78 调研）A 批 69 新增＋C 批 41 未完同文转正（ZFYZ-79） -->
   <context>
     <name>APMAdvancedTuningCopterComponent</name>
     <message>
