@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.1" language="zh-CN" sourcelanguage="en">
-<!-- ZGC: A2-20260903-brand-ui A3b 补译（ZFYZ-5 批次1；ZFYZ-12 批次2 全量覆盖）；A3-20260905-polish1 品牌用词调整（ZFYZ-14）；A3-20260911-roundJ-i18n 翻译补齐 A+B+C 批 112 新增＋14 未完转正＋3 错译润色（ZFYZ-64） -->
+<!-- ZGC: A2-20260903-brand-ui A3b 补译（ZFYZ-5 批次1；ZFYZ-12 批次2 全量覆盖）；A3-20260905-polish1 品牌用词调整（ZFYZ-14）；A3-20260911-roundJ-i18n 翻译补齐 A+B+C 批 112 新增＋14 未完转正＋3 错译润色（ZFYZ-64）；A3-20260918-roundK-i18n K 轮翻译补齐 A 批 69 新增＋C 批 41 未完同文转正（ZFYZ-79） -->
   <context>
     <name>APMAdvancedTuningCopterComponent</name>
     <message>
@@ -356,7 +356,7 @@
       <location filename="../src/AutoPilotPlugins/APM/APMAirspeedComponentSummary.qml" line="46"/>
       <location filename="../src/AutoPilotPlugins/APM/APMAirspeedComponentSummary.qml" line="52"/>
       <source>N/A</source>
-      <translation type="unfinished">N/A</translation>
+      <translation>N/A</translation>
     </message>
     <message>
       <location filename="../src/AutoPilotPlugins/APM/APMAirspeedComponentSummary.qml" line="39"/>
@@ -2454,7 +2454,7 @@
       <location filename="../src/AutoPilotPlugins/APM/APMHeliComponent.qml" line="409"/>
       <location filename="../src/AutoPilotPlugins/APM/APMHeliComponent.qml" line="424"/>
       <source/>
-      <translation type="unfinished"/>
+      <translation/>
     </message>
     <message>
       <location filename="../src/AutoPilotPlugins/APM/APMHeliComponent.qml" line="423"/>
@@ -2875,7 +2875,7 @@
     <message>
       <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="128"/>
       <source>, </source>
-      <translation type="unfinished">, </translation>
+      <translation>, </translation>
     </message>
     <message>
       <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="130"/>
@@ -3822,7 +3822,7 @@ Please place your vehicle in water, click the button, and wait. Note that the th
     <message>
       <location filename="../src/FactSystem/FactControls/AltitudeFactTextField.qml" line="10"/>
       <source>%1</source>
-      <translation type="unfinished">%1</translation>
+      <translation>%1</translation>
     </message>
   </context>
   <context>
@@ -3888,7 +3888,7 @@ Please place your vehicle in water, click the button, and wait. Note that the th
     <message>
       <location filename="../src/AppSettings/AppLogging.qml" line="282"/>
       <source>.*</source>
-      <translation type="unfinished">.*</translation>
+      <translation>.*</translation>
     </message>
     <message>
       <location filename="../src/AppSettings/AppLogging.qml" line="290"/>
@@ -4424,7 +4424,7 @@ Please place your vehicle in water, click the button, and wait. Note that the th
     <message>
       <location filename="../src/Utilities/Audio/AudioOutput.cc" line="219"/>
       <source>%1</source>
-      <translation type="unfinished">%1</translation>
+      <translation>%1</translation>
     </message>
     <message>
       <location filename="../src/Utilities/Audio/AudioOutput.cc" line="257"/>
@@ -4600,7 +4600,7 @@ Click Ok to start the auto-tuning process.
       <location filename="../src/Toolbar/BatteryIndicator.qml" line="274"/>
       <location filename="../src/Toolbar/BatteryIndicator.qml" line="283"/>
       <source>n/a</source>
-      <translation type="unfinished">n/a</translation>
+      <translation>n/a</translation>
     </message>
     <message>
       <location filename="../src/Toolbar/BatteryIndicator.qml" line="375"/>
@@ -5116,7 +5116,7 @@ Click Ok to start the auto-tuning process.
     <message>
       <location filename="../src/AppSettings/BluetoothSettings.qml" line="314"/>
       <source>N/A</source>
-      <translation type="unfinished">N/A</translation>
+      <translation>N/A</translation>
     </message>
     <message>
       <location filename="../src/AppSettings/BluetoothSettings.qml" line="319"/>
@@ -5720,6 +5720,250 @@ Click Ok to start the auto-tuning process.
       <location filename="../src/Vehicle/ComponentInformation/ComponentInformationTranslation.cc" line="203"/>
       <source>File open failed: file:error %1 %2</source>
       <translation>文件打开失败：文件错误 %1 %2</translation>
+    </message>
+  </context>
+  <context>
+    <name>CorrectionDiagnostics</name>
+    <message>
+      <source>NTRIP UDP output</source>
+      <translation>NTRIP UDP 输出</translation>
+    </message>
+    <message>
+      <source>Vehicles</source>
+      <translation>飞机</translation>
+    </message>
+    <message>
+      <source>Vehicle link %1</source>
+      <translation>飞机链路 %1</translation>
+    </message>
+    <message>
+      <source>Unselected</source>
+      <translation>未选择</translation>
+    </message>
+    <message>
+      <source>Inactive source</source>
+      <translation>源未激活</translation>
+    </message>
+    <message>
+      <source>Previous source session</source>
+      <translation>先前源会话</translation>
+    </message>
+    <message>
+      <source>Invalid receipt time</source>
+      <translation>接收时间无效</translation>
+    </message>
+    <message>
+      <source>Expired</source>
+      <translation>已过期</translation>
+    </message>
+    <message>
+      <source>Filtered message</source>
+      <translation>报文被过滤</translation>
+    </message>
+    <message>
+      <source>Source not selected</source>
+      <translation>源未选择</translation>
+    </message>
+    <message>
+      <source>Destination unavailable</source>
+      <translation>目标不可用</translation>
+    </message>
+    <message>
+      <source>Queue full</source>
+      <translation>队列已满</translation>
+    </message>
+    <message>
+      <source>Invalid frame</source>
+      <translation>帧无效</translation>
+    </message>
+    <message>
+      <source>Connection cancelled</source>
+      <translation>连接已取消</translation>
+    </message>
+    <message>
+      <source>Source changed</source>
+      <translation>源已切换</translation>
+    </message>
+    <message>
+      <source>Write failed</source>
+      <translation>写入失败</translation>
+    </message>
+    <message>
+      <source>Incomplete write</source>
+      <translation>写入不完整</translation>
+    </message>
+    <message>
+      <source>Unmatched delivery report</source>
+      <translation>下发回报不匹配</translation>
+    </message>
+    <message>
+      <source>Connection ended before the write result was available</source>
+      <translation>连接在写入结果可用前已结束</translation>
+    </message>
+    <message>
+      <source>Delivery tracking full</source>
+      <translation>下发跟踪已满</translation>
+    </message>
+    <message>
+      <source>Unknown</source>
+      <translation>未知</translation>
+    </message>
+    <message>
+      <source>Local base station</source>
+      <translation>本地基准站</translation>
+    </message>
+    <message>
+      <source>NTRIP</source>
+      <translation>NTRIP</translation>
+    </message>
+    <message>
+      <source>UDP</source>
+      <translation>UDP</translation>
+    </message>
+    <message>
+      <source>Unclassified</source>
+      <translation>未分类</translation>
+    </message>
+    <message>
+      <source>Received</source>
+      <translation>已接收</translation>
+    </message>
+    <message>
+      <source>Validated</source>
+      <translation>已校验</translation>
+    </message>
+    <message>
+      <source>Selected</source>
+      <translation>已选</translation>
+    </message>
+    <message>
+      <source>Queued</source>
+      <translation>已入队</translation>
+    </message>
+    <message>
+      <source>Written</source>
+      <translation>已写入</translation>
+    </message>
+    <message>
+      <source>Unconfirmed</source>
+      <translation>未确认</translation>
+    </message>
+    <message>
+      <source>Dropped</source>
+      <translation>已丢弃</translation>
+    </message>
+    <message>
+      <source>Correction Diagnostics</source>
+      <translation>改正数据诊断</translation>
+    </message>
+    <message>
+      <source>Current correction streams:</source>
+      <translation>当前改正数据流：</translation>
+    </message>
+    <message>
+      <source>No fresh stream is selected for vehicles.</source>
+      <translation>未选择时效内的数据流供飞机使用。</translation>
+    </message>
+    <message>
+      <source>Selected for vehicles; fresh</source>
+      <translation>已选供飞机使用；时效内</translation>
+    </message>
+    <message>
+      <source>Fresh; not selected for vehicles</source>
+      <translation>时效内；未选供飞机使用</translation>
+    </message>
+    <message>
+      <source>Active; waiting for fresh corrections</source>
+      <translation>激活中；等待时效内改正数据</translation>
+    </message>
+    <message>
+      <source>Unavailable</source>
+      <translation>不可用</translation>
+    </message>
+    <message>
+      <source>%1 — %2: %3</source>
+      <translation>%1 — %2：%3</translation>
+    </message>
+    <message>
+      <source>Default stream</source>
+      <translation>默认数据流</translation>
+    </message>
+    <message>
+      <source>Queued bytes have been submitted to an output. Written bytes reached an output transport; they do not confirm that a receiver applied the corrections or obtained a fix. Vehicle writes are unconfirmed.</source>
+      <translation>已入队字节表示已提交到输出通道的数据。已写入字节表示已到达输出传输层的数据；这并不确认接收机已应用改正数据或完成定位。飞机侧写入均未确认。</translation>
+    </message>
+    <message>
+      <source>Received/dropped source bytes measure frame-candidate evidence, not raw transport traffic. Recovered frames can overlap rejected candidates. Drop events count separate selection, admission, and delivery losses; one frame may contribute more than once.</source>
+      <translation>接收/丢弃的源字节度量的是候选帧证据，而非原始传输流量。恢复的帧可能与被拒绝的候选重叠。丢弃事件分别计入选择、准入与下发环节的损失；同一帧可能被多次计入。</translation>
+    </message>
+    <message>
+      <source>%1 — frames: received %2, validated %3, selected %4, queued %5, written %6; drop events %7</source>
+      <translation>%1 — 帧：已接收 %2、已校验 %3、已选 %4、已入队 %5、已写入 %6；丢弃事件 %7</translation>
+    </message>
+    <message>
+      <source>%1 — queued %2 B, written %3, dropped %4 B, pending %5 B, unconfirmed %6 B</source>
+      <translation>%1 — 已入队 %2 B，已写入 %3，已丢弃 %4 B，待发 %5 B，未确认 %6 B</translation>
+    </message>
+    <message>
+      <source>%1 B</source>
+      <translation>%1 B</translation>
+    </message>
+    <message>
+      <source>unconfirmed</source>
+      <translation>未确认</translation>
+    </message>
+    <message>
+      <source>Show recent correction events</source>
+      <translation>显示最近改正事件</translation>
+    </message>
+    <message>
+      <source>%1. %2 — %3, %4 B%5
+Source: %6 (session %7); destination: %8 (session %9)</source>
+      <translation>%1. %2 — %3，%4 B%5
+源：%6（会话 %7）；目标：%8（会话 %9）</translation>
+    </message>
+    <message>
+      <source> — %1</source>
+      <translation> — %1</translation>
+    </message>
+  </context>
+  <context>
+    <name>CorrectionRoutingSettings</name>
+    <message>
+      <source>Automatic within source</source>
+      <translation>源内自动选择</translation>
+    </message>
+    <message>
+      <source>No fresh corrections: %1</source>
+      <translation>无时效内改正数据：%1</translation>
+    </message>
+    <message>
+      <source>Unavailable: %1</source>
+      <translation>不可用：%1</translation>
+    </message>
+    <message>
+      <source>Correction Routing</source>
+      <translation>改正数据路由</translation>
+    </message>
+    <message>
+      <source>Selects streams for vehicle links only. NTRIP UDP forwarding uses the NTRIP stream independently.</source>
+      <translation>仅为飞机链路选择数据流。NTRIP UDP 转发独立使用 NTRIP 数据流。</translation>
+    </message>
+    <message>
+      <source>Uses one fresh stream, preferring the local base station, then NTRIP, then UDP.</source>
+      <translation>使用一条时效内的数据流，优先本地基准站，其次 NTRIP，再次 UDP。</translation>
+    </message>
+    <message>
+      <source>Forwards all fresh streams to vehicles. Corrections from different base stations may be mixed.</source>
+      <translation>将所有时效内的数据流转发给飞机，不同基准站的改正数据可能混合。</translation>
+    </message>
+    <message>
+      <source>Uses only the chosen source category, without fallback to other categories. Automatic within source chooses a fresh stream in that category; a pinned stream waits if unavailable.</source>
+      <translation>仅使用所选源类别，不回退到其他类别。源内自动选择会在该类别中选择一条时效内的数据流；固定指定的数据流不可用时将等待。</translation>
+    </message>
+    <message>
+      <source>Stream</source>
+      <translation>数据流</translation>
     </message>
   </context>
   <context>
@@ -6388,13 +6632,13 @@ Click Ok to start the auto-tuning process.
       <location filename="../src/Toolbar/EscIndicatorPage.qml" line="13"/>
       <source>N/A</source>
       <comment>No data to display</comment>
-      <translation type="unfinished">N/A</translation>
+      <translation>N/A</translation>
     </message>
     <message>
       <location filename="../src/Toolbar/EscIndicatorPage.qml" line="14"/>
       <source>–</source>
       <comment>No data to display</comment>
-      <translation type="unfinished">–</translation>
+      <translation>–</translation>
     </message>
     <message>
       <location filename="../src/Toolbar/EscIndicatorPage.qml" line="32"/>
@@ -7476,20 +7720,20 @@ Click Ok to start the auto-tuning process.
       <location filename="../src/Toolbar/FlightModeIndicator.qml" line="44"/>
       <source>N/A</source>
       <comment>No data to display</comment>
-      <translation type="unfinished">N/A</translation>
+      <translation>N/A</translation>
     </message>
     <message>
       <location filename="../src/Toolbar/FlightModeIndicator.qml" line="54"/>
       <source>FW
 VTOL</source>
-      <translation type="unfinished">FW
+      <translation>FW
 VTOL</translation>
     </message>
     <message>
       <location filename="../src/Toolbar/FlightModeIndicator.qml" line="54"/>
       <source>MR
 VTOL</source>
-      <translation type="unfinished">MR
+      <translation>MR
 VTOL</translation>
     </message>
     <message>
@@ -7543,7 +7787,7 @@ VTOL</translation>
       <location filename="../src/Toolbar/FlightModeMenuIndicator.qml" line="46"/>
       <source>N/A</source>
       <comment>No data to display</comment>
-      <translation type="unfinished">N/A</translation>
+      <translation>N/A</translation>
     </message>
     <message>
       <location filename="../src/Toolbar/FlightModeMenuIndicator.qml" line="116"/>
@@ -7658,6 +7902,17 @@ VTOL</translation>
     </message>
   </context>
 
+  <context>
+    <name>FlyViewGeoMapControls</name>
+    <message>
+      <source>3D</source>
+      <translation>3D</translation>
+    </message>
+    <message>
+      <source>2D</source>
+      <translation>2D</translation>
+    </message>
+  </context>
   <context>
     <name>FlyViewGripperButton</name>
     <message>
@@ -8035,13 +8290,13 @@ VTOL</translation>
       <location filename="../src/Toolbar/GPSIndicatorPage.qml" line="14"/>
       <source>N/A</source>
       <comment>No data to display</comment>
-      <translation type="unfinished">N/A</translation>
+      <translation>N/A</translation>
     </message>
     <message>
       <location filename="../src/Toolbar/GPSIndicatorPage.qml" line="15"/>
       <source>–.––</source>
       <comment>No data to display</comment>
-      <translation type="unfinished">–.––</translation>
+      <translation>–.––</translation>
     </message>
     <message>
       <location filename="../src/Toolbar/GPSIndicatorPage.qml" line="59"/>
@@ -8224,7 +8479,7 @@ VTOL</translation>
       <location filename="../src/Toolbar/GPSResilienceIndicator.qml" line="169"/>
       <location filename="../src/Toolbar/GPSResilienceIndicator.qml" line="174"/>
       <source>n/a</source>
-      <translation type="unfinished">n/a</translation>
+      <translation>n/a</translation>
     </message>
     <message>
       <location filename="../src/Toolbar/GPSResilienceIndicator.qml" line="113"/>
@@ -8282,7 +8537,7 @@ VTOL</translation>
       <location filename="../src/AppSettings/GcsPositionStatus.qml" line="23"/>
       <location filename="../src/AppSettings/GcsPositionStatus.qml" line="29"/>
       <source>N/A</source>
-      <translation type="unfinished">N/A</translation>
+      <translation>N/A</translation>
     </message>
     <message>
       <location filename="../src/AppSettings/GcsPositionStatus.qml" line="22"/>
@@ -8529,6 +8784,14 @@ VTOL</translation>
     </message>
   </context>
 
+  <context>
+    <name>GeoMapGeoFenceVisuals</name>
+    <message>
+      <comment>Breach Return Point item indicator</comment>
+      <source>B</source>
+      <translation>B</translation>
+    </message>
+  </context>
   <context>
     <name>GeoMapLandingPatternVisuals</name>
     <message>
@@ -8967,7 +9230,7 @@ VTOL</translation>
     <message>
       <location filename="../src/Toolbar/GimbalIndicator.qml" line="91"/>
       <source>P: </source>
-      <translation type="unfinished">P: </translation>
+      <translation>P: </translation>
     </message>
     <message>
       <location filename="../src/Toolbar/GimbalIndicator.qml" line="99"/>
@@ -8977,7 +9240,7 @@ VTOL</translation>
     <message>
       <location filename="../src/Toolbar/GimbalIndicator.qml" line="100"/>
       <source>Y: </source>
-      <translation type="unfinished">Y: </translation>
+      <translation>Y: </translation>
     </message>
     <message>
       <location filename="../src/Toolbar/GimbalIndicator.qml" line="130"/>
@@ -9255,7 +9518,7 @@ VTOL</translation>
     <message>
       <location filename="../src/FlyView/GuidedActionsController.qml" line="198"/>
       <source>_activeVehicle(%1) _vehicleArmed(%2) guidedModeSupported(%3) _vehicleFlying(%4) _vehicleWasFlying(%5) _vehicleInRTLMode(%6) pauseVehicleSupported(%7) _vehiclePaused(%8) _flightMode(%9) _visualItemsCount(%10) roiSupported(%11) orbitSupported(%12) _missionActive(%13) _hideROI(%14) _hideOrbit(%15)</source>
-      <translation type="unfinished">_activeVehicle(%1) _vehicleArmed(%2) guidedModeSupported(%3) _vehicleFlying(%4) _vehicleWasFlying(%5) _vehicleInRTLMode(%6) pauseVehicleSupported(%7) _vehiclePaused(%8) _flightMode(%9) _visualItemsCount(%10) roiSupported(%11) orbitSupported(%12) _missionActive(%13) _hideROI(%14) _hideOrbit(%15)</translation>
+      <translation>_activeVehicle(%1) _vehicleArmed(%2) guidedModeSupported(%3) _vehicleFlying(%4) _vehicleWasFlying(%5) _vehicleInRTLMode(%6) pauseVehicleSupported(%7) _vehiclePaused(%8) _flightMode(%9) _visualItemsCount(%10) roiSupported(%11) orbitSupported(%12) _missionActive(%13) _hideROI(%14) _hideOrbit(%15)</translation>
     </message>
     <message>
       <location filename="../src/FlyView/GuidedActionsController.qml" line="27"/>
@@ -9624,7 +9887,7 @@ VTOL</translation>
     <message>
       <location filename="../src/QmlControls/InstrumentValueValue.qml" line="35"/>
       <source>–</source>
-      <translation type="unfinished">–</translation>
+      <translation>–</translation>
     </message>
   </context>
   <context>
@@ -10168,7 +10431,7 @@ VTOL</translation>
     <message>
       <location filename="../src/AutoPilotPlugins/Common/JoystickComponentSummary.qml" line="67"/>
       <source>%1%</source>
-      <translation type="unfinished">%1%</translation>
+      <translation>%1%</translation>
     </message>
     <message>
       <location filename="../src/AutoPilotPlugins/Common/JoystickComponentSummary.qml" line="76"/>
@@ -10293,7 +10556,7 @@ VTOL</translation>
     <message>
       <location filename="../src/Toolbar/JoystickIndicator.qml" line="79"/>
       <source>%1%</source>
-      <translation type="unfinished">%1%</translation>
+      <translation>%1%</translation>
     </message>
     <message>
       <location filename="../src/Toolbar/JoystickIndicator.qml" line="88"/>
@@ -11625,7 +11888,7 @@ VTOL</translation>
     <message>
       <location filename="../src/AnalyzeView/LogViewer/LogViewerPage.qml" line="166"/>
       <source>N/A</source>
-      <translation type="unfinished">N/A</translation>
+      <translation>N/A</translation>
     </message>
     <message>
       <location filename="../src/AnalyzeView/LogViewer/LogViewerPage.qml" line="171"/>
@@ -11703,7 +11966,7 @@ VTOL</translation>
     <message>
       <location filename="../src/AnalyzeView/LogViewer/LogViewerParametersTab.qml" line="119"/>
       <source>N/A</source>
-      <translation type="unfinished">N/A</translation>
+      <translation>N/A</translation>
     </message>
     <message>
       <location filename="../src/AnalyzeView/LogViewer/LogViewerParametersTab.qml" line="159"/>
@@ -13222,7 +13485,7 @@ VTOL</translation>
     <message>
       <location filename="../src/MissionManager/MissionSettingsItem.cc" line="237"/>
       <source>H</source>
-      <translation type="unfinished">H</translation>
+      <translation>H</translation>
     </message>
     <message>
       <location filename="../src/MissionManager/MissionSettingsItem.cc" line="237"/>
@@ -13594,7 +13857,7 @@ Do you wish to proceed?</source>
     <message>
       <location filename="../src/AutoPilotPlugins/Common/MotorComponent.qml" line="57"/>
       <source>%</source>
-      <translation type="unfinished">%</translation>
+      <translation>%</translation>
     </message>
     <message>
       <location filename="../src/AutoPilotPlugins/Common/MotorComponent.qml" line="65"/>
@@ -16058,7 +16321,7 @@ Is this really what you want?</source>
     <message>
       <location filename="../src/QmlControls/ParameterDiffDialog.qml" line="78"/>
       <source>N/A</source>
-      <translation type="unfinished">N/A</translation>
+      <translation>N/A</translation>
     </message>
     <message>
       <source>N/A — not on Vehicle</source>
@@ -17207,7 +17470,7 @@ Click &apos;Ok&apos; to upload the Plan anyway.</source>
     <message>
       <location filename="../src/AutoPilotPlugins/PX4/PowerComponentSummary.qml" line="14"/>
       <source>N/A</source>
-      <translation type="unfinished">N/A</translation>
+      <translation>N/A</translation>
     </message>
     <message>
       <location filename="../src/AutoPilotPlugins/PX4/PowerComponentSummary.qml" line="58"/>
@@ -17419,7 +17682,7 @@ Click &apos;Ok&apos; to upload the Plan anyway.</source>
     <message>
       <location filename="../src/FlyView/ProximityRadarValues.qml" line="34"/>
       <source>–.––</source>
-      <translation type="unfinished">–.––</translation>
+      <translation>–.––</translation>
     </message>
   </context>
   <context>
@@ -17497,7 +17760,7 @@ sudo apt-get 移除调制解调器管理器</translation>
     <message>
       <location filename="../src/FlightMap/Widgets/QGCCompassWidget.qml" line="107"/>
       <source>L</source>
-      <translation type="unfinished">L</translation>
+      <translation>L</translation>
     </message>
   </context>
   <context>
@@ -20597,7 +20860,7 @@ If a vehicle still has this key configured, you will no longer be able to commun
       <location filename="../src/MAVLink/StatusTextHandler.cc" line="324"/>
       <source> ... </source>
       <comment>Indicates missing chunk from chunked STATUS_TEXT</comment>
-      <translation type="unfinished"> ... </translation>
+      <translation> ... </translation>
     </message>
   </context>
   <context>
@@ -20738,6 +21001,17 @@ If a vehicle still has this key configured, you will no longer be able to commun
       <location filename="../src/PlanView/StructureScanEditor.qml" line="202"/>
       <source>secs</source>
       <translation>秒</translation>
+    </message>
+  </context>
+  <context>
+    <name>StructureScanMapVisual</name>
+    <message>
+      <source>Entry</source>
+      <translation>入口</translation>
+    </message>
+    <message>
+      <source>Exit</source>
+      <translation>出口</translation>
     </message>
   </context>
   <context>
@@ -21030,7 +21304,7 @@ If a vehicle still has this key configured, you will no longer be able to commun
     <message>
       <location filename="../src/AppSettings/TcpSettings.qml" line="39"/>
       <source>5760</source>
-      <translation type="unfinished">5760</translation>
+      <translation>5760</translation>
     </message>
     <message>
       <location filename="../src/AppSettings/TcpSettings.qml" line="54"/>
@@ -22267,17 +22541,17 @@ If a vehicle still has this key configured, you will no longer be able to commun
     <message>
       <location filename="../src/AnalyzeView/Vibration/VibrationPage.qml" line="85"/>
       <source>X (%1)</source>
-      <translation type="unfinished">X (%1)</translation>
+      <translation>X (%1)</translation>
     </message>
     <message>
       <location filename="../src/AnalyzeView/Vibration/VibrationPage.qml" line="130"/>
       <source>Y (%1)</source>
-      <translation type="unfinished">Y (%1)</translation>
+      <translation>Y (%1)</translation>
     </message>
     <message>
       <location filename="../src/AnalyzeView/Vibration/VibrationPage.qml" line="175"/>
       <source>Z (%1)</source>
-      <translation type="unfinished">Z (%1)</translation>
+      <translation>Z (%1)</translation>
     </message>
     <message>
       <location filename="../src/AnalyzeView/Vibration/VibrationPage.qml" line="189"/>
@@ -22398,6 +22672,29 @@ If a vehicle still has this key configured, you will no longer be able to commun
     </message>
   </context>
   <context>
+    <name>Viewer3DScaleBar</name>
+    <message>
+      <source> km</source>
+      <translation> 千米</translation>
+    </message>
+    <message>
+      <source> m</source>
+      <translation> 米</translation>
+    </message>
+    <message>
+      <source> mile</source>
+      <translation> 英里</translation>
+    </message>
+    <message>
+      <source> miles</source>
+      <translation> 英里</translation>
+    </message>
+    <message>
+      <source> ft</source>
+      <translation> 英尺</translation>
+    </message>
+  </context>
+  <context>
     <name>Viewer3DShowAction</name>
     <message>
       <location filename="../src/Viewer3D/Viewer3DQml/Viewer3DShowAction.qml" line="11"/>
@@ -22415,24 +22712,24 @@ If a vehicle still has this key configured, you will no longer be able to commun
     <message>
       <location filename="../src/Viewer3D/Viewer3DQml/Models3D/Viewer3DVehicleItems.qml" line="108"/>
       <source>L</source>
-      <translation type="unfinished">L</translation>
+      <translation>L</translation>
     </message>
     <message>
       <location filename="../src/Viewer3D/Viewer3DQml/Models3D/Viewer3DVehicleItems.qml" line="112"/>
       <location filename="../src/Viewer3D/Viewer3DQml/Models3D/Viewer3DVehicleItems.qml" line="120"/>
       <source>T</source>
-      <translation type="unfinished">T</translation>
+      <translation>T</translation>
     </message>
     <message>
       <location filename="../src/Viewer3D/Viewer3DQml/Models3D/Viewer3DVehicleItems.qml" line="118"/>
       <source>W</source>
-      <translation type="unfinished">W</translation>
+      <translation>W</translation>
     </message>
     <message>
       <location filename="../src/Viewer3D/Viewer3DQml/Models3D/Viewer3DVehicleItems.qml" line="122"/>
       <location filename="../src/Viewer3D/Viewer3DQml/Models3D/Viewer3DVehicleItems.qml" line="124"/>
       <source>R</source>
-      <translation type="unfinished">R</translation>
+      <translation>R</translation>
     </message>
     <message>
       <location filename="../src/Viewer3D/Viewer3DQml/Models3D/Viewer3DVehicleItems.qml" line="127"/>

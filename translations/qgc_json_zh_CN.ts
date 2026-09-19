@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.1" language="zh-CN" sourcelanguage="en">
-<!-- ZGC: A2-20260903-brand-ui A3b 补译（ZFYZ-5 批次1；ZFYZ-12 批次2 全量覆盖）；A3-20260905-polish1 品牌用词调整（ZFYZ-14）；A3-20260911-roundJ-i18n 翻译补齐 A+B+C 批 112 新增＋14 未完转正＋3 错译润色（ZFYZ-64） -->
+<!-- ZGC: A2-20260903-brand-ui A3b 补译（ZFYZ-5 批次1；ZFYZ-12 批次2 全量覆盖）；A3-20260905-polish1 品牌用词调整（ZFYZ-14）；A3-20260911-roundJ-i18n 翻译补齐 A+B+C 批 112 新增＋14 未完转正＋3 错译润色（ZFYZ-64）；A3-20260918-roundK-i18n K 轮翻译补齐 B 批 203 keywords 补译＋C 批 15 未完同文转正（ZFYZ-79） -->
   <context>
     <name>RCToParamDialog.FactMetaData.json</name>
     <message>
@@ -8340,13 +8340,13 @@
       <extracomment>.QGC.MetaData.Facts[hdop].shortDesc</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/Vehicle/FactGroups/GPSFact.json"/>
       <source>HDOP</source>
-      <translation type="unfinished">HDOP</translation>
+      <translation>HDOP</translation>
     </message>
     <message>
       <extracomment>.QGC.MetaData.Facts[vdop].shortDesc</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/Vehicle/FactGroups/GPSFact.json"/>
       <source>VDOP</source>
-      <translation type="unfinished">VDOP</translation>
+      <translation>VDOP</translation>
     </message>
     <message>
       <extracomment>.QGC.MetaData.Facts[courseOverGround].shortDesc</extracomment>
@@ -8765,25 +8765,25 @@
       <extracomment>.QGC.MetaData.Facts[rpm1].shortDesc</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/Vehicle/FactGroups/RPMFact.json"/>
       <source>RPM 1</source>
-      <translation type="unfinished">RPM 1</translation>
+      <translation>RPM 1</translation>
     </message>
     <message>
       <extracomment>.QGC.MetaData.Facts[rpm2].shortDesc</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/Vehicle/FactGroups/RPMFact.json"/>
       <source>RPM 2</source>
-      <translation type="unfinished">RPM 2</translation>
+      <translation>RPM 2</translation>
     </message>
     <message>
       <extracomment>.QGC.MetaData.Facts[rpm3].shortDesc</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/Vehicle/FactGroups/RPMFact.json"/>
       <source>RPM 3</source>
-      <translation type="unfinished">RPM 3</translation>
+      <translation>RPM 3</translation>
     </message>
     <message>
       <extracomment>.QGC.MetaData.Facts[rpm4].shortDesc</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/Vehicle/FactGroups/RPMFact.json"/>
       <source>RPM 4</source>
-      <translation type="unfinished">RPM 4</translation>
+      <translation>RPM 4</translation>
     </message>
     <message>
       <extracomment>.QGC.MetaData.Facts[rpmSensor1].shortDesc</extracomment>
@@ -8816,7 +8816,7 @@
       <extracomment>.QGC.MetaData.Facts[hygrometerid].shortDesc</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/Vehicle/FactGroups/HygrometerFact.json"/>
       <source>ID</source>
-      <translation type="unfinished">ID</translation>
+      <translation>ID</translation>
     </message>
   </context>
   <context>
@@ -9011,37 +9011,37 @@
       <extracomment>.QGC.MetaData.Facts[x].shortDesc</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/Vehicle/FactGroups/LocalPositionFact.json"/>
       <source>X</source>
-      <translation type="unfinished">X</translation>
+      <translation>X</translation>
     </message>
     <message>
       <extracomment>.QGC.MetaData.Facts[y].shortDesc</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/Vehicle/FactGroups/LocalPositionFact.json"/>
       <source>Y</source>
-      <translation type="unfinished">Y</translation>
+      <translation>Y</translation>
     </message>
     <message>
       <extracomment>.QGC.MetaData.Facts[z].shortDesc</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/Vehicle/FactGroups/LocalPositionFact.json"/>
       <source>Z</source>
-      <translation type="unfinished">Z</translation>
+      <translation>Z</translation>
     </message>
     <message>
       <extracomment>.QGC.MetaData.Facts[vx].shortDesc</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/Vehicle/FactGroups/LocalPositionFact.json"/>
       <source>VX</source>
-      <translation type="unfinished">VX</translation>
+      <translation>VX</translation>
     </message>
     <message>
       <extracomment>.QGC.MetaData.Facts[vy].shortDesc</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/Vehicle/FactGroups/LocalPositionFact.json"/>
       <source>Vy</source>
-      <translation type="unfinished">Vy</translation>
+      <translation>Vy</translation>
     </message>
     <message>
       <extracomment>.QGC.MetaData.Facts[vz].shortDesc</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/Vehicle/FactGroups/LocalPositionFact.json"/>
       <source>Vz</source>
-      <translation type="unfinished">Vz</translation>
+      <translation>Vz</translation>
     </message>
   </context>
   <context>
@@ -9278,7 +9278,7 @@
       <extracomment>.groups[General].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/FlyView.SettingsUI.json"/>
       <source>checklist</source>
-      <translation type="unfinished">checklist</translation>
+      <translation>检查清单</translation>
     </message>
     <message>
       <extracomment>.groups[General].keywords[1]</extracomment>
@@ -9338,43 +9338,43 @@
       <extracomment>.groups[Guided Commands].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/FlyView.SettingsUI.json"/>
       <source>guided</source>
-      <translation type="unfinished">guided</translation>
+      <translation>引导</translation>
     </message>
     <message>
       <extracomment>.groups[Guided Commands].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/FlyView.SettingsUI.json"/>
       <source>minimum</source>
-      <translation type="unfinished">minimum</translation>
+      <translation>最小值</translation>
     </message>
     <message>
       <extracomment>.groups[Guided Commands].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/FlyView.SettingsUI.json"/>
       <source>maximum</source>
-      <translation type="unfinished">maximum</translation>
+      <translation>最大值</translation>
     </message>
     <message>
       <extracomment>.groups[Guided Commands].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/FlyView.SettingsUI.json"/>
       <source>goto</source>
-      <translation type="unfinished">goto</translation>
+      <translation>定位</translation>
     </message>
     <message>
       <extracomment>.groups[Guided Commands].keywords[5]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/FlyView.SettingsUI.json"/>
       <source>go to</source>
-      <translation type="unfinished">go to</translation>
+      <translation>前往</translation>
     </message>
     <message>
       <extracomment>.groups[Guided Commands].keywords[6]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/FlyView.SettingsUI.json"/>
       <source>loiter radius</source>
-      <translation type="unfinished">loiter radius</translation>
+      <translation>盘旋半径</translation>
     </message>
     <message>
       <extracomment>.groups[Guided Commands].keywords[7]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/FlyView.SettingsUI.json"/>
       <source>confirmation</source>
-      <translation type="unfinished">confirmation</translation>
+      <translation>确认</translation>
     </message>
     <message>
       <extracomment>.groups[MAVLink Actions].sectionName</extracomment>
@@ -9386,7 +9386,7 @@
       <extracomment>.groups[MAVLink Actions].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/FlyView.SettingsUI.json"/>
       <source>mavlink action</source>
-      <translation type="unfinished">mavlink action</translation>
+      <translation>MAVLink 动作</translation>
     </message>
     <message>
       <extracomment>.groups[MAVLink Actions].keywords[1]</extracomment>
@@ -9398,7 +9398,7 @@
       <extracomment>.groups[MAVLink Actions].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/FlyView.SettingsUI.json"/>
       <source>post-arm</source>
-      <translation type="unfinished">post-arm</translation>
+      <translation>解锁后</translation>
     </message>
     <message>
       <extracomment>.groups[MAVLink Actions].keywords[3]</extracomment>
@@ -9422,7 +9422,7 @@
       <extracomment>.groups[Virtual Joystick].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/FlyView.SettingsUI.json"/>
       <source>virtual stick</source>
-      <translation type="unfinished">virtual stick</translation>
+      <translation>虚拟摇杆</translation>
     </message>
     <message>
       <extracomment>.groups[Virtual Joystick].keywords[2]</extracomment>
@@ -9434,13 +9434,13 @@
       <extracomment>.groups[Virtual Joystick].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/FlyView.SettingsUI.json"/>
       <source>left handed</source>
-      <translation type="unfinished">left handed</translation>
+      <translation>左手模式</translation>
     </message>
     <message>
       <extracomment>.groups[Virtual Joystick].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/FlyView.SettingsUI.json"/>
       <source>auto center</source>
-      <translation type="unfinished">auto center</translation>
+      <translation>自动居中</translation>
     </message>
     <message>
       <extracomment>.groups[Instrument Panel].heading</extracomment>
@@ -9452,31 +9452,31 @@
       <extracomment>.groups[Instrument Panel].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/FlyView.SettingsUI.json"/>
       <source>compass</source>
-      <translation type="unfinished">compass</translation>
+      <translation>罗盘</translation>
     </message>
     <message>
       <extracomment>.groups[Instrument Panel].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/FlyView.SettingsUI.json"/>
       <source>indicators</source>
-      <translation type="unfinished">indicators</translation>
+      <translation>指示器</translation>
     </message>
     <message>
       <extracomment>.groups[Instrument Panel].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/FlyView.SettingsUI.json"/>
       <source>hud</source>
-      <translation type="unfinished">hud</translation>
+      <translation>hud</translation>
     </message>
     <message>
       <extracomment>.groups[Instrument Panel].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/FlyView.SettingsUI.json"/>
       <source>instrument</source>
-      <translation type="unfinished">instrument</translation>
+      <translation>仪表</translation>
     </message>
     <message>
       <extracomment>.groups[Instrument Panel].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/FlyView.SettingsUI.json"/>
       <source>nose up</source>
-      <translation type="unfinished">nose up</translation>
+      <translation>机头朝上</translation>
     </message>
   </context>
   <context>
@@ -9491,13 +9491,13 @@
       <extracomment>.groups[Ground Station].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>system id</source>
-      <translation type="unfinished">system id</translation>
+      <translation>系统 ID</translation>
     </message>
     <message>
       <extracomment>.groups[Ground Station].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>mavlink id</source>
-      <translation type="unfinished">mavlink id</translation>
+      <translation>MAVLink ID</translation>
     </message>
     <message>
       <extracomment>.groups[Ground Station].keywords[2]</extracomment>
@@ -9527,25 +9527,25 @@
       <extracomment>.groups[MAVLink Forwarding].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>forward</source>
-      <translation type="unfinished">forward</translation>
+      <translation>转发</translation>
     </message>
     <message>
       <extracomment>.groups[MAVLink Forwarding].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>relay</source>
-      <translation type="unfinished">relay</translation>
+      <translation>中继</translation>
     </message>
     <message>
       <extracomment>.groups[MAVLink Forwarding].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>mavlink forward</source>
-      <translation type="unfinished">mavlink forward</translation>
+      <translation>MAVLink 转发</translation>
     </message>
     <message>
       <extracomment>.groups[MAVLink Forwarding].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>host</source>
-      <translation type="unfinished">host</translation>
+      <translation>主机</translation>
     </message>
     <message>
       <extracomment>.groups[Logging].heading</extracomment>
@@ -9557,31 +9557,31 @@
       <extracomment>.groups[Logging].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>telemetry log</source>
-      <translation type="unfinished">telemetry log</translation>
+      <translation>遥测日志</translation>
     </message>
     <message>
       <extracomment>.groups[Logging].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>tlog</source>
-      <translation type="unfinished">tlog</translation>
+      <translation>tlog</translation>
     </message>
     <message>
       <extracomment>.groups[Logging].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>save log</source>
-      <translation type="unfinished">save log</translation>
+      <translation>保存日志</translation>
     </message>
     <message>
       <extracomment>.groups[Logging].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>recording</source>
-      <translation type="unfinished">recording</translation>
+      <translation>记录</translation>
     </message>
     <message>
       <extracomment>.groups[Logging].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>csv</source>
-      <translation type="unfinished">csv</translation>
+      <translation>csv</translation>
     </message>
     <message>
       <extracomment>.groups[Stream Rates (ArduPilot Only)].heading</extracomment>
@@ -9593,7 +9593,7 @@
       <extracomment>.groups[Stream Rates (ArduPilot Only)].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>stream rate</source>
-      <translation type="unfinished">stream rate</translation>
+      <translation>数据流速率</translation>
     </message>
     <message>
       <extracomment>.groups[Stream Rates (ArduPilot Only)].keywords[1]</extracomment>
@@ -9605,25 +9605,25 @@
       <extracomment>.groups[Stream Rates (ArduPilot Only)].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>apm</source>
-      <translation type="unfinished">apm</translation>
+      <translation>apm</translation>
     </message>
     <message>
       <extracomment>.groups[Stream Rates (ArduPilot Only)].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>raw sensors</source>
-      <translation type="unfinished">raw sensors</translation>
+      <translation>原始传感器</translation>
     </message>
     <message>
       <extracomment>.groups[Stream Rates (ArduPilot Only)].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>rc channels</source>
-      <translation type="unfinished">rc channels</translation>
+      <translation>遥控通道</translation>
     </message>
     <message>
       <extracomment>.groups[Stream Rates (ArduPilot Only)].keywords[5]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>position rate</source>
-      <translation type="unfinished">position rate</translation>
+      <translation>位置频率</translation>
     </message>
     <message>
       <extracomment>.groups[Signing Key].sectionName</extracomment>
@@ -9635,31 +9635,31 @@
       <extracomment>.groups[Signing Key].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>signing</source>
-      <translation type="unfinished">signing</translation>
+      <translation>签名</translation>
     </message>
     <message>
       <extracomment>.groups[Signing Key].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>encryption</source>
-      <translation type="unfinished">encryption</translation>
+      <translation>加密</translation>
     </message>
     <message>
       <extracomment>.groups[Signing Key].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>key</source>
-      <translation type="unfinished">key</translation>
+      <translation>密钥</translation>
     </message>
     <message>
       <extracomment>.groups[Signing Key].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>security</source>
-      <translation type="unfinished">security</translation>
+      <translation>安全</translation>
     </message>
     <message>
       <extracomment>.groups[Signing Key].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>mavlink2</source>
-      <translation type="unfinished">mavlink2</translation>
+      <translation>mavlink2</translation>
     </message>
     <message>
       <extracomment>.groups[Link Status].sectionName</extracomment>
@@ -9671,31 +9671,31 @@
       <extracomment>.groups[Link Status].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>link status</source>
-      <translation type="unfinished">link status</translation>
+      <translation>链路状态</translation>
     </message>
     <message>
       <extracomment>.groups[Link Status].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>packet loss</source>
-      <translation type="unfinished">packet loss</translation>
+      <translation>丢包</translation>
     </message>
     <message>
       <extracomment>.groups[Link Status].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>received</source>
-      <translation type="unfinished">received</translation>
+      <translation>接收</translation>
     </message>
     <message>
       <extracomment>.groups[Link Status].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>sent</source>
-      <translation type="unfinished">sent</translation>
+      <translation>发送</translation>
     </message>
     <message>
       <extracomment>.groups[Link Status].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Telemetry.SettingsUI.json"/>
       <source>latency</source>
-      <translation type="unfinished">latency</translation>
+      <translation>延迟</translation>
     </message>
   </context>
   <context>
@@ -9710,79 +9710,79 @@
       <extracomment>.groups[AutoConnect].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/CommLinks.SettingsUI.json"/>
       <source>auto connect</source>
-      <translation type="unfinished">auto connect</translation>
+      <translation>自动连接</translation>
     </message>
     <message>
       <extracomment>.groups[AutoConnect].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/CommLinks.SettingsUI.json"/>
       <source>pixhawk</source>
-      <translation type="unfinished">pixhawk</translation>
+      <translation>pixhawk</translation>
     </message>
     <message>
       <extracomment>.groups[AutoConnect].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/CommLinks.SettingsUI.json"/>
       <source>sik radio</source>
-      <translation type="unfinished">sik radio</translation>
+      <translation>SiK 电台</translation>
     </message>
     <message>
       <extracomment>.groups[AutoConnect].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/CommLinks.SettingsUI.json"/>
       <source>librepilot</source>
-      <translation type="unfinished">librepilot</translation>
+      <translation>librepilot</translation>
     </message>
     <message>
       <extracomment>.groups[AutoConnect].keywords[4], .groups[Link Management].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/CommLinks.SettingsUI.json"/>
       <source>udp</source>
-      <translation type="unfinished">udp</translation>
+      <translation>udp</translation>
     </message>
     <message>
       <extracomment>.groups[AutoConnect].keywords[5]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/CommLinks.SettingsUI.json"/>
       <source>rtk gps</source>
-      <translation type="unfinished">rtk gps</translation>
+      <translation>rtk gps</translation>
     </message>
     <message>
       <extracomment>.groups[AutoConnect].keywords[6]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/CommLinks.SettingsUI.json"/>
       <source>usb</source>
-      <translation type="unfinished">usb</translation>
+      <translation>usb</translation>
     </message>
     <message>
       <extracomment>.groups[NMEA GPS].sectionName</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/CommLinks.SettingsUI.json"/>
       <source>NMEA GPS</source>
-      <translation type="unfinished">NMEA GPS</translation>
+      <translation>NMEA GPS</translation>
     </message>
     <message>
       <extracomment>.groups[NMEA GPS].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/CommLinks.SettingsUI.json"/>
       <source>nmea</source>
-      <translation type="unfinished">nmea</translation>
+      <translation>nmea</translation>
     </message>
     <message>
       <extracomment>.groups[NMEA GPS].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/CommLinks.SettingsUI.json"/>
       <source>gps</source>
-      <translation type="unfinished">gps</translation>
+      <translation>gps</translation>
     </message>
     <message>
       <extracomment>.groups[NMEA GPS].keywords[2], .groups[Link Management].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/CommLinks.SettingsUI.json"/>
       <source>serial</source>
-      <translation type="unfinished">serial</translation>
+      <translation>串口</translation>
     </message>
     <message>
       <extracomment>.groups[NMEA GPS].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/CommLinks.SettingsUI.json"/>
       <source>baud rate</source>
-      <translation type="unfinished">baud rate</translation>
+      <translation>波特率</translation>
     </message>
     <message>
       <extracomment>.groups[NMEA GPS].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/CommLinks.SettingsUI.json"/>
       <source>external gps</source>
-      <translation type="unfinished">external gps</translation>
+      <translation>外置 GPS</translation>
     </message>
     <message>
       <extracomment>.groups[Link Management].sectionName</extracomment>
@@ -9794,31 +9794,31 @@
       <extracomment>.groups[Link Management].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/CommLinks.SettingsUI.json"/>
       <source>link</source>
-      <translation type="unfinished">link</translation>
+      <translation>链路</translation>
     </message>
     <message>
       <extracomment>.groups[Link Management].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/CommLinks.SettingsUI.json"/>
       <source>connection</source>
-      <translation type="unfinished">connection</translation>
+      <translation>连接</translation>
     </message>
     <message>
       <extracomment>.groups[Link Management].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/CommLinks.SettingsUI.json"/>
       <source>tcp</source>
-      <translation type="unfinished">tcp</translation>
+      <translation>tcp</translation>
     </message>
     <message>
       <extracomment>.groups[Link Management].keywords[5]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/CommLinks.SettingsUI.json"/>
       <source>bluetooth</source>
-      <translation type="unfinished">bluetooth</translation>
+      <translation>蓝牙</translation>
     </message>
     <message>
       <extracomment>.groups[Link Management].keywords[6]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/CommLinks.SettingsUI.json"/>
       <source>add link</source>
-      <translation type="unfinished">add link</translation>
+      <translation>添加链路</translation>
     </message>
   </context>
   <context>
@@ -9833,43 +9833,43 @@
       <extracomment>.groups[Map Provider].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>map provider</source>
-      <translation type="unfinished">map provider</translation>
+      <translation>地图提供商</translation>
     </message>
     <message>
       <extracomment>.groups[Map Provider].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>satellite</source>
-      <translation type="unfinished">satellite</translation>
+      <translation>卫星</translation>
     </message>
     <message>
       <extracomment>.groups[Map Provider].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>terrain</source>
-      <translation type="unfinished">terrain</translation>
+      <translation>地形</translation>
     </message>
     <message>
       <extracomment>.groups[Map Provider].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>street</source>
-      <translation type="unfinished">street</translation>
+      <translation>街道</translation>
     </message>
     <message>
       <extracomment>.groups[Map Provider].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>hybrid</source>
-      <translation type="unfinished">hybrid</translation>
+      <translation>混合</translation>
     </message>
     <message>
       <extracomment>.groups[Map Provider].keywords[5]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>google</source>
-      <translation type="unfinished">google</translation>
+      <translation>google</translation>
     </message>
     <message>
       <extracomment>.groups[Map Provider].keywords[6]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>bing</source>
-      <translation type="unfinished">bing</translation>
+      <translation>bing</translation>
     </message>
     <message>
       <extracomment>.groups[Offline Maps].sectionName</extracomment>
@@ -9881,25 +9881,25 @@
       <extracomment>.groups[Offline Maps].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>offline</source>
-      <translation type="unfinished">offline</translation>
+      <translation>离线</translation>
     </message>
     <message>
       <extracomment>.groups[Offline Maps].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>download</source>
-      <translation type="unfinished">download</translation>
+      <translation>下载</translation>
     </message>
     <message>
       <extracomment>.groups[Offline Maps].keywords[2], .groups[Tile Cache].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>cache</source>
-      <translation type="unfinished">cache</translation>
+      <translation>缓存</translation>
     </message>
     <message>
       <extracomment>.groups[Offline Maps].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>tile set</source>
-      <translation type="unfinished">tile set</translation>
+      <translation>瓦片集</translation>
     </message>
     <message>
       <extracomment>.groups[Tokens].heading</extracomment>
@@ -9911,43 +9911,43 @@
       <extracomment>.groups[Tokens].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>token</source>
-      <translation type="unfinished">token</translation>
+      <translation>令牌</translation>
     </message>
     <message>
       <extracomment>.groups[Tokens].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>api key</source>
-      <translation type="unfinished">api key</translation>
+      <translation>API 密钥</translation>
     </message>
     <message>
       <extracomment>.groups[Tokens].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>tianditu</source>
-      <translation type="unfinished">tianditu</translation>
+      <translation>天地图</translation>
     </message>
     <message>
       <extracomment>.groups[Tokens].keywords[3], .groups[Mapbox Login].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>mapbox</source>
-      <translation type="unfinished">mapbox</translation>
+      <translation>mapbox</translation>
     </message>
     <message>
       <extracomment>.groups[Tokens].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>esri</source>
-      <translation type="unfinished">esri</translation>
+      <translation>esri</translation>
     </message>
     <message>
       <extracomment>.groups[Tokens].keywords[5]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>vworld</source>
-      <translation type="unfinished">vworld</translation>
+      <translation>vworld</translation>
     </message>
     <message>
       <extracomment>.groups[Tokens].keywords[6]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>openaip</source>
-      <translation type="unfinished">openaip</translation>
+      <translation>openaip</translation>
     </message>
     <message>
       <extracomment>.groups[Mapbox Login].heading</extracomment>
@@ -9959,13 +9959,13 @@
       <extracomment>.groups[Mapbox Login].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>account</source>
-      <translation type="unfinished">account</translation>
+      <translation>账户</translation>
     </message>
     <message>
       <extracomment>.groups[Mapbox Login].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>style</source>
-      <translation type="unfinished">style</translation>
+      <translation>样式</translation>
     </message>
     <message>
       <extracomment>.groups[Custom Map URL].heading</extracomment>
@@ -9977,25 +9977,25 @@
       <extracomment>.groups[Custom Map URL].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>custom map</source>
-      <translation type="unfinished">custom map</translation>
+      <translation>自定义地图</translation>
     </message>
     <message>
       <extracomment>.groups[Custom Map URL].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>wms</source>
-      <translation type="unfinished">wms</translation>
+      <translation>wms</translation>
     </message>
     <message>
       <extracomment>.groups[Custom Map URL].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>tile url</source>
-      <translation type="unfinished">tile url</translation>
+      <translation>瓦片 URL</translation>
     </message>
     <message>
       <extracomment>.groups[Custom Map URL].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>tile server</source>
-      <translation type="unfinished">tile server</translation>
+      <translation>瓦片服务器</translation>
     </message>
     <message>
       <extracomment>.groups[Tile Cache].heading</extracomment>
@@ -10007,19 +10007,19 @@
       <extracomment>.groups[Tile Cache].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>disk size</source>
-      <translation type="unfinished">disk size</translation>
+      <translation>磁盘大小</translation>
     </message>
     <message>
       <extracomment>.groups[Tile Cache].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>memory size</source>
-      <translation type="unfinished">memory size</translation>
+      <translation>内存大小</translation>
     </message>
     <message>
       <extracomment>.groups[Tile Cache].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Maps.SettingsUI.json"/>
       <source>tile cache</source>
-      <translation type="unfinished">tile cache</translation>
+      <translation>瓦片缓存</translation>
     </message>
   </context>
   <context>
@@ -10082,7 +10082,7 @@
       <extracomment>.pages[NTRIP/RTK].name</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/SettingsPages.json"/>
       <source>NTRIP/RTK</source>
-      <translation type="unfinished">NTRIP/RTK</translation>
+      <translation>NTRIP/RTK</translation>
     </message>
     <message>
       <extracomment>.pages[PX4 Log Transfer].name</extracomment>
@@ -10145,7 +10145,7 @@
       <extracomment>.groups[General].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Viewer3D.SettingsUI.json"/>
       <source>3d view</source>
-      <translation type="unfinished">3d view</translation>
+      <translation>3D 视图</translation>
     </message>
     <message>
       <extracomment>.groups[General].keywords[1]</extracomment>
@@ -10157,13 +10157,13 @@
       <extracomment>.groups[General].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Viewer3D.SettingsUI.json"/>
       <source>enable 3d</source>
-      <translation type="unfinished">enable 3d</translation>
+      <translation>启用 3D</translation>
     </message>
     <message>
       <extracomment>.groups[General].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Viewer3D.SettingsUI.json"/>
       <source>map provider</source>
-      <translation type="unfinished">map provider</translation>
+      <translation>地图提供商</translation>
     </message>
     <message>
       <extracomment>.groups[Data].heading</extracomment>
@@ -10175,31 +10175,31 @@
       <extracomment>.groups[Data].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Viewer3D.SettingsUI.json"/>
       <source>osm</source>
-      <translation type="unfinished">osm</translation>
+      <translation>osm</translation>
     </message>
     <message>
       <extracomment>.groups[Data].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Viewer3D.SettingsUI.json"/>
       <source>openstreetmap</source>
-      <translation type="unfinished">openstreetmap</translation>
+      <translation>openstreetmap</translation>
     </message>
     <message>
       <extracomment>.groups[Data].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Viewer3D.SettingsUI.json"/>
       <source>3d data</source>
-      <translation type="unfinished">3d data</translation>
+      <translation>3D 数据</translation>
     </message>
     <message>
       <extracomment>.groups[Data].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Viewer3D.SettingsUI.json"/>
       <source>building height</source>
-      <translation type="unfinished">building height</translation>
+      <translation>建筑高度</translation>
     </message>
     <message>
       <extracomment>.groups[Data].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Viewer3D.SettingsUI.json"/>
       <source>altitude bias</source>
-      <translation type="unfinished">altitude bias</translation>
+      <translation>高度偏移</translation>
     </message>
   </context>
   <context>
@@ -10214,7 +10214,7 @@
       <extracomment>.groups[Save To Disk].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Logging.SettingsUI.json"/>
       <source>disk</source>
-      <translation type="unfinished">disk</translation>
+      <translation>磁盘</translation>
     </message>
     <message>
       <extracomment>.groups[Save To Disk].keywords[1]</extracomment>
@@ -10226,43 +10226,43 @@
       <extracomment>.groups[Save To Disk].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Logging.SettingsUI.json"/>
       <source>file</source>
-      <translation type="unfinished">file</translation>
+      <translation>文件</translation>
     </message>
     <message>
       <extracomment>.groups[Save To Disk].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Logging.SettingsUI.json"/>
       <source>flush</source>
-      <translation type="unfinished">flush</translation>
+      <translation>刷写</translation>
     </message>
     <message>
       <extracomment>.groups[Save To Disk].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Logging.SettingsUI.json"/>
       <source>save</source>
-      <translation type="unfinished">save</translation>
+      <translation>保存</translation>
     </message>
     <message>
       <extracomment>.groups[Save To Disk].keywords[5]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Logging.SettingsUI.json"/>
       <source>path</source>
-      <translation type="unfinished">path</translation>
+      <translation>路径</translation>
     </message>
     <message>
       <extracomment>.groups[Save To Disk].keywords[6]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Logging.SettingsUI.json"/>
       <source>compression</source>
-      <translation type="unfinished">compression</translation>
+      <translation>压缩</translation>
     </message>
     <message>
       <extracomment>.groups[Save To Disk].keywords[7]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Logging.SettingsUI.json"/>
       <source>rotation</source>
-      <translation type="unfinished">rotation</translation>
+      <translation>轮转</translation>
     </message>
     <message>
       <extracomment>.groups[Save To Disk].keywords[8]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Logging.SettingsUI.json"/>
       <source>backup</source>
-      <translation type="unfinished">backup</translation>
+      <translation>备份</translation>
     </message>
     <message>
       <extracomment>.groups[Log Viewer].heading, .groups[Log Viewer].sectionName</extracomment>
@@ -10274,37 +10274,37 @@
       <extracomment>.groups[Log Viewer].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Logging.SettingsUI.json"/>
       <source>console</source>
-      <translation type="unfinished">console</translation>
+      <translation>控制台</translation>
     </message>
     <message>
       <extracomment>.groups[Log Viewer].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Logging.SettingsUI.json"/>
       <source>buffer</source>
-      <translation type="unfinished">buffer</translation>
+      <translation>缓冲区</translation>
     </message>
     <message>
       <extracomment>.groups[Log Viewer].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Logging.SettingsUI.json"/>
       <source>entries</source>
-      <translation type="unfinished">entries</translation>
+      <translation>条目</translation>
     </message>
     <message>
       <extracomment>.groups[Log Viewer].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Logging.SettingsUI.json"/>
       <source>elapsed</source>
-      <translation type="unfinished">elapsed</translation>
+      <translation>已用时间</translation>
     </message>
     <message>
       <extracomment>.groups[Log Viewer].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Logging.SettingsUI.json"/>
       <source>timestamp</source>
-      <translation type="unfinished">timestamp</translation>
+      <translation>时间戳</translation>
     </message>
     <message>
       <extracomment>.groups[Log Viewer].keywords[5]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Logging.SettingsUI.json"/>
       <source>time</source>
-      <translation type="unfinished">time</translation>
+      <translation>时间</translation>
     </message>
     <message>
       <extracomment>.groups[Log Viewer].keywords[6]</extracomment>
@@ -10316,7 +10316,7 @@
       <extracomment>.groups[Log Viewer].keywords[7]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Logging.SettingsUI.json"/>
       <source>debug</source>
-      <translation type="unfinished">debug</translation>
+      <translation>调试</translation>
     </message>
   </context>
   <context>
@@ -10331,31 +10331,31 @@
       <extracomment>.groups[Region].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>region</source>
-      <translation type="unfinished">region</translation>
+      <translation>地区</translation>
     </message>
     <message>
       <extracomment>.groups[Region].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>faa</source>
-      <translation type="unfinished">faa</translation>
+      <translation>faa</translation>
     </message>
     <message>
       <extracomment>.groups[Region].keywords[2], .groups[EU Vehicle Info].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>eu</source>
-      <translation type="unfinished">eu</translation>
+      <translation>eu</translation>
     </message>
     <message>
       <extracomment>.groups[Region].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>remote id</source>
-      <translation type="unfinished">remote id</translation>
+      <translation>远程识别</translation>
     </message>
     <message>
       <extracomment>.groups[Region].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>regulation</source>
-      <translation type="unfinished">regulation</translation>
+      <translation>法规</translation>
     </message>
     <message>
       <extracomment>.groups[Basic ID].heading</extracomment>
@@ -10373,31 +10373,31 @@
       <extracomment>.groups[Basic ID].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>serial number</source>
-      <translation type="unfinished">serial number</translation>
+      <translation>序列号</translation>
     </message>
     <message>
       <extracomment>.groups[Basic ID].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>drone id</source>
-      <translation type="unfinished">drone id</translation>
+      <translation>无人机 ID</translation>
     </message>
     <message>
       <extracomment>.groups[Basic ID].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>ua type</source>
-      <translation type="unfinished">ua type</translation>
+      <translation>UA 类型</translation>
     </message>
     <message>
       <extracomment>.groups[Basic ID].keywords[4], .groups[Operator ID].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>registration</source>
-      <translation type="unfinished">registration</translation>
+      <translation>注册</translation>
     </message>
     <message>
       <extracomment>.groups[Basic ID].keywords[5], .groups[Operator ID].keywords[3], .groups[Self ID].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>broadcast</source>
-      <translation type="unfinished">broadcast</translation>
+      <translation>广播</translation>
     </message>
     <message>
       <extracomment>.groups[Operator ID].heading</extracomment>
@@ -10409,13 +10409,13 @@
       <extracomment>.groups[Operator ID].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>operator</source>
-      <translation type="unfinished">operator</translation>
+      <translation>运营人</translation>
     </message>
     <message>
       <extracomment>.groups[Operator ID].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>pilot</source>
-      <translation type="unfinished">pilot</translation>
+      <translation>飞手</translation>
     </message>
     <message>
       <extracomment>.groups[Self ID].heading</extracomment>
@@ -10433,7 +10433,7 @@
       <extracomment>.groups[Self ID].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>flight purpose</source>
-      <translation type="unfinished">flight purpose</translation>
+      <translation>飞行目的</translation>
     </message>
     <message>
       <extracomment>.groups[Self ID].keywords[2]</extracomment>
@@ -10445,7 +10445,7 @@
       <extracomment>.groups[Self ID].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>description</source>
-      <translation type="unfinished">description</translation>
+      <translation>描述</translation>
     </message>
     <message>
       <extracomment>.groups[GroundStation Location].heading</extracomment>
@@ -10463,19 +10463,19 @@
       <extracomment>.groups[GroundStation Location].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>gcs location</source>
-      <translation type="unfinished">gcs location</translation>
+      <translation>地面站位置</translation>
     </message>
     <message>
       <extracomment>.groups[GroundStation Location].keywords[2], .groups[GCS Position].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>latitude</source>
-      <translation type="unfinished">latitude</translation>
+      <translation>纬度</translation>
     </message>
     <message>
       <extracomment>.groups[GroundStation Location].keywords[3], .groups[GCS Position].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>longitude</source>
-      <translation type="unfinished">longitude</translation>
+      <translation>经度</translation>
     </message>
     <message>
       <extracomment>.groups[GroundStation Location].keywords[4]</extracomment>
@@ -10487,13 +10487,13 @@
       <extracomment>.groups[GroundStation Location].keywords[5]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>fixed position</source>
-      <translation type="unfinished">fixed position</translation>
+      <translation>固定位置</translation>
     </message>
     <message>
       <extracomment>.groups[GroundStation Location].keywords[6]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>gnss</source>
-      <translation type="unfinished">gnss</translation>
+      <translation>gnss</translation>
     </message>
     <message>
       <extracomment>.groups[GCS Position].sectionName</extracomment>
@@ -10505,13 +10505,13 @@
       <extracomment>.groups[GCS Position].keywords[2], .groups[GPS Location].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>hdop</source>
-      <translation type="unfinished">hdop</translation>
+      <translation>hdop</translation>
     </message>
     <message>
       <extracomment>.groups[GCS Position].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>gcs position</source>
-      <translation type="unfinished">gcs position</translation>
+      <translation>地面站坐标</translation>
     </message>
     <message>
       <extracomment>.groups[GPS Location].sectionName</extracomment>
@@ -10523,19 +10523,19 @@
       <extracomment>.groups[GPS Location].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>gps</source>
-      <translation type="unfinished">gps</translation>
+      <translation>gps</translation>
     </message>
     <message>
       <extracomment>.groups[GPS Location].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>nmea</source>
-      <translation type="unfinished">nmea</translation>
+      <translation>nmea</translation>
     </message>
     <message>
       <extracomment>.groups[GPS Location].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>position</source>
-      <translation type="unfinished">position</translation>
+      <translation>位置</translation>
     </message>
     <message>
       <extracomment>.groups[EU Vehicle Info].heading</extracomment>
@@ -10547,25 +10547,25 @@
       <extracomment>.groups[EU Vehicle Info].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>classification</source>
-      <translation type="unfinished">classification</translation>
+      <translation>分类</translation>
     </message>
     <message>
       <extracomment>.groups[EU Vehicle Info].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>category</source>
-      <translation type="unfinished">category</translation>
+      <translation>类别</translation>
     </message>
     <message>
       <extracomment>.groups[EU Vehicle Info].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>class</source>
-      <translation type="unfinished">class</translation>
+      <translation>等级</translation>
     </message>
     <message>
       <extracomment>.groups[EU Vehicle Info].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/RemoteID.SettingsUI.json"/>
       <source>ce marking</source>
-      <translation type="unfinished">ce marking</translation>
+      <translation>CE 标识</translation>
     </message>
   </context>
   <context>
@@ -10580,25 +10580,25 @@
       <extracomment>.groups[Connection Status].keywords[0], .groups[Options].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/NTRIP.SettingsUI.json"/>
       <source>ntrip</source>
-      <translation type="unfinished">ntrip</translation>
+      <translation>ntrip</translation>
     </message>
     <message>
       <extracomment>.groups[Connection Status].keywords[1], .groups[Server Settings].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/NTRIP.SettingsUI.json"/>
       <source>rtk</source>
-      <translation type="unfinished">rtk</translation>
+      <translation>rtk</translation>
     </message>
     <message>
       <extracomment>.groups[Connection Status].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/NTRIP.SettingsUI.json"/>
       <source>connection status</source>
-      <translation type="unfinished">connection status</translation>
+      <translation>连接状态</translation>
     </message>
     <message>
       <extracomment>.groups[Connection Status].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/NTRIP.SettingsUI.json"/>
       <source>corrections</source>
-      <translation type="unfinished">corrections</translation>
+      <translation>改正数据</translation>
     </message>
     <message>
       <extracomment>.groups[Server Settings].sectionName</extracomment>
@@ -10610,43 +10610,43 @@
       <extracomment>.groups[Server Settings].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/NTRIP.SettingsUI.json"/>
       <source>ntrip server</source>
-      <translation type="unfinished">ntrip server</translation>
+      <translation>NTRIP 服务器</translation>
     </message>
     <message>
       <extracomment>.groups[Server Settings].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/NTRIP.SettingsUI.json"/>
       <source>caster</source>
-      <translation type="unfinished">caster</translation>
+      <translation>caster</translation>
     </message>
     <message>
       <extracomment>.groups[Server Settings].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/NTRIP.SettingsUI.json"/>
       <source>host</source>
-      <translation type="unfinished">host</translation>
+      <translation>主机</translation>
     </message>
     <message>
       <extracomment>.groups[Server Settings].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/NTRIP.SettingsUI.json"/>
       <source>port</source>
-      <translation type="unfinished">port</translation>
+      <translation>端口</translation>
     </message>
     <message>
       <extracomment>.groups[Server Settings].keywords[5]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/NTRIP.SettingsUI.json"/>
       <source>username</source>
-      <translation type="unfinished">username</translation>
+      <translation>用户名</translation>
     </message>
     <message>
       <extracomment>.groups[Server Settings].keywords[6]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/NTRIP.SettingsUI.json"/>
       <source>password</source>
-      <translation type="unfinished">password</translation>
+      <translation>密码</translation>
     </message>
     <message>
       <extracomment>.groups[Server Settings].keywords[7], .groups[Mountpoint Browser].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/NTRIP.SettingsUI.json"/>
       <source>mountpoint</source>
-      <translation type="unfinished">mountpoint</translation>
+      <translation>挂载点</translation>
     </message>
     <message>
       <extracomment>.groups[Mountpoint Browser].sectionName</extracomment>
@@ -10658,13 +10658,13 @@
       <extracomment>.groups[Mountpoint Browser].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/NTRIP.SettingsUI.json"/>
       <source>browse</source>
-      <translation type="unfinished">browse</translation>
+      <translation>浏览</translation>
     </message>
     <message>
       <extracomment>.groups[Mountpoint Browser].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/NTRIP.SettingsUI.json"/>
       <source>stream</source>
-      <translation type="unfinished">stream</translation>
+      <translation>数据流</translation>
     </message>
     <message>
       <extracomment>.groups[Options].heading</extracomment>
@@ -10676,19 +10676,19 @@
       <extracomment>.groups[Options].keywords[0], .groups[UDP Forwarding].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/NTRIP.SettingsUI.json"/>
       <source>rtcm</source>
-      <translation type="unfinished">rtcm</translation>
+      <translation>rtcm</translation>
     </message>
     <message>
       <extracomment>.groups[Options].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/NTRIP.SettingsUI.json"/>
       <source>whitelist</source>
-      <translation type="unfinished">whitelist</translation>
+      <translation>白名单</translation>
     </message>
     <message>
       <extracomment>.groups[Options].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/NTRIP.SettingsUI.json"/>
       <source>message filter</source>
-      <translation type="unfinished">message filter</translation>
+      <translation>报文过滤</translation>
     </message>
     <message>
       <extracomment>.groups[Options].controls[0].placeholder</extracomment>
@@ -10706,19 +10706,19 @@
       <extracomment>.groups[UDP Forwarding].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/NTRIP.SettingsUI.json"/>
       <source>udp forward</source>
-      <translation type="unfinished">udp forward</translation>
+      <translation>UDP 转发</translation>
     </message>
     <message>
       <extracomment>.groups[UDP Forwarding].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/NTRIP.SettingsUI.json"/>
       <source>relay</source>
-      <translation type="unfinished">relay</translation>
+      <translation>中继</translation>
     </message>
     <message>
       <extracomment>.groups[UDP Forwarding].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/NTRIP.SettingsUI.json"/>
       <source>corrections forward</source>
-      <translation type="unfinished">corrections forward</translation>
+      <translation>改正数据转发</translation>
     </message>
     <message>
       <extracomment>.groups[UDP RTCM Input].heading</extracomment>
@@ -10730,7 +10730,7 @@
       <extracomment>.groups[UDP RTCM Input].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/NTRIP.SettingsUI.json"/>
       <source>udp rtcm</source>
-      <translation type="unfinished">udp rtcm</translation>
+      <translation>UDP RTCM</translation>
     </message>
   </context>
   <context>
@@ -10745,55 +10745,55 @@
       <extracomment>.groups[ADSB Server].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/ADSBVehicleManager.SettingsUI.json"/>
       <source>adsb</source>
-      <translation type="unfinished">adsb</translation>
+      <translation>adsb</translation>
     </message>
     <message>
       <extracomment>.groups[ADSB Server].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/ADSBVehicleManager.SettingsUI.json"/>
       <source>ads-b</source>
-      <translation type="unfinished">ads-b</translation>
+      <translation>ads-b</translation>
     </message>
     <message>
       <extracomment>.groups[ADSB Server].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/ADSBVehicleManager.SettingsUI.json"/>
       <source>traffic</source>
-      <translation type="unfinished">traffic</translation>
+      <translation>空中目标</translation>
     </message>
     <message>
       <extracomment>.groups[ADSB Server].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/ADSBVehicleManager.SettingsUI.json"/>
       <source>aircraft</source>
-      <translation type="unfinished">aircraft</translation>
+      <translation>飞机</translation>
     </message>
     <message>
       <extracomment>.groups[ADSB Server].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/ADSBVehicleManager.SettingsUI.json"/>
       <source>tracking</source>
-      <translation type="unfinished">tracking</translation>
+      <translation>跟踪</translation>
     </message>
     <message>
       <extracomment>.groups[ADSB Server].keywords[5]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/ADSBVehicleManager.SettingsUI.json"/>
       <source>sbs</source>
-      <translation type="unfinished">sbs</translation>
+      <translation>sbs</translation>
     </message>
     <message>
       <extracomment>.groups[ADSB Server].keywords[6]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/ADSBVehicleManager.SettingsUI.json"/>
       <source>server</source>
-      <translation type="unfinished">server</translation>
+      <translation>服务器</translation>
     </message>
     <message>
       <extracomment>.groups[ADSB Server].keywords[7]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/ADSBVehicleManager.SettingsUI.json"/>
       <source>host</source>
-      <translation type="unfinished">host</translation>
+      <translation>主机</translation>
     </message>
     <message>
       <extracomment>.groups[ADSB Server].keywords[8]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/ADSBVehicleManager.SettingsUI.json"/>
       <source>port</source>
-      <translation type="unfinished">port</translation>
+      <translation>端口</translation>
     </message>
   </context>
   <context>
@@ -10808,7 +10808,7 @@
       <extracomment>.groups[Log Control].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/PX4LogTransfer.SettingsUI.json"/>
       <source>px4 log</source>
-      <translation type="unfinished">px4 log</translation>
+      <translation>PX4 日志</translation>
     </message>
     <message>
       <extracomment>.groups[Log Control].keywords[1]</extracomment>
@@ -10820,19 +10820,19 @@
       <extracomment>.groups[Log Control].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/PX4LogTransfer.SettingsUI.json"/>
       <source>start log</source>
-      <translation type="unfinished">start log</translation>
+      <translation>开始日志</translation>
     </message>
     <message>
       <extracomment>.groups[Log Control].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/PX4LogTransfer.SettingsUI.json"/>
       <source>stop log</source>
-      <translation type="unfinished">stop log</translation>
+      <translation>停止日志</translation>
     </message>
     <message>
       <extracomment>.groups[Log Control].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/PX4LogTransfer.SettingsUI.json"/>
       <source>auto log</source>
-      <translation type="unfinished">auto log</translation>
+      <translation>自动日志</translation>
     </message>
     <message>
       <extracomment>.groups[Upload Settings].sectionName</extracomment>
@@ -10844,37 +10844,37 @@
       <extracomment>.groups[Upload Settings].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/PX4LogTransfer.SettingsUI.json"/>
       <source>upload</source>
-      <translation type="unfinished">upload</translation>
+      <translation>上传</translation>
     </message>
     <message>
       <extracomment>.groups[Upload Settings].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/PX4LogTransfer.SettingsUI.json"/>
       <source>flight review</source>
-      <translation type="unfinished">flight review</translation>
+      <translation>flight review</translation>
     </message>
     <message>
       <extracomment>.groups[Upload Settings].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/PX4LogTransfer.SettingsUI.json"/>
       <source>email</source>
-      <translation type="unfinished">email</translation>
+      <translation>邮箱</translation>
     </message>
     <message>
       <extracomment>.groups[Upload Settings].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/PX4LogTransfer.SettingsUI.json"/>
       <source>description</source>
-      <translation type="unfinished">description</translation>
+      <translation>描述</translation>
     </message>
     <message>
       <extracomment>.groups[Upload Settings].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/PX4LogTransfer.SettingsUI.json"/>
       <source>wind</source>
-      <translation type="unfinished">wind</translation>
+      <translation>风速</translation>
     </message>
     <message>
       <extracomment>.groups[Upload Settings].keywords[5]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/PX4LogTransfer.SettingsUI.json"/>
       <source>rating</source>
-      <translation type="unfinished">rating</translation>
+      <translation>评级</translation>
     </message>
     <message>
       <extracomment>.groups[Log Files].sectionName</extracomment>
@@ -10886,25 +10886,25 @@
       <extracomment>.groups[Log Files].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/PX4LogTransfer.SettingsUI.json"/>
       <source>log files</source>
-      <translation type="unfinished">log files</translation>
+      <translation>日志文件</translation>
     </message>
     <message>
       <extracomment>.groups[Log Files].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/PX4LogTransfer.SettingsUI.json"/>
       <source>download</source>
-      <translation type="unfinished">download</translation>
+      <translation>下载</translation>
     </message>
     <message>
       <extracomment>.groups[Log Files].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/PX4LogTransfer.SettingsUI.json"/>
       <source>delete</source>
-      <translation type="unfinished">delete</translation>
+      <translation>删除</translation>
     </message>
     <message>
       <extracomment>.groups[Log Files].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/PX4LogTransfer.SettingsUI.json"/>
       <source>upload logs</source>
-      <translation type="unfinished">upload logs</translation>
+      <translation>上传日志</translation>
     </message>
   </context>
   <context>
@@ -10919,19 +10919,19 @@
       <extracomment>.groups[Video Source].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Video.SettingsUI.json"/>
       <source>video source</source>
-      <translation type="unfinished">video source</translation>
+      <translation>视频源</translation>
     </message>
     <message>
       <extracomment>.groups[Video Source].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Video.SettingsUI.json"/>
       <source>camera</source>
-      <translation type="unfinished">camera</translation>
+      <translation>相机</translation>
     </message>
     <message>
       <extracomment>.groups[Video Source].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Video.SettingsUI.json"/>
       <source>stream</source>
-      <translation type="unfinished">stream</translation>
+      <translation>视频流</translation>
     </message>
     <message>
       <extracomment>.groups[Connection].heading</extracomment>
@@ -10943,37 +10943,37 @@
       <extracomment>.groups[Connection].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Video.SettingsUI.json"/>
       <source>rtsp</source>
-      <translation type="unfinished">rtsp</translation>
+      <translation>rtsp</translation>
     </message>
     <message>
       <extracomment>.groups[Connection].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Video.SettingsUI.json"/>
       <source>tcp</source>
-      <translation type="unfinished">tcp</translation>
+      <translation>tcp</translation>
     </message>
     <message>
       <extracomment>.groups[Connection].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Video.SettingsUI.json"/>
       <source>udp</source>
-      <translation type="unfinished">udp</translation>
+      <translation>udp</translation>
     </message>
     <message>
       <extracomment>.groups[Connection].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Video.SettingsUI.json"/>
       <source>mpegts</source>
-      <translation type="unfinished">mpegts</translation>
+      <translation>mpegts</translation>
     </message>
     <message>
       <extracomment>.groups[Connection].keywords[4]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Video.SettingsUI.json"/>
       <source>video url</source>
-      <translation type="unfinished">video url</translation>
+      <translation>视频 URL</translation>
     </message>
     <message>
       <extracomment>.groups[Connection].keywords[5]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Video.SettingsUI.json"/>
       <source>stream url</source>
-      <translation type="unfinished">stream url</translation>
+      <translation>视频流 URL</translation>
     </message>
     <message>
       <extracomment>.groups[Settings].heading</extracomment>
@@ -10997,13 +10997,13 @@
       <extracomment>.groups[Settings].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Video.SettingsUI.json"/>
       <source>decoder</source>
-      <translation type="unfinished">decoder</translation>
+      <translation>解码器</translation>
     </message>
     <message>
       <extracomment>.groups[Settings].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Video.SettingsUI.json"/>
       <source>hardware decode</source>
-      <translation type="unfinished">hardware decode</translation>
+      <translation>硬件解码</translation>
     </message>
     <message>
       <extracomment>.groups[Settings].keywords[4]</extracomment>
@@ -11015,13 +11015,13 @@
       <extracomment>.groups[Settings].keywords[5]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Video.SettingsUI.json"/>
       <source>gpu</source>
-      <translation type="unfinished">gpu</translation>
+      <translation>gpu</translation>
     </message>
     <message>
       <extracomment>.groups[Settings].keywords[6]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Video.SettingsUI.json"/>
       <source>zero-copy</source>
-      <translation type="unfinished">zero-copy</translation>
+      <translation>零拷贝</translation>
     </message>
     <message>
       <extracomment>.groups[Local Video Storage].heading</extracomment>
@@ -11033,25 +11033,25 @@
       <extracomment>.groups[Local Video Storage].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Video.SettingsUI.json"/>
       <source>record</source>
-      <translation type="unfinished">record</translation>
+      <translation>录制</translation>
     </message>
     <message>
       <extracomment>.groups[Local Video Storage].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Video.SettingsUI.json"/>
       <source>recording format</source>
-      <translation type="unfinished">recording format</translation>
+      <translation>录制格式</translation>
     </message>
     <message>
       <extracomment>.groups[Local Video Storage].keywords[2]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Video.SettingsUI.json"/>
       <source>mp4</source>
-      <translation type="unfinished">mp4</translation>
+      <translation>mp4</translation>
     </message>
     <message>
       <extracomment>.groups[Local Video Storage].keywords[3]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Video.SettingsUI.json"/>
       <source>mkv</source>
-      <translation type="unfinished">mkv</translation>
+      <translation>mkv</translation>
     </message>
     <message>
       <extracomment>.groups[Local Video Storage].keywords[4]</extracomment>
@@ -11063,7 +11063,7 @@
       <extracomment>.groups[Local Video Storage].keywords[5]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/Video.SettingsUI.json"/>
       <source>video file</source>
-      <translation type="unfinished">video file</translation>
+      <translation>视频文件</translation>
     </message>
   </context>
   <context>
@@ -11333,13 +11333,13 @@
       <extracomment>.groups[General].keywords[0]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/PlanView.SettingsUI.json"/>
       <source>mission altitude</source>
-      <translation type="unfinished">mission altitude</translation>
+      <translation>任务高度</translation>
     </message>
     <message>
       <extracomment>.groups[General].keywords[1]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/PlanView.SettingsUI.json"/>
       <source>default altitude</source>
-      <translation type="unfinished">default altitude</translation>
+      <translation>默认高度</translation>
     </message>
     <message>
       <extracomment>.groups[General].keywords[2]</extracomment>
@@ -11369,7 +11369,7 @@
       <extracomment>.groups[General].keywords[6]</extracomment>
       <location filename="/home/runner/work/qgroundcontrol/qgroundcontrol/src/AppSettings/pages/PlanView.SettingsUI.json"/>
       <source>waypoint</source>
-      <translation type="unfinished">waypoint</translation>
+      <translation>航点</translation>
     </message>
   </context>
 </TS>
