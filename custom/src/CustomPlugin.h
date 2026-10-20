@@ -7,6 +7,7 @@
 #include "QGCPalette.h"  // ZGC: paletteOverride 签名需要 QGCPalette::PaletteColorInfo_t — ZFYZ-30
 
 class QQmlApplicationEngine;
+class ZGCTrajectoryRecorder;  // ZGC: 轨迹复飞批 1 数据层入口宿主 — ZFYZ-轨迹复飞-批1
 
 Q_DECLARE_LOGGING_CATEGORY(CustomLog)
 
@@ -57,6 +58,7 @@ private:
     QQmlApplicationEngine *_qmlEngine = nullptr;
     ZGCOptions *_options = nullptr;  // ZGC: F 轮字阶/密度全局选项实例 — ZFYZ-42
     class CustomOverrideInterceptor *_urlInterceptor = nullptr;
+    ZGCTrajectoryRecorder *_zgcTrajectoryRecorder = nullptr;  // ZGC: 轨迹复飞批 1，QML 单一入口 "zgcTrajectory" — ZFYZ-轨迹复飞-批1
 };
 
 /*===========================================================================*/

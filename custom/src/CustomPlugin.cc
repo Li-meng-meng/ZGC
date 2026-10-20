@@ -10,12 +10,14 @@
 #include "CustomPlugin.h"
 
 #include "QGCLoggingCategory.h"
+#include "trajectory/ZGCTrajectoryRecorder.h"  // ZGC: 轨迹复飞批 1 数据层 context property — ZFYZ-轨迹复飞-批1
 #include "QGCPalette.h"  // ZGC: paletteOverride 覆盖 QGCPalette 声明色名 — ZFYZ-30
 
 #include <QtCore/QApplicationStatic>
 #include <QtCore/QFile>
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
+#include <QtQml/QQmlContext>  // ZGC: rootContext()->setContextProperty 注入 zgcTrajectory — ZFYZ-轨迹复飞-批1
 
 QGC_LOGGING_CATEGORY(CustomLog, "Custom.CustomPlugin")
 
@@ -336,6 +338,14 @@ QQmlApplicationEngine* CustomPlugin::createQmlApplicationEngine(QObject* parent)
 
     _urlInterceptor = new CustomOverrideInterceptor();
     _qmlEngine->addUrlInterceptor(_urlInterceptor);
+
+    // ZGC: 轨迹复飞批 1——单一 context property 入口（录制器持有 library 子对象）。
+    // 引擎可能重建（destroyQmlApplicationEngine 后再创建），录制器按插件生命周期复用，
+    // 避免重建时丢失进行中的录制连接。— ZFYZ-轨迹复飞-批1
+    if (!_zgcTrajectoryRecorder) {
+        _zgcTrajectoryRecorder = new ZGCTrajectoryRecorder(this);
+    }
+    _qmlEngine->rootContext()->setContextProperty(QStringLiteral("zgcTrajectory"), _zgcTrajectoryRecorder);
 
     return _qmlEngine;
 }

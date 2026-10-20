@@ -224,6 +224,14 @@ qt_add_resources(${CMAKE_PROJECT_NAME} custom_qml_overrides
 set(CUSTOM_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/CustomPlugin.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/src/CustomPlugin.h
+    # ZGC: 轨迹一键复飞批 1（数据层）——录制器/有界抽稀/轨迹库，单一 context property
+    # "zgcTrajectory" 注入（CustomPlugin.cc createQmlApplicationEngine）— ZFYZ-轨迹复飞-批1
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/trajectory/ZGCTrajectorySimplifier.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/trajectory/ZGCTrajectorySimplifier.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/trajectory/ZGCTrajectoryRecorder.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/trajectory/ZGCTrajectoryRecorder.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/trajectory/ZGCTrajectoryLibrary.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/trajectory/ZGCTrajectoryLibrary.cc
     PARENT_SCOPE
 )
 # ZGC: 按 A2 裁剪（ZFYZ-5）的源码条目——CustomAutoPilotPlugin / CustomFirmwarePlugin /
