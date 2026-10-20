@@ -21,6 +21,11 @@ import QGroundControl
 import QGroundControl.Controls
 import QGroundControl.PlanView
 
+// ZGC: 「轨迹库」面板为非覆盖普通资源（qrc:/Custom/qml/ZGCTrajectoryLibraryPanel.qml），
+// 覆盖件不享模块隐式导入，以命名空间目录导入引用（as 隔离，避免与同目录覆盖件类型名
+// 冲突）— ZFYZ-轨迹复飞-批2
+import "qrc:/Custom/qml" as ZgcCustom
+
 Rectangle {
     id: _root
     width: parent.width
@@ -53,9 +58,22 @@ Rectangle {
         onClicked: mainWindow.showToolSelectDialog()
     }
 
+    // ZGC: 「轨迹库」入口按钮——打开轨迹库/复飞面板，位于 Logo 与任务指示器之间 — ZFYZ-轨迹复飞-批2
+    QGCButton {
+        id: trajLibraryButton
+        anchors.left: qgcButton.right
+        anchors.leftMargin: ScreenTools.defaultFontPixelWidth
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        text: qsTr("轨迹库")
+        checkable: true
+        checked: trajLibraryPanel.visible
+        onClicked: trajLibraryPanel.visible ? trajLibraryPanel.close() : trajLibraryPanel.open()
+    }
+
     QGCFlickable {
         id: toolsFlickable
-        anchors.left: qgcButton.right
+        anchors.left: trajLibraryButton.right // ZGC: 右移让位「轨迹库」按钮（原 qgcButton.right）— ZFYZ-轨迹复飞-批2
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.right: parent.right
@@ -164,5 +182,15 @@ Rectangle {
         id: resetProgressTimer
         interval: 3000
         onTriggered: progressBar.visible = false
+    }
+
+    // ZGC: 轨迹库面板（非覆盖普通资源）。挂 Overlay.overlay 置顶显示——工具栏子项会被
+    // PlanView 中后绘的地图区（mainPlanViewArea）盖住；位置锚定工具栏下方右侧 — ZFYZ-轨迹复飞-批2
+    ZgcCustom.ZGCTrajectoryLibraryPanel {
+        id: trajLibraryPanel
+        parent: Overlay.overlay
+        x: parent.width - width - ScreenTools.defaultFontPixelWidth
+        y: ScreenTools.toolbarHeight + ScreenTools.defaultFontPixelHeight * 0.5
+        planMasterController: _root.planMasterController
     }
 }

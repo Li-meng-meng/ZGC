@@ -41,6 +41,7 @@ namespace {
     const char *kKeyLat = "lat";
     const char *kKeyLon = "lon";
     const char *kKeyAmslAlt = "amslAlt";
+    const char *kKeyRelAlt = "relAlt";  // ZGC: 批 2 simplifyTrajectory 桥的输出键 — ZFYZ-轨迹复飞-批2
     const char *kKeyTMs = "tMs";
     const char *kKeyGap = "gap";
     const char *kKeyId = "id";
@@ -498,6 +499,45 @@ QVariantMap ZGCTrajectoryLibrary::loadTrajectory(const QString &fileName) const
     result.insert(QLatin1String(kKeyStats), statsObject.toVariantMap());
     result.insert(QLatin1String(kKeyPoints), pointsToVariants(points));
     result.insert(QLatin1String("corrupted"), false);
+    return result;
+}
+
+QVariantList ZGCTrajectoryLibrary::simplifyTrajectory(const QString &fileName)
+{
+    QVariantList result;
+
+    const QVariantMap trajectory = loadTrajectory(fileName);
+    if (trajectory.value(QLatin1String("corrupted")).toBool()) {
+        const QString message =
+            QStringLiteral("simplify: load failed: %1").arg(trajectory.value(QLatin1String("error")).toString());
+        qCWarning(ZGCTrajectoryLog) << message;
+        emit errorOccurred(message);
+        return result;
+    }
+
+    const QVariantMap homeMap = trajectory.value(QLatin1String(kKeyHome)).toMap();
+    const double homeAmslAlt = homeMap.value(QLatin1String(kKeyAmslAlt)).toDouble();
+
+    bool pointsValid = false;
+    const QList<ZGCTrajectoryPoint> points =
+        pointsFromVariants(trajectory.value(QLatin1String(kKeyPoints)).toList(), pointsValid);
+    if (!pointsValid || points.isEmpty()) {
+        const QString message = QStringLiteral("simplify: invalid or empty points");
+        qCWarning(ZGCTrajectoryLog) << message;
+        emit errorOccurred(message);
+        return result;
+    }
+
+    const QList<ZGCTrajectoryPoint> simplified = ZGCTrajectorySimplifier::simplify(points, homeAmslAlt);
+    result.reserve(simplified.size());
+    for (const ZGCTrajectoryPoint &point : simplified) {
+        QVariantMap map;
+        map.insert(QLatin1String(kKeyLat), point.lat);
+        map.insert(QLatin1String(kKeyLon), point.lon);
+        map.insert(QLatin1String(kKeyRelAlt), point.amslAlt - homeAmslAlt);
+        result.append(map);
+    }
+    qCDebug(ZGCTrajectoryLog) << "simplify: raw points:" << points.size() << "simplified points:" << result.size();
     return result;
 }
 

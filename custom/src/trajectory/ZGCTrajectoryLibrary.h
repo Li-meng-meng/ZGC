@@ -63,6 +63,10 @@ public:
     /// 完整加载轨迹（批 2 复飞任务构建用）。损坏/缺失时返回带 corrupted=true 与
     /// error 说明的 map，不抛异常不弹窗（错误经 errorOccurred 信号供 UI 展示）。
     Q_INVOKABLE QVariantMap loadTrajectory(const QString &fileName) const;
+    // ZGC: 批 2 QML 桥——加载轨迹并做有界 DP 抽稀（抽稀器为 C++ 纯命名空间，QML 调不到，
+    // 故经本桥转发）。成功返回 [{lat, lon, relAlt}, ...]（relAlt = amslAlt − homeAmslAlt，米，
+    // 已剥离起降段）；损坏/失败返回空表并 emit errorOccurred 供 UI 展示。— ZFYZ-轨迹复飞-批2
+    Q_INVOKABLE QVariantList simplifyTrajectory(const QString &fileName);
     /// 重新扫描存储目录（外部改动文件后同步列表用）。
     Q_INVOKABLE void refresh();
 

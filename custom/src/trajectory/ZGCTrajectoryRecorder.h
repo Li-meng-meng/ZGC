@@ -64,6 +64,9 @@ signals:
     void recordingChanged();
     void rawPointCountChanged();
     void hasUnsavedTrajectoryChanged();
+    // ZGC: 批 2 —— 存在未保存轨迹时跳过 armed 自动开始（保守默认，防数据被覆盖丢失），
+    // 发出本信号供 UI 弹提示引导用户先保存/丢弃。— ZFYZ-轨迹复飞-批2
+    void autoRecordStartSkipped();
 
 private slots:
     void _activeVehicleChanged(Vehicle *activeVehicle);

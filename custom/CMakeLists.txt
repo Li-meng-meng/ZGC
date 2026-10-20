@@ -140,6 +140,13 @@ set(CUSTOM_QML_OVERRIDES
     "${CMAKE_CURRENT_SOURCE_DIR}/src/RallyPointItemEditor.qml"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/QGCCompassWidget.qml"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/ScriptingComponent.qml"
+    # ZGC: 轨迹一键复飞批 2（UI 层）——Fly View 录制入口（FlyViewAdditionalCustomActionsList
+    # 为上游空壳、注释明示供 custom build 覆盖追加动作；Actions 汉堡面板动作源）＋
+    # CustomGuidedActionsController（上游空壳钩子：confirmAction/executeAction 对
+    # customActionStart(10000) 起自定义动作码的 default 分支，与上一件配对使用）
+    # — ZFYZ-轨迹复飞-批2
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/FlyViewAdditionalCustomActionsList.qml"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/CustomGuidedActionsController.qml"
 )
 set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/FlyViewToolBar.qml"
     PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Toolbar/FlyViewToolBar.qml"
@@ -203,9 +210,32 @@ set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/QGCCompassWidget.qm
 set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/ScriptingComponent.qml"
     PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/AutoPilotPlugins/Common/ScriptingComponent.qml"
 )
+# ZGC: 批 2 别名（两件属 FlyView 模块 URI QGroundControl.FlyView，RESOURCE_PREFIX /qml，
+# 别名逐字=上游 qrc 全路径）— ZFYZ-轨迹复飞-批2
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/FlyViewAdditionalCustomActionsList.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/FlyView/FlyViewAdditionalCustomActionsList.qml"
+)
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/CustomGuidedActionsController.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/FlyView/CustomGuidedActionsController.qml"
+)
 qt_add_resources(${CMAKE_PROJECT_NAME} custom_qml_overrides
     PREFIX "/Custom/qml"
     FILES ${CUSTOM_QML_OVERRIDES}
+)
+
+# ZGC: 轨迹一键复飞批 2（UI 层）——非覆盖新面板（Plan View 轨迹库/复飞），普通 qrc 资源。
+# 显式 QT_RESOURCE_ALIAS 把资源路径钉死为 qrc:/Custom/qml/ZGCTrajectoryLibraryPanel.qml
+# （绝对路径入 FILES 时默认别名不可依赖）；消费点为 PlanViewToolBar 覆盖件的命名空间
+# 目录导入 qrc:/Custom/qml — ZFYZ-轨迹复飞-批2
+set(CUSTOM_QML_PANELS
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/ZGCTrajectoryLibraryPanel.qml"
+)
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/ZGCTrajectoryLibraryPanel.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "ZGCTrajectoryLibraryPanel.qml"
+)
+qt_add_resources(${CMAKE_PROJECT_NAME} custom_qml_panels
+    PREFIX "/Custom/qml"
+    FILES ${CUSTOM_QML_PANELS}
 )
 
 # ZGC: 按 A2 裁剪（ZFYZ-5）的资源条目——如后续阶段需要，参照 custom-example/CMakeLists.txt 回补

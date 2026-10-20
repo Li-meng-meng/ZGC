@@ -150,12 +150,15 @@ void ZGCTrajectoryRecorder::_vehicleArmedChanged(bool armed)
     }
 
     if (armed && !_recording) {
-        // armed 自动开始；存在未保存轨迹时被覆盖（留痕，批 2 UI 应先引导用户决定）。
+        // ZGC: 批 2 保守默认——存在未保存轨迹时跳过自动开始并通知 UI（原行为为覆盖留痕，
+        // 有丢数据风险）；用户从 UI 手动 startRecording 不受影响。— ZFYZ-轨迹复飞-批2
         if (_hasUnsaved) {
-            qCWarning(ZGCTrajectoryLog) << "auto record start overwrites unsaved trajectory"
+            qCWarning(ZGCTrajectoryLog) << "auto record start skipped, unsaved trajectory pending"
                                         << "pointCount:" << _points.size();
+            emit autoRecordStartSkipped();
+        } else {
+            _startWithVehicle(vehicle);
         }
-        _startWithVehicle(vehicle);
     } else if (!armed && _recording && vehicle == _recordedVehicle.data()) {
         // disarm 自动停止；停止 ≠ 保存，数据留内存待用户决定。
         qCDebug(ZGCTrajectoryLog) << "vehicle disarmed, recording finished"
