@@ -150,6 +150,7 @@ Item {
                 QGCLabel {
                     Layout.fillWidth: true
                     font.bold: true
+                    font.pointSize: ScreenTools.mediumFontPointSize  // ZGC: F 轮字阶 medium 级（1.15）——面板标题行，与轨迹库面板同参 — ZFYZ-轨迹复飞-批3
                     text: root.statusSummary
                 }
 

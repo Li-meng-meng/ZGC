@@ -8,6 +8,7 @@
 
 class QQmlApplicationEngine;
 class ZGCTrajectoryRecorder;  // ZGC: 轨迹复飞批 1 数据层入口宿主 — ZFYZ-轨迹复飞-批1
+class ZGCTrajectorySafetyGate;  // ZGC: 轨迹复飞批 3 复飞任务执行窗口（急停可见性）宿主 — ZFYZ-轨迹复飞-批3
 
 Q_DECLARE_LOGGING_CATEGORY(CustomLog)
 
@@ -59,6 +60,7 @@ private:
     ZGCOptions *_options = nullptr;  // ZGC: F 轮字阶/密度全局选项实例 — ZFYZ-42
     class CustomOverrideInterceptor *_urlInterceptor = nullptr;
     ZGCTrajectoryRecorder *_zgcTrajectoryRecorder = nullptr;  // ZGC: 轨迹复飞批 1，QML 单一入口 "zgcTrajectory" — ZFYZ-轨迹复飞-批1
+    ZGCTrajectorySafetyGate *_zgcTrajectorySafetyGate = nullptr;  // ZGC: 轨迹复飞批 3，QML 入口 "zgcTrajectorySafety"（急停窗口）— ZFYZ-轨迹复飞-批3
 };
 
 /*===========================================================================*/

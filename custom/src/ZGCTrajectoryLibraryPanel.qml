@@ -7,10 +7,12 @@
  * 职责：
  *   - ListView 绑 zgcTrajectory.library：条目展示 name/created/pointCount/distance/
  *     durationS/maxRelAlt ＋ degraded/corrupted 徽标；空库与错误态；删除带确认。
- *   - 复飞链路（安全默认）：simplifyTrajectory 抽稀 → 预检确认对话框（航点数/总距离/
- *     最大相对高度/degraded 警示；>50 点拒绝）→ 确认后 removeAll + setHomePosition
+ *   - 复飞链路（安全默认）：simplifyTrajectory 抽稀 → 预检确认对话框（批3 信息完备化：
+ *     轨迹名/录制时间/航点数/总距离/最大相对高度/起飞点漂移；>50 点拒绝；degraded 与
+ *     超阈值漂移为显著警示条，漂移只警示不阻断）→ 确认后 removeAll + setHomePosition
  *     (轨迹 home) + insertTakeoffItem + insertSimpleMissionItem×N（Relative 帧逐点相对
- *     高度）+ insertLandItem → sendToVehiclePreCheck → sendToVehicle 自动上传。
+ *     高度）+ insertLandItem → sendToVehiclePreCheck → sendToVehicle 自动上传，并在
+ *     发起上传时刻置位 zgcTrajectorySafety 复飞任务执行窗口（Fly 常驻急停可见性来源）。
  *     不自动起飞、不自动解锁——成功提示切 Fly 视图按原生流程起飞。
  *   - 覆盖件不享模块隐式导入，全部 import 显式声明。
  ****************************************************************************/
@@ -40,9 +42,17 @@ Popup {
     readonly property var _mc:            planMasterController ? planMasterController.missionController : null
     readonly property var _activeVehicle: QGroundControl.multiVehicleManager.activeVehicle
     readonly property int _maxReflyPoints: 50  ///< 与 ZGCTrajectory::kMaxSimplifiedPoints（抽稀输出上限）一致的双保险
+    // ZGC: 起飞点漂移警示阈值（米，水平大圆距离）——消费电子 GNSS 同址观测噪声量级为
+    // 开阔地 1.5~3 m、遮挡环境至多 ~10 m，30 m ≈ 最坏同址噪声的 3 倍（纯 GPS 抖动不误报），
+    // 而真实换位起飞（场地内挪位）通常数十米起（必报）；只警示不阻断，最终确认仍由
+    // 飞手在原生流程把握。— ZFYZ-轨迹复飞-批3
+    readonly property real _homeDriftWarnMeters: 30
 
     property bool   _uploadPending: false
     property string _lastError: ""
+    // ZGC: 预检确认弹窗与任务构建间的待执行数据（确认后消费，弹窗拒绝即悬空可覆盖）— ZFYZ-轨迹复飞-批3
+    property var    _pendingPoints: null
+    property var    _pendingHome: null
 
     QGCPalette { id: qgcPal }
 
@@ -93,6 +103,19 @@ Popup {
 
     //---- 复飞：预检确认 → 构建 → 上传 ----//
 
+    // ZGC: 当前起飞点取值——载具在连用载具 home（AMSL），否则回退地面站应用 home/
+    // 最后已知位置；两者皆不可得返回 null（预检弹窗如实标注"跳过漂移比对"）。— ZFYZ-轨迹复飞-批3
+    function _currentHomeInfo() {
+        if (_activeVehicle && _activeVehicle.homePosition && _activeVehicle.homePosition.isValid) {
+            return { coord: _activeVehicle.homePosition, source: qsTr("载具 home") }
+        }
+        var gcsHome = QGroundControl.qgcPositionManger.gcsPosition
+        if (gcsHome && gcsHome.isValid) {
+            return { coord: gcsHome, source: qsTr("地面站定位") }
+        }
+        return null
+    }
+
     function _refly(fileName) {
         var trajectory = zgcTrajectory.library.loadTrajectory(fileName)
         if (!trajectory || trajectory.corrupted === true) {
@@ -122,17 +145,37 @@ Popup {
             maxRelAlt = Math.max(maxRelAlt, points[i].relAlt)
         }
 
-        var message = qsTr("航点数：%1\n总距离：%2\n最大相对高度：%3 m\n\n起飞点取轨迹 home 位置，结束自动添加降落/RTL 项；确认后将覆盖 Plan 视图当前任务并自动上传。")
-                          .arg(points.length).arg(root._formatDistance(distance)).arg(maxRelAlt.toFixed(1))
-        if (trajectory.stats && trajectory.stats.degraded === true) {
-            message += "\n\n" + qsTr("警告：该轨迹存在采样间隙（降级），间隙段为未观测数据，复飞航迹可能与原航线不一致。")
+        // ZGC: 起飞点漂移预检（只警示不阻断，最终确认仍在原生流程）——当前起飞点
+        // （载具 home 优先，回退地面站定位）与轨迹记录时绑定的 home 水平距离比对。— ZFYZ-轨迹复飞-批3
+        var currentHomeInfo = root._currentHomeInfo()
+        var driftMeters = -1
+        var driftExceeded = false
+        if (currentHomeInfo) {
+            driftMeters = currentHomeInfo.coord.distanceTo(
+                        QtPositioning.coordinate(trajectory.home.lat, trajectory.home.lon))
+            driftExceeded = driftMeters > root._homeDriftWarnMeters
         }
-        QGroundControl.showMessageDialog(
-                    root,
-                    qsTr("复飞预检确认"),
-                    message,
-                    Dialog.Ok | Dialog.Cancel,
-                    function() { root._buildAndUpload(points, trajectory.home) })
+
+        root._pendingPoints = points
+        root._pendingHome = trajectory.home
+        var dialog = reflyConfirmDialogComponent.createObject(mainWindow.contentItem, {
+            trajName:      trajectory.name || fileName,
+            trajCreated:   trajectory.created ? Qt.formatDateTime(trajectory.created, "yyyy-MM-dd hh:mm:ss") : "",
+            waypointCount: points.length,
+            totalDistance: root._formatDistance(distance),
+            maxRelAltitude: maxRelAlt.toFixed(1),
+            driftSummary:  currentHomeInfo
+                ? root._formatDistance(driftMeters) + qsTr("（当前起飞点＝") + currentHomeInfo.source + qsTr("）")
+                : "",
+            driftExceeded: driftExceeded,
+            driftUnavailable: !currentHomeInfo,
+            degraded:      trajectory.stats && trajectory.stats.degraded === true
+        })
+        if (!dialog) {
+            root._lastError = qsTr("预检确认弹窗创建失败")
+            return
+        }
+        dialog.open()
     }
 
     function _buildAndUpload(points, homeMap) {
@@ -177,6 +220,9 @@ Popup {
         switch (missionController.sendToVehiclePreCheck()) {
         case MissionController.SendToVehiclePreCheckStateOk:
             root._uploadPending = true
+            // ZGC: 发起上传即打开复飞任务执行窗口（Fly 视图常驻急停可见性来源）；
+            // 此后链路任何环节失败窗口不回退，仅由载具上锁解除/活动载具消失关闭。— ZFYZ-轨迹复飞-批3
+            zgcTrajectorySafety.beginReflyMissionWindow()
             root.planMasterController.sendToVehicle()
             break
         case MissionController.SendToVehiclePreCheckStateActiveMission:
@@ -190,6 +236,7 @@ Popup {
                         Dialog.Ok | Dialog.Cancel,
                         function() {
                             root._uploadPending = true
+                            zgcTrajectorySafety.beginReflyMissionWindow()  // ZGC: 同上，二次确认路径同刻置位 — ZFYZ-轨迹复飞-批3
                             root.planMasterController.sendToVehicle()
                         })
             break
@@ -228,6 +275,121 @@ Popup {
         }
     }
 
+    // ZGC: 复飞预检确认弹窗（QGCPopupDialog 动态创建，先例 FlyViewAdditionalCustomActionsList
+    // recordDialogComponent）——信息完备化：轨迹名/录制时间/航点数/总距离/最大相对高度/
+    // 起飞点漂移， degraded 与超阈值漂移以显著警示条呈现（色值经 QGCPalette 色板名，
+    // 零硬编码）。接受后消费 root._pendingPoints/_pendingHome 进入构建上传。— ZFYZ-轨迹复飞-批3
+    Component {
+        id: reflyConfirmDialogComponent
+
+        QGCPopupDialog {
+            property string trajName: ""
+            property string trajCreated: ""
+            property int    waypointCount: 0
+            property string totalDistance: ""
+            property string maxRelAltitude: ""
+            property string driftSummary: ""
+            property bool   driftExceeded: false
+            property bool   driftUnavailable: false
+            property bool   degraded: false
+
+            title:   qsTr("复飞预检确认")
+            buttons: Dialog.Ok | Dialog.Cancel
+
+            onAccepted: root._buildAndUpload(root._pendingPoints, root._pendingHome)
+
+            ColumnLayout {
+                width: ScreenTools.defaultFontPixelWidth * 56
+                spacing: ScreenTools.defaultFontPixelHeight * 0.4
+
+                QGCLabel {
+                    font.bold: true
+                    font.pointSize: ScreenTools.mediumFontPointSize
+                    text: trajName
+                }
+
+                QGCLabel {
+                    visible: trajCreated !== ""
+                    text: qsTr("录制时间：%1").arg(trajCreated)
+                    color: qgcPal.colorGrey
+                }
+
+                QGCLabel { text: qsTr("航点数：%1").arg(waypointCount) }
+
+                QGCLabel { text: qsTr("总距离：%1").arg(totalDistance) }
+
+                QGCLabel { text: qsTr("最大相对高度：%1 m").arg(maxRelAltitude) }
+
+                QGCLabel {
+                    // ZGC: 未超阈值才显示"阈值内"行；超阈值由下方红色警示条承载，避免同屏矛盾 — ZFYZ-轨迹复飞-批3
+                    visible: !driftUnavailable && !driftExceeded
+                    wrapMode: QGCLabel.WordWrap
+                    text: qsTr("起飞点漂移：%1，在阈值 %2 内")
+                              .arg(driftSummary).arg(root._formatDistance(root._homeDriftWarnMeters))
+                }
+
+                QGCLabel {
+                    visible: driftUnavailable
+                    wrapMode: QGCLabel.WordWrap
+                    color: qgcPal.warningText
+                    text: qsTr("无法取得当前起飞点（无载具 home 且地面站无定位），本次已跳过漂移比对。")
+                }
+
+                // 起飞点漂移超阈值——显著警示条（红底，只警示不阻断）
+                Rectangle {
+                    Layout.fillWidth: true
+                    visible: driftExceeded
+                    radius: ScreenTools.defaultBorderRadius
+                    color: qgcPal.colorRed
+                    height: visible ? driftLabel.implicitHeight + ScreenTools.defaultFontPixelWidth * 2 : 0
+
+                    QGCLabel {
+                        id: driftLabel
+
+                        anchors.margins: ScreenTools.defaultFontPixelWidth
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.top: parent.top
+                        wrapMode: QGCLabel.WordWrap
+                        color: qgcPal.buttonHighlightText
+                        font.bold: true
+                        text: qsTr("起飞点漂移警告：当前起飞点距原轨迹起飞点 %1，超过阈值 %2。起飞爬升段将偏离原航迹，请核实起飞点是否安全，必要时重新录制轨迹。")
+                                  .arg(driftSummary).arg(root._formatDistance(root._homeDriftWarnMeters))
+                    }
+                }
+
+                // 采样间隙降级——显著警示条（黄底）
+                Rectangle {
+                    Layout.fillWidth: true
+                    visible: degraded
+                    radius: ScreenTools.defaultBorderRadius
+                    color: qgcPal.colorYellow
+                    height: visible ? degradedBarLabel.implicitHeight + ScreenTools.defaultFontPixelWidth * 2 : 0
+
+                    QGCLabel {
+                        id: degradedBarLabel
+
+                        anchors.margins: ScreenTools.defaultFontPixelWidth
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.top: parent.top
+                        wrapMode: QGCLabel.WordWrap
+                        color: qgcPal.alertText
+                        font.bold: true
+                        text: qsTr("警告：该轨迹存在采样间隙（降级），间隙段为未观测数据，复飞航迹可能与原航线不一致。")
+                    }
+                }
+
+                QGCLabel {
+                    Layout.fillWidth: true
+                    wrapMode: QGCLabel.WordWrap
+                    color: qgcPal.colorGrey
+                    text: qsTr("起飞点取轨迹 home 位置，结束自动添加降落/RTL 项；确认后将覆盖 Plan 视图当前任务并自动上传。")
+                }
+            }
+        }
+    }
+
     //---- 内容 ----//
 
     contentItem: ColumnLayout {
@@ -239,6 +401,7 @@ Popup {
             QGCLabel {
                 Layout.fillWidth: true
                 font.bold: true
+                font.pointSize: ScreenTools.mediumFontPointSize  // ZGC: F 轮字阶 medium 级（1.15）——面板标题 — ZFYZ-轨迹复飞-批3
                 text: qsTr("轨迹库")
             }
 

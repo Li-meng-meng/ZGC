@@ -147,6 +147,9 @@ set(CUSTOM_QML_OVERRIDES
     # — ZFYZ-轨迹复飞-批2
     "${CMAKE_CURRENT_SOURCE_DIR}/src/FlyViewAdditionalCustomActionsList.qml"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/CustomGuidedActionsController.qml"
+    # ZGC: 轨迹一键复飞批 3（安全闸门）——FlyViewCustomLayer 为上游空壳占位（注释明示
+    # custom build 以自有 QML 覆盖），承载 Fly 视图复飞急停常驻按钮 — ZFYZ-轨迹复飞-批3
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/FlyViewCustomLayer.qml"
 )
 set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/FlyViewToolBar.qml"
     PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/Toolbar/FlyViewToolBar.qml"
@@ -218,6 +221,11 @@ set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/FlyViewAdditionalCu
 set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/CustomGuidedActionsController.qml"
     PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/FlyView/CustomGuidedActionsController.qml"
 )
+# ZGC: 批 3 别名（FlyView 模块 URI QGroundControl.FlyView，RESOURCE_PREFIX /qml，
+# 别名逐字=上游 qrc 全路径）— ZFYZ-轨迹复飞-批3
+set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/src/FlyViewCustomLayer.qml"
+    PROPERTIES QT_RESOURCE_ALIAS "QGroundControl/FlyView/FlyViewCustomLayer.qml"
+)
 qt_add_resources(${CMAKE_PROJECT_NAME} custom_qml_overrides
     PREFIX "/Custom/qml"
     FILES ${CUSTOM_QML_OVERRIDES}
@@ -262,6 +270,10 @@ set(CUSTOM_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/trajectory/ZGCTrajectoryRecorder.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/src/trajectory/ZGCTrajectoryLibrary.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/trajectory/ZGCTrajectoryLibrary.cc
+    # ZGC: 轨迹一键复飞批 3——复飞任务执行窗口安全闸门（context property
+    # "zgcTrajectorySafety"，Fly 常驻急停可见性来源）— ZFYZ-轨迹复飞-批3
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/trajectory/ZGCTrajectorySafetyGate.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/trajectory/ZGCTrajectorySafetyGate.cc
     PARENT_SCOPE
 )
 # ZGC: 按 A2 裁剪（ZFYZ-5）的源码条目——CustomAutoPilotPlugin / CustomFirmwarePlugin /

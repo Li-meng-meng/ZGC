@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.1" language="zh-CN" sourcelanguage="en">
-<!-- ZGC: A2-20260903-brand-ui A3b 补译（ZFYZ-5 批次1；ZFYZ-12 批次2 全量覆盖）；A3-20260905-polish1 品牌用词调整（ZFYZ-14）；A3-20260911-roundJ-i18n 翻译补齐 A+B+C 批 112 新增＋14 未完转正＋3 错译润色（ZFYZ-64）；A3-20260918-roundK-i18n K 轮翻译补齐（依据 ZFYZ-78 调研）A 批 69 新增＋C 批 41 未完同文转正（ZFYZ-79） -->
+<!-- ZGC: A2-20260903-brand-ui A3b 补译（ZFYZ-5 批次1；ZFYZ-12 批次2 全量覆盖）；A3-20260905-polish1 品牌用词调整（ZFYZ-14）；A3-20260911-roundJ-i18n 翻译补齐 A+B+C 批 112 新增＋14 未完转正＋3 错译润色（ZFYZ-64）；A3-20260918-roundK-i18n K 轮翻译补齐（依据 ZFYZ-78 调研）A 批 69 新增＋C 批 41 未完同文转正（ZFYZ-79）；ZFYZ-轨迹复飞-批3 轨迹功能四上下文 65 条＋PlanViewToolBar 1 条同文收录 -->
   <context>
     <name>APMAdvancedTuningCopterComponent</name>
     <message>
@@ -6020,6 +6020,18 @@ Source: %6 (session %7); destination: %8 (session %9)</source>
     </message>
   </context>
   <context>
+    <name>CustomGuidedActionsController</name>
+    <!-- ZGC: 轨迹一键复飞批 2/3 手工收录（custom/ 在 lupdate 常规扫描面外，source 串即中文，同文 finished；与 J 轮惯例同构）— ZFYZ-轨迹复飞-批3 -->
+    <message>
+      <source>打开轨迹录制面板</source>
+      <translation>打开轨迹录制面板</translation>
+    </message>
+    <message>
+      <source>轨迹录制</source>
+      <translation>轨迹录制</translation>
+    </message>
+  </context>
+  <context>
     <name>DebugWindow</name>
     <message>
       <location filename="../src/AppSettings/DebugWindow.qml" line="25"/>
@@ -7848,6 +7860,98 @@ VTOL</translation>
       <location filename="../src/FlyView/FlyViewAdditionalActionsButton.qml" line="11"/>
       <source>Actions</source>
       <translation>操作</translation>
+    </message>
+  </context>
+  <context>
+    <name>FlyViewAdditionalCustomActionsList</name>
+    <!-- ZGC: 轨迹一键复飞批 2/3 手工收录（custom/ 在 lupdate 常规扫描面外，source 串即中文，同文 finished；与 J 轮惯例同构）— ZFYZ-轨迹复飞-批3 -->
+    <message>
+      <source>丢弃</source>
+      <translation>丢弃</translation>
+    </message>
+    <message>
+      <source>丢弃未保存轨迹</source>
+      <translation>丢弃未保存轨迹</translation>
+    </message>
+    <message>
+      <source>保存</source>
+      <translation>保存</translation>
+    </message>
+    <message>
+      <source>保存名称</source>
+      <translation>保存名称</translation>
+    </message>
+    <message>
+      <source>保存失败</source>
+      <translation>保存失败</translation>
+    </message>
+    <message>
+      <source>停止录制</source>
+      <translation>停止录制</translation>
+    </message>
+    <message>
+      <source>内存中存在未保存的轨迹，本次解锁自动录制已跳过。请通过 Actions → 轨迹录制 打开面板，先保存或丢弃该轨迹。</source>
+      <translation>内存中存在未保存的轨迹，本次解锁自动录制已跳过。请通过 Actions → 轨迹录制 打开面板，先保存或丢弃该轨迹。</translation>
+    </message>
+    <message>
+      <source>已保存：</source>
+      <translation>已保存：</translation>
+    </message>
+    <message>
+      <source>已停止：有未保存轨迹（%1 点），请先保存或丢弃</source>
+      <translation>已停止：有未保存轨迹（%1 点），请先保存或丢弃</translation>
+    </message>
+    <message>
+      <source>开始录制</source>
+      <translation>开始录制</translation>
+    </message>
+    <message>
+      <source>录制中：已记录 %1 个采样点</source>
+      <translation>录制中：已记录 %1 个采样点</translation>
+    </message>
+    <message>
+      <source>录制已开始</source>
+      <translation>录制已开始</translation>
+    </message>
+    <message>
+      <source>无活动载具，无法开始录制</source>
+      <translation>无活动载具，无法开始录制</translation>
+    </message>
+    <message>
+      <source>未保存轨迹已丢弃</source>
+      <translation>未保存轨迹已丢弃</translation>
+    </message>
+    <message>
+      <source>确定丢弃内存中未保存的 %1 个采样点？该操作不可恢复。</source>
+      <translation>确定丢弃内存中未保存的 %1 个采样点？该操作不可恢复。</translation>
+    </message>
+    <message>
+      <source>空闲</source>
+      <translation>空闲</translation>
+    </message>
+    <message>
+      <source>轨迹-</source>
+      <translation>轨迹-</translation>
+    </message>
+    <message>
+      <source>轨迹录制</source>
+      <translation>轨迹录制</translation>
+    </message>
+    <message>
+      <source>载具解锁后自动开始录制，上锁后自动停止；停止后数据保留在内存中，请及时保存或丢弃。</source>
+      <translation>载具解锁后自动开始录制，上锁后自动停止；停止后数据保留在内存中，请及时保存或丢弃。</translation>
+    </message>
+  </context>
+  <context>
+    <name>FlyViewCustomLayer</name>
+    <!-- ZGC: 轨迹一键复飞批 2/3 手工收录（custom/ 在 lupdate 常规扫描面外，source 串即中文，同文 finished；与 J 轮惯例同构）— ZFYZ-轨迹复飞-批3 -->
+    <message>
+      <source>复飞任务执行中</source>
+      <translation>复飞任务执行中</translation>
+    </message>
+    <message>
+      <source>复飞急停</source>
+      <translation>复飞急停</translation>
     </message>
   </context>
   <context>
@@ -17451,6 +17555,11 @@ Click &apos;Ok&apos; to upload the Plan anyway.</source>
       <source>Click anywhere to hide</source>
       <translation>点击任意位置隐藏</translation>
     </message>
+    <!-- ZGC: 批 2 覆盖件新增按钮（无上游 location 锚，手工落位）— ZFYZ-轨迹复飞-批3 -->
+    <message>
+      <source>轨迹库</source>
+      <translation>轨迹库</translation>
+    </message>
   </context>
   <context>
     <name>PowerComponent</name>
@@ -22735,6 +22844,178 @@ If a vehicle still has this key configured, you will no longer be able to commun
       <location filename="../src/Viewer3D/Viewer3DQml/Models3D/Viewer3DVehicleItems.qml" line="127"/>
       <source>null</source>
       <translation>空</translation>
+    </message>
+  </context>
+  <context>
+    <name>ZGCTrajectoryLibraryPanel</name>
+    <!-- ZGC: 轨迹一键复飞批 2/3 手工收录（custom/ 在 lupdate 常规扫描面外，source 串即中文，同文 finished；与 J 轮惯例同构）— ZFYZ-轨迹复飞-批3 -->
+    <message>
+      <source> km</source>
+      <translation> km</translation>
+    </message>
+    <message>
+      <source> m</source>
+      <translation> m</translation>
+    </message>
+    <message>
+      <source>%1 点 · %2 · 时长 %3 · 最大相对高度 %4 m</source>
+      <translation>%1 点 · %2 · 时长 %3 · 最大相对高度 %4 m</translation>
+    </message>
+    <message>
+      <source>任务上传失败，请检查链路后重试</source>
+      <translation>任务上传失败，请检查链路后重试</translation>
+    </message>
+    <message>
+      <source>任务控制器不可用</source>
+      <translation>任务控制器不可用</translation>
+    </message>
+    <message>
+      <source>任务数据不完整，无法上传</source>
+      <translation>任务数据不完整，无法上传</translation>
+    </message>
+    <message>
+      <source>删除</source>
+      <translation>删除</translation>
+    </message>
+    <message>
+      <source>删除失败：文件可能已被移除或被占用</source>
+      <translation>删除失败：文件可能已被移除或被占用</translation>
+    </message>
+    <message>
+      <source>删除轨迹</source>
+      <translation>删除轨迹</translation>
+    </message>
+    <message>
+      <source>刷新</source>
+      <translation>刷新</translation>
+    </message>
+    <message>
+      <source>加载轨迹失败：%1</source>
+      <translation>加载轨迹失败：%1</translation>
+    </message>
+    <message>
+      <source>固件/机型不匹配</source>
+      <translation>固件/机型不匹配</translation>
+    </message>
+    <message>
+      <source>地面站定位</source>
+      <translation>地面站定位</translation>
+    </message>
+    <message>
+      <source>复飞</source>
+      <translation>复飞</translation>
+    </message>
+    <message>
+      <source>复飞任务与当前载具固件/机型不匹配，继续上传可能导致飞行异常。仍要上传吗？</source>
+      <translation>复飞任务与当前载具固件/机型不匹配，继续上传可能导致飞行异常。仍要上传吗？</translation>
+    </message>
+    <message>
+      <source>复飞任务已上传</source>
+      <translation>复飞任务已上传</translation>
+    </message>
+    <message>
+      <source>复飞预检确认</source>
+      <translation>复飞预检确认</translation>
+    </message>
+    <message>
+      <source>录制时间：%1</source>
+      <translation>录制时间：%1</translation>
+    </message>
+    <message>
+      <source>总距离：%1</source>
+      <translation>总距离：%1</translation>
+    </message>
+    <message>
+      <source>抽稀后航点数 %1 超过上限 %2，拒绝复飞</source>
+      <translation>抽稀后航点数 %1 超过上限 %2，拒绝复飞</translation>
+    </message>
+    <message>
+      <source>抽稀失败：无可用航点</source>
+      <translation>抽稀失败：无可用航点</translation>
+    </message>
+    <message>
+      <source>损坏</source>
+      <translation>损坏</translation>
+    </message>
+    <message>
+      <source>文件损坏或版本不识别，仅供查看，不可复飞。</source>
+      <translation>文件损坏或版本不识别，仅供查看，不可复飞。</translation>
+    </message>
+    <message>
+      <source>无法取得当前起飞点（无载具 home 且地面站无定位），本次已跳过漂移比对。</source>
+      <translation>无法取得当前起飞点（无载具 home 且地面站无定位），本次已跳过漂移比对。</translation>
+    </message>
+    <message>
+      <source>无活动载具，无法上传</source>
+      <translation>无活动载具，无法上传</translation>
+    </message>
+    <message>
+      <source>最大相对高度：%1 m</source>
+      <translation>最大相对高度：%1 m</translation>
+    </message>
+    <message>
+      <source>确定删除轨迹「%1」？该操作不可恢复。</source>
+      <translation>确定删除轨迹「%1」？该操作不可恢复。</translation>
+    </message>
+    <message>
+      <source>航点插入失败（第 %1 点）</source>
+      <translation>航点插入失败（第 %1 点）</translation>
+    </message>
+    <message>
+      <source>航点数：%1</source>
+      <translation>航点数：%1</translation>
+    </message>
+    <message>
+      <source>警告：该轨迹存在采样间隙（降级），间隙段为未观测数据，复飞航迹可能与原航线不一致。</source>
+      <translation>警告：该轨迹存在采样间隙（降级），间隙段为未观测数据，复飞航迹可能与原航线不一致。</translation>
+    </message>
+    <message>
+      <source>请切换到 Fly 视图，按原生流程起飞（本功能不自动起飞、不自动解锁）。</source>
+      <translation>请切换到 Fly 视图，按原生流程起飞（本功能不自动起飞、不自动解锁）。</translation>
+    </message>
+    <message>
+      <source>起飞点取轨迹 home 位置，结束自动添加降落/RTL 项；确认后将覆盖 Plan 视图当前任务并自动上传。</source>
+      <translation>起飞点取轨迹 home 位置，结束自动添加降落/RTL 项；确认后将覆盖 Plan 视图当前任务并自动上传。</translation>
+    </message>
+    <message>
+      <source>起飞点漂移警告：当前起飞点距原轨迹起飞点 %1，超过阈值 %2。起飞爬升段将偏离原航迹，请核实起飞点是否安全，必要时重新录制轨迹。</source>
+      <translation>起飞点漂移警告：当前起飞点距原轨迹起飞点 %1，超过阈值 %2。起飞爬升段将偏离原航迹，请核实起飞点是否安全，必要时重新录制轨迹。</translation>
+    </message>
+    <message>
+      <source>起飞点漂移：%1，在阈值 %2 内</source>
+      <translation>起飞点漂移：%1，在阈值 %2 内</translation>
+    </message>
+    <message>
+      <source>轨迹库</source>
+      <translation>轨迹库</translation>
+    </message>
+    <message>
+      <source>轨迹库为空。到 Fly 视图 Actions → 轨迹录制 面板手动录制（或解锁自动录制）一段飞行轨迹，保存后即可在此复飞。</source>
+      <translation>轨迹库为空。到 Fly 视图 Actions → 轨迹录制 面板手动录制（或解锁自动录制）一段飞行轨迹，保存后即可在此复飞。</translation>
+    </message>
+    <message>
+      <source>载具 home</source>
+      <translation>载具 home</translation>
+    </message>
+    <message>
+      <source>载具正在执行任务，须先暂停才能上传</source>
+      <translation>载具正在执行任务，须先暂停才能上传</translation>
+    </message>
+    <message>
+      <source>降级</source>
+      <translation>降级</translation>
+    </message>
+    <message>
+      <source>预检确认弹窗创建失败</source>
+      <translation>预检确认弹窗创建失败</translation>
+    </message>
+    <message>
+      <source>（当前起飞点＝</source>
+      <translation>（当前起飞点＝</translation>
+    </message>
+    <message>
+      <source>）</source>
+      <translation>）</translation>
     </message>
   </context>
   <context>

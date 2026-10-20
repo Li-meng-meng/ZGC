@@ -11,6 +11,7 @@
 
 #include "QGCLoggingCategory.h"
 #include "trajectory/ZGCTrajectoryRecorder.h"  // ZGC: 轨迹复飞批 1 数据层 context property — ZFYZ-轨迹复飞-批1
+#include "trajectory/ZGCTrajectorySafetyGate.h"  // ZGC: 轨迹复飞批 3 复飞任务执行窗口 context property — ZFYZ-轨迹复飞-批3
 #include "QGCPalette.h"  // ZGC: paletteOverride 覆盖 QGCPalette 声明色名 — ZFYZ-30
 
 #include <QtCore/QApplicationStatic>
@@ -346,6 +347,13 @@ QQmlApplicationEngine* CustomPlugin::createQmlApplicationEngine(QObject* parent)
         _zgcTrajectoryRecorder = new ZGCTrajectoryRecorder(this);
     }
     _qmlEngine->rootContext()->setContextProperty(QStringLiteral("zgcTrajectory"), _zgcTrajectoryRecorder);
+
+    // ZGC: 轨迹复飞批 3——复飞任务执行窗口（Fly 常驻急停可见性来源）。插件生命周期
+    // 复用与录制器同因（引擎可能重建，窗口状态不随 QML 销毁）。— ZFYZ-轨迹复飞-批3
+    if (!_zgcTrajectorySafetyGate) {
+        _zgcTrajectorySafetyGate = new ZGCTrajectorySafetyGate(this);
+    }
+    _qmlEngine->rootContext()->setContextProperty(QStringLiteral("zgcTrajectorySafety"), _zgcTrajectorySafetyGate);
 
     return _qmlEngine;
 }
