@@ -13,6 +13,9 @@
 #include "trajectory/ZGCTrajectoryRecorder.h"  // ZGC: 轨迹复飞批 1 数据层 context property — ZFYZ-轨迹复飞-批1
 #include "trajectory/ZGCTrajectorySafetyGate.h"  // ZGC: 轨迹复飞批 3 复飞任务执行窗口 context property — ZFYZ-轨迹复飞-批3
 #include "QGCPalette.h"  // ZGC: paletteOverride 覆盖 QGCPalette 声明色名 — ZFYZ-30
+#include "CrashDump.h"  // ZGC: 崩溃自动取证钩子（Windows MiniDump，UEF 覆挂）— ZFYZ-crashdump-hook
+#include "QGCApplication.h"  // ZGC: cleanup() 守卫读 qgcApp()->runningUnitTests()/simpleBootTest() — ZFYZ-shutdown-av
+#include "SettingsManager.h"  // ZGC: shutdown 钩子方案 A——提前析构 settings 子树 — ZFYZ-shutdown-av
 
 #include <QtCore/QApplicationStatic>
 #include <QtCore/QFile>
@@ -27,6 +30,11 @@ Q_APPLICATION_STATIC(CustomPlugin, _customPluginInstance);
 CustomPlugin::CustomPlugin(QObject *parent)
     : QGCCorePlugin(parent)
 {
+    // ZGC: 崩溃自动取证钩子——构造函数最早处覆挂 MiniDump UEF（此处上游 filter 必已注册：
+    // main → Platform::initialize → app.init() → QGCCorePlugin::instance()，previous 已保存）。
+    // 回退＝删本行与上方 include（共 2 行）＋删除 CrashDump.{h,cc}，上游零依赖。— ZFYZ-crashdump-hook
+    InstallZgcCrashDumpFilter();
+
     // ZGC: F 轮字阶/密度系统——安装全局密度选项（工具栏高度乘数 0.85）。
     // 插件单例先于 QML 引擎创建，ScreenTools.qml 首次 _setBasePointSize 取值时已就绪。
     _options = new ZGCOptions(this);
@@ -367,7 +375,56 @@ void CustomPlugin::destroyQmlApplicationEngine(QQmlApplicationEngine *qmlEngine)
         _qmlEngine = nullptr;
     }
 
-    QGCCorePlugin::destroyQmlApplicationEngine(qmlEngine);
+    // ZGC: 四轮——测试态守卫：与 cleanup() 的测试态守卫语义必须同步演化（一处改守卫另一处必查）— ZFYZ-shutdown-av
+    // 单测/BootTest 委托基类（QGCCorePlugin.cc:310 仅 delete qmlEngine）照常删引擎，恢复上游时序。r3 门禁实证
+    // （workspace/logs/ZFYZ-shutdown-av-verify-r3.json）：环1泄漏对全模式生效＋三轮 cleanup 测试态跳过，使 boot-test
+    // 复活环2 同族 AV（reset 时引擎存活＋子树在亡）；boot-test 的 QML 场景从不跑事件循环，环1 AV 前提不成立，
+    // 且本守卫使测试态行为与三轮前（基类当场删引擎）逐字一致。
+    QGCApplication *app = qgcApp();
+    if (app && (app->runningUnitTests() || app->simpleBootTest())) {
+        QGCCorePlugin::destroyQmlApplicationEngine(qmlEngine);
+        return;
+    }
+
+    // ZGC: Qt 6.11 Debug 关闭路径 QQmlApplicationEngine 析构在 Qt6Quickd.dll AV（ZFYZ-crashdump-hook 门禁 dump 实证，H 轮同族）；
+    // 进程退出即由 OS 回收，故意不销毁引擎——不调基类含 delete 的实现，改为仅解除父子挂接（引擎以 QGCApplication
+    // 为父创建，src/QGCApplication.cc:280；不解除则 ~QGCApplication 的父级子对象清理仍会在 main 退出时析构引擎，
+    // AV 后移复现）。指针语义与基类销毁后一致：本类 _qmlEngine 已置空（上方），QGCApplication 自持指针由
+    // shutdown() 置空（QGCApplication.cc:777），函数末尾的 delete _qmlAppEngine（:817）对 nullptr 无操作，下游无解引用依赖。
+    if (qmlEngine) {
+        qmlEngine->setParent(nullptr);
+    }
+}
+
+void CustomPlugin::cleanup()
+{
+    QGCCorePlugin::cleanup();
+
+    // ZGC: 环2 AV 修复（方案 A）——Q_APPLICATION_STATIC(settingsManagerInstance) 的唯一析构点挂在
+    // QObject::destroyed(app)（Qt qapplicationstatic.h:61），静态 reset 要等 main 栈展开末段
+    // ~QObject(app) 才触发；彼时环1修复故意泄漏的 QML 引擎仍存活，settings 全树（SettingsGroup→
+    // SettingsFact→FactMetaData）的 Fact 析构经 QQmlData 通知活引擎，引发 QV4 GC 清扫级联，在 Qt6Gui
+    // 深处对近空指针解引用 AV（4/4 确定性，dump 实证）。此处把 settings 子树提前到 shutdown() 内的
+    // Qt 全功能窗口期析构——该时点事件循环已停（app.exec() 已返回）、单线程、QGuiApplication 健在，
+    // 析构期残余的 QV4 动作属正常 QML 对象析构时序；reset 到点时 SettingsManager 只剩空壳空析构，
+    // 级联前提（引擎存活＋子树在亡）消失。依据：workspace/artifacts/ZFYZ-shutdown-av/research-shutdown-av.md。
+    // 单测/BootTest 跳过：shutdown() 在本钩子之后的单测清理段仍经 appSettings() 读子树
+    // （src/QGCApplication.cc:805），提前析构会制造 UAF，该两模式维持上游时序。
+    // 测试态守卫与 destroyQmlApplicationEngine 的测试态守卫语义必须同步演化（一处改守卫另一处必查）。
+    // 回退＝删本函数＋头文件声明＋上方 2 行 include。— ZFYZ-shutdown-av
+    QGCApplication *app = qgcApp();
+    if (!app || app->runningUnitTests() || app->simpleBootTest()) {
+        return;
+    }
+
+    SettingsManager *settingsManager = SettingsManager::instance();
+    if (!settingsManager) {
+        return;
+    }
+
+    // children() 返回内部列表引用，qDeleteAll 逐个析构会实时增删父表，必须先快照拷贝再删。
+    const QObjectList children = settingsManager->children();
+    qDeleteAll(children);
 }
 
 /*===========================================================================*/

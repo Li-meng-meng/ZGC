@@ -50,6 +50,9 @@ public:
     QQmlApplicationEngine *createQmlApplicationEngine(QObject *parent) final;
     /// Releases the url interceptor attached in createQmlApplicationEngine before the engine is destroyed
     void destroyQmlApplicationEngine(QQmlApplicationEngine *qmlEngine) final;
+    /// Shutdown hook: tears the settings subtree down early so the Q_APPLICATION_STATIC reset at
+    /// ~QObject(app) no longer cascades through the still-alive QML engine. — ZFYZ-shutdown-av
+    void cleanup() final;
     /// 品牌色板全量覆盖：对 QGCPalette 全部声明色名给出志翔品牌色值（Light/Dark 双主题）。— ZFYZ-30
     void paletteOverride(const QString &colorName, QGCPalette::PaletteColorInfo_t &colorInfo) final;
     /// F 轮字阶/密度：返回 ZGC 密度选项（工具栏高度乘数 0.85），替换上游默认 QGCOptions。— ZFYZ-42

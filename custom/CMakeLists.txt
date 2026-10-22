@@ -274,15 +274,31 @@ set(CUSTOM_SOURCES
     # "zgcTrajectorySafety"，Fly 常驻急停可见性来源）— ZFYZ-轨迹复飞-批3
     ${CMAKE_CURRENT_SOURCE_DIR}/src/trajectory/ZGCTrajectorySafetyGate.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/trajectory/ZGCTrajectorySafetyGate.cc
+    # ZGC: 崩溃自动取证钩子——Windows MiniDump UEF 覆挂（挂接点 CustomPlugin.cc 构造函数
+    # 最早处；回退＝删挂接 2 行＋删本两件＋还原 CUSTOM_LIBRARIES，上游零依赖）
+    # — ZFYZ-crashdump-hook
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/CrashDump.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/CrashDump.cc
     PARENT_SCOPE
 )
 # ZGC: 按 A2 裁剪（ZFYZ-5）的源码条目——CustomAutoPilotPlugin / CustomFirmwarePlugin /
 # CustomFirmwarePluginFactory / PerimeterScanComplexItem / PerimeterScanPlanCreator /
 # CustomSettings（详见报告裁剪清单）。
 
-set(CUSTOM_LIBRARIES
-    PARENT_SCOPE
-)
+# ZGC: 崩溃自动取证钩子（src/CrashDump.cc）——仅 Windows 需要额外链接：
+# DbgHelp（MiniDumpWriteDump）＋ User32（wsprintfW，崩溃上下文免 CRT 格式化）
+# — ZFYZ-crashdump-hook
+if(WIN32)
+    set(CUSTOM_LIBRARIES
+        Dbghelp
+        User32
+        PARENT_SCOPE
+    )
+else()
+    set(CUSTOM_LIBRARIES
+        PARENT_SCOPE
+    )
+endif()
 # ZGC: 按 A2 裁剪（ZFYZ-5）：CustomModule（Custom.Widgets 部件示例）与
 # CustomPlanModule（PerimeterScan 地图组件）两个静态 QML 模块不再构建。
 
